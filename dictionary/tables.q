@@ -10,4 +10,4 @@
         (`flatfile; .kdb.tables.flatFile);
         (`splayed; .kdb.tables.splayedTables);
         (`partition; .kdb.tables.partitions)
-    );s
+    );
