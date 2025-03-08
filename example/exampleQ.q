@@ -5,7 +5,6 @@
 
 // Author: Spencer
 //==========================================================
-// Examples
 // .kdb.exp.func.Q.addr[]
 .kdb.exp.func.Q.addr:{
     system"c 30 250";
@@ -13,7 +12,6 @@
     show .Q.addr`localhost;
  };
 
-// Examples
 // .kdb.exp.func.Q.bt[]
 .kdb.exp.func.Q.bt:{
     system"c 30 250";
