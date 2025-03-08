@@ -207,3 +207,31 @@
 
 .kdb.desc.iterators.case:"Pick successive items from multiple list arguments: the left argument of the iterator determines from which of the arguments each item is picked. The derived function int' has rank max[int]+1. Atom arguments are treated as infinitely-repeated values.";
 
+.kdb.desc.errors.x:"'x - Referencing a variable that has not been instantiated (value error)";
+
+.kdb.desc.errors.access:"'access - Accessing a protected -u database without a valid username or password";;
+
+.kdb.desc.errors.assign:"'assign - Assigning a user defined function or variable to a reserved word";
+
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";
+.kdb.desc.errors.x:"";

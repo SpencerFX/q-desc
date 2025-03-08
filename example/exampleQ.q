@@ -77,3 +77,14 @@
     show "USAGE:.Q.f[2;]each 9.996 34.3445 7817047037.90 781704703567.90 -.02 9.996 -0.0001";
     show .Q.f[2;]each 9.996 34.3445 7817047037.90 781704703567.90 -.02 9.996 -0.0001
  };
+
+// .kdb.exp.func.Q.fc[]
+.kdb.exp.func.Q.fc:{
+    system"c 250 550";
+    show ".Q.fc";
+    show .kdb.desc.func.Q.fc;
+    f:{2 xexp x};
+    vec:til 100000;
+    show "USAGE: .Q.fc[f]vec";
+    show .Q.fc[f]vec;
+ };
