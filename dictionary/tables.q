@@ -7,7 +7,7 @@
 //==========================================================
 .kdb.dict.tables: (!) . flip raze 2 cut
     (
-        (`flatfile; .kdb.tables.flatFile);
-        (`splayed; .kdb.tables.splayedTables);
-        (`partition; .kdb.tables.partitions)
+        (`flatfile; .kdb.desc.tables.flatFile);
+        (`splayed; .kdb.desc.tables.splayedTables);
+        (`partition; .kdb.desc.tables.partitions)
     );

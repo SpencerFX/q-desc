@@ -8,10 +8,10 @@
 // Dictionary for joins
 .kdb.dict.joins: (!) . flip raze 2 cut
     (
-        (`pj; .kdb.joins.pj);
-        (`aj; .kdb.joins.aj);
-        (`uj; .kdb.joins.uj);
-        (`lj; .kdb.joins.lj);
-        (`ij; .kdb.joins.ij);
-        (`comma; .kdb.joins.comma)
+        (`pj; .kdb.desc.joins.pj);
+        (`aj; .kdb.desc.joins.aj);
+        (`uj; .kdb.desc.joins.uj);
+        (`lj; .kdb.desc.joins.lj);
+        (`ij; .kdb.desc.joins.ij);
+        (`comma; .kdb.desc.joins.comma)
     );
