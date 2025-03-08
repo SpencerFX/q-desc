@@ -41,3 +41,39 @@
     .Q.vp;
     @[get;"select from tt";-2@]; / no error
  };
+
+// .kdb.exp.func.Q.chk[]
+.kdb.exp.func.Q.chk:{
+    system"c 30 250";
+    show .kdb.desc.func.Q.chk;    
+    show ".Q.chk[`:hdb]";
+    // NOTE: Create hdb or configure here
+    .Q.chk[`:hdb];
+ };
+
+// .kdb.exp.func.Q.dd[]
+.kdb.exp.func.Q.dd:{
+    system"c 30 250";
+    show ".Q.dd";
+    show .kdb.desc.func.Q.dd;    
+    show "USAGE: .Q.dd[`:dir]`file";
+    show .Q.dd[`:dir]`file
+ };
+
+// .kdb.exp.func.Q.ens[]
+.kdb.exp.func.Q.ens:{
+    system"c 250 550";
+    show ".Q.ens";
+    show .kdb.desc.func.Q.ens;
+    show "USAGE: Q.ens[`:db;([]sym:`a`b`c);`mysym]";
+    // show ([]sym:`mysym$`a`b`c)~.Q.ens[`:db;([]sym:`a`b`c);`mysym];
+ };
+
+// .kdb.exp.func.Q.f[]
+.kdb.exp.func.Q.f:{
+    system"c 250 550";
+    show ".Q.f";
+    show .kdb.desc.func.Q.f;
+    show "USAGE:.Q.f[2;]each 9.996 34.3445 7817047037.90 781704703567.90 -.02 9.996 -0.0001";
+    show .Q.f[2;]each 9.996 34.3445 7817047037.90 781704703567.90 -.02 9.996 -0.0001
+ };

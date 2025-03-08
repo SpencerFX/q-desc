@@ -57,17 +57,17 @@
 
 .kdb.desc.tables.sym:"The sym file is a kdb+ binary file containing the list of symbols from all splayed and partitioned tables. During the enumeration process, all columns of symbol type are converted to enumerations against the sym file, after new symbols are added to the sym file. Therefore the sym file contains a list of unique values. Being a kdb+ binary file, it can be read with get:";
 
-.kdb.desc.func.minus1Bang:"Prepends a colon to the start of a symbol if it is not there already. This resulting symbol can be used to create a file handle e.g."
+.kdb.desc.func.minus1Bang:"Prepends a colon to the start of a symbol if it is not there already. This resulting symbol can be used to create a file handle e.g.";
 
-.kdb.desc.func.minus2Bang:"Will return any attributes associated to the argument."
+.kdb.desc.func.minus2Bang:"Will return any attributes associated to the argument.";
 
-.kdb.desc.func.minus3Bang:"This will return a string representation of the argument."
+.kdb.desc.func.minus3Bang:"This will return a string representation of the argument.";
 
-.kdb.desc.func.minus5Bang:"-5! will return the functional representation of argument e.g."
+.kdb.desc.func.minus5Bang:"-5! will return the functional representation of argument e.g.";
 
-.kdb.desc.func.minus6Bang:"Evaluates the functional form of query. This is the same as the function eval e.g."
+.kdb.desc.func.minus6Bang:"Evaluates the functional form of query. This is the same as the function eval e.g.";
 
-.kdb.desc.func.minus7Bang:"Argument is a file location. This function will return the size of the file in bytes."
+.kdb.desc.func.minus7Bang:"Argument is a file location. This function will return the size of the file in bytes.";
 
 .kdb.desc.func.minus8Bang:"Returns the byte representation of a string. E.g.";
 
@@ -101,24 +101,59 @@
 
 .kdb.desc.func.Q.bv:"In partitioned DBs, construct the dictionary .Q.vp of table schemas for tables with missing partitions. Optionally allow tables to be missing from partitions, by scanning partitions for missing tables and taking the tables’ prototypes from the last partition. After loading/re-loading from the filesystem, invoke .Q.bv[] to (re)populate .Q.vt/.Q.vp, which are used inside .Q.p1 during the partitioned select .Q.ps. (Since V2.8 2012.01.20, modified V3.0 2012.01.26). If your table exists at least in the latest partition (so there is a prototype for the schema), you could use .Q.bv[] to create empty tables on the fly at run-time without having to create those empties on disk. .Q.bv[`] (with argument) will use prototype from first partition instead of last. (Since V3.2 2014.08.22.)";
 
-.kdb.desc.func.Q.:
-.kdb.desc.func.Q.:
-.kdb.desc.func.Q.:
-.kdb.desc.func.Q.:
-.kdb.desc.func.Q.:
-.kdb.desc.func.Q.:
-.kdb.desc.func.Q.:
-.kdb.desc.func.Q.:
-.kdb.desc.func.Q.:
-.kdb.desc.func.Q.:
-.kdb.desc.func.Q.:
-.kdb.desc.func.Q.:
+.kdb.desc.func.Q.bvi:"It offers the same functionality as .Q.bv, but scans only new partitions loaded in the hdb since the last time .Q.bv or .Q.bvi was run. Since v4.1 2024.09.13.";
 
-.kdb.desc.func.Q.en:"The function is used to enumerate a table:";
+.kdb.desc.func.Q.Cf:"create empty nested char file) - Deprecated since 4.1t 2022.03.25. Using resulting files could return file format errors since 3.6.";
+
+.kdb.desc.func.Q.chk:"fill HDB - Where x is a HDB as a filepath, fills tables missing from partitions using the most recent partition as a template, and reports which partitions (but not which tables) it is fixing.";
+
+.kdb.desc.func.Q.cn:"(count partitioned table) - Where x is a partitioned table, passed by value, returns its count. Populates .Q.pn cache.";
+
+.kdb.desc.func.Q.D:"In segmented DBs, contains a list of the partitions – conformant to .Q.P – that are present in each segment. .Q.P!.Q.D can be used to create a dictionary of partition-to-segment information.";
+
+.kdb.desc.func.Q.dd:"(join symbols) - Shorthand for ` sv x,`$string y. Useful for creating filepaths, suffixed stock symbols, etc."
+
+.kdb.desc.func.Q.def:"(command defaults) - Default values and type checks for command-line arguments parsed with .Q.opt. Where x is a dictionary of default parameter names and values, and y is the output of .Q.opt. Types are inferred from the default values provided, which must be an atom type.";
 
 .kdb.desc.func.Q.dpft:"Used to save a table in a partition (in a kdb+ tick setup this is done from the realtime database):";
 
-.kdb.desc.func.Q.chk:"Used to create empty tables (respecting the schema) in partitions where tables are missing:"
+.kdb.desc.func.Q.dpfts:"Used to save a table in a partition (in a kdb+ tick setup this is done from the realtime database). Used with symtable";
+
+.kdb.desc.func.Q.dpt:"dpt save table unsorted";
+
+.kdb.desc.func.Q.dpts:"save table unsorted with symtable";
+
+.kdb.desc.func.Q.en:"The function is used to enumerate a table:";
+
+.kdb.desc.func.Q.ens:" Enumerage against domain. .Q.ens[dir;table;name]. Where dir is a symbol handle to a folder, table is a table, name is a symbol atom naming a sym file in dir. The function: creates if necessary the folder dir, gets sym from dir if it exists, enumerates against sym the symbols in table, writes sym in dir, returns table with columns enumerated (for .Q.ens, against name). .Q.ens allows enumeration against domains (and therefore filenames) other than sym. Tables splayed across a directory must be fully enumerated and not keyed. The solution is to enumerate columns of type varchar before saving the table splayed.";
+
+.kdb.desc.func.Q.f:"Precision format - .Q.f[x;y] -  Where x is an int atom, y is a numeric atom, returns y as a string formatted as a float to x decimal places. Because of the limits of precision in a double, for y above 1e13 or the limit set by P, formats in scientific notation.";
+
+.kdb.desc.func.Q.fc:"parallel on cut - .Q.fc[x;y] - Where x is is a unary atomic function, y is a list, and returns the result of evaluating f vec – using multiple threads if possible. (Since V2.6)";
+
+.kdb.desc.func.Q.ff:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.:"";
 
 .kdb.desc.func.z.ps:".z.ps[] (process-set) is the equivalent handler for asynchronous messages.";
 
