@@ -213,25 +213,47 @@
 
 .kdb.desc.errors.assign:"'assign - Assigning a user defined function or variable to a reserved word";
 
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
-.kdb.desc.errors.x:"";
+.kdb.desc.errors.branch:"'branch - Running too many statements in a do/if/while statement";
+
+.kdb.desc.errors.cant_:"'can't_ - Encrypting script in a non-commercial version of kdb+";
+
+.kdb.desc.errors.cast:"'cast - Enumerating a value not in the enumeration domain";
+
+.kdb.desc.errors.char:"'char - Creating an invalid character or list of characters";
+
+.kdb.desc.errors.conn:"'conn - Too many open connections";
+
+.kdb.desc.errors.constants:"'constants - Using moe than 96 constants";
+
+.kdb.desc.errors.cores:"'cores - Using more cores than are available for the license";
+
+.kdb.desc.errors.cpu:"'cpu - Utilizing more cpus than are available for the license";
+
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
+.kdb.desc.errors.x:"'";
