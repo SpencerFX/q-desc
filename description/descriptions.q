@@ -165,8 +165,24 @@
 
 .kdb.desc.func.Q.ind:"partitioned index - where x is a partitioned table, y is a long int vector of row indexes into x, and returns rows y from x. When picking individual records from an in-memory table you can simply use the special virtual field i: select from table where i<100. But you cannot do that directly for a partitioned table. .Q.ind comes to the rescue here, it takes a table and indexes into the table – and returns the appropriate rows.";
 
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.j10:"encode binhex - Where s is a string, these functions return s encoded (j10, j12) or decoded (x10, x12) against restricted alphabets: …10 en/decodes against the alphabet .Q.b6, this is a base-64 encoding - see BinHex and Base64 for more details than you ever want to know about which characters are where in the encoding. To keep the resulting number an integer the maximum length of s is 10. -12 en/decodes against .Q.nA, a base-36 encoding. As the alphabet is smaller s can be longer – maximum length 12. The main use of these functions is to encode long alphanumeric identifiers (CUSIP, ORDERID..) so they can be quickly searched – but without filling up the symbol table with vast numbers of single-use values.";
+
+.kdb.desc.func.Q.x10:"decode binhex - Where s is a string, these functions return s encoded (j10, j12) or decoded (x10, x12) against restricted alphabets: …10 en/decodes against the alphabet .Q.b6, this is a base-64 encoding - see BinHex and Base64 for more details than you ever want to know about which characters are where in the encoding. To keep the resulting number an integer the maximum length of s is 10. -12 en/decodes against .Q.nA, a base-36 encoding. As the alphabet is smaller s can be longer – maximum length 12. The main use of these functions is to encode long alphanumeric identifiers (CUSIP, ORDERID..) so they can be quickly searched – but without filling up the symbol table with vast numbers of single-use values.";
+
+.kdb.desc.func.Q.j12:"encode base-36 - Where s is a string, these functions return s encoded (j10, j12) or decoded (x10, x12) against restricted alphabets: …10 en/decodes against the alphabet .Q.b6, this is a base-64 encoding - see BinHex and Base64 for more details than you ever want to know about which characters are where in the encoding. To keep the resulting number an integer the maximum length of s is 10. -12 en/decodes against .Q.nA, a base-36 encoding. As the alphabet is smaller s can be longer – maximum length 12. The main use of these functions is to encode long alphanumeric identifiers (CUSIP, ORDERID..) so they can be quickly searched – but without filling up the symbol table with vast numbers of single-use values.";
+
+.kdb.desc.func.Q.x12:"decode base-36 - Where s is a string, these functions return s encoded (j10, j12) or decoded (x10, x12) against restricted alphabets: …10 en/decodes against the alphabet .Q.b6, this is a base-64 encoding - see BinHex and Base64 for more details than you ever want to know about which characters are where in the encoding. To keep the resulting number an integer the maximum length of s is 10. -12 en/decodes against .Q.nA, a base-36 encoding. As the alphabet is smaller s can be longer – maximum length 12. The main use of these functions is to encode long alphanumeric identifiers (CUSIP, ORDERID..) so they can be quickly searched – but without filling up the symbol table with vast numbers of single-use values.";
+
+.kdb.desc.func.Q.K:"version date";
+
+.kdb.desc.func.Q.k:"Return the interpreter version date (.Q.K) and number (.Q.k) for which q.k has been written: checked against .z.K at startup."; 
+
+.kdb.desc.func.Q.l:"load - where x is a symbol atom naming a directory in the current directory, loads it recursively as in load, but into the default namespace";
+
+.kdb.desc.func.Q.ld:"load and group - exposes logic used by '\l to grou script liens for evaluation";
+
+.kdb.desc.func.Q.li:"load partitions - in the current hdb, adds any partitions which are both in the list supplied and on disk. Partitions can be a list or atomic variable.";
+
 .kdb.desc.func.Q.:"";
 .kdb.desc.func.Q.:"";
 .kdb.desc.func.Q.:"";

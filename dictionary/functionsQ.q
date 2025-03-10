@@ -30,6 +30,31 @@
         (`.Q.en; .kdb.desc.func.Q.en);
         (`.Q.ens; .kdb.desc.func.Q.ens);
         (`.Q.f; .kdb.desc.func.Q.f);
-        (`.Q.fc; .kdb.desc.func.Q.fc)
+        (`.Q.fc; .kdb.desc.func.Q.fc);
+        (`.Q.ff; .kdb.desc.func.Q.ff);
+        (`.Q.fk; .kdb.desc.func.Q.fk);
+        (`.Q.fmt; .kdb.desc.func.Q.fmt);
+        (`.Q.fpn; .kdb.desc.func.Q.fpn);
+        (`.Q.fps; .kdb.desc.func.Q.fps);
+        (`.Q.fs; .kdb.desc.func.Q.fs);
+        (`.Q.fsn; .kdb.desc.func.Q.fsn);
+        (`.Q.ft; .kdb.desc.func.Q.ft);
+        (`.Q.fu; .kdb.desc.func.Q.fu);
+        (`.Q.gc; .kdb.desc.func.Q.gc);
+        (`.Q.gz; .kdb.desc.func.Q.gz);
+        (`.Q.hdpf; .kdb.desc.func.Q.hdpf);
+        (`.Q.hg; .kdb.desc.func.Q.hg);
+        (`.Q.host; .kdb.desc.func.Q.host);
+        (`.Q.hp; .kdb.desc.func.Q.hp);
+        (`.Q.id; .kdb.desc.func.Q.id);
+        (`.Q.ind; .kdb.desc.func.Q.ind);
+        (`.Q.j10; .kdb.desc.func.Q.j10);
+        (`.Q.x10; .kdb.desc.func.Q.x10);
+        (`.Q.j12; .kdb.desc.func.Q.j12);
+        (`.Q.x12; .kdb.desc.func.Q.x12);
+        (`.Q.K; .kdb.desc.func.Q.K);
+        (`.Q.k; .kdb.desc.func.Q.k);
+        (`.Q.l; .kdb.desc.func.Q.l);
+        (`.Q.ld; .kdb.desc.func.Q.ld);
+        (`.Q.li; .kdb.desc.func.Q.li)
     );
-
