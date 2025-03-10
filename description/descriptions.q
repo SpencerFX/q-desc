@@ -183,17 +183,39 @@
 
 .kdb.desc.func.Q.li:"load partitions - in the current hdb, adds any partitions which are both in the list supplied and on disk. Partitions can be a list or atomic variable.";
 
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.lo:"(load without) - .Q.lo[`database;cd;scripts]. Where database is a symbol atom, cd is a boolean flag indicating whether to add cd to the database dir. scripts is a boolean flag indicating whether to execute any scripts in the database dir";
+
+.kdb.desc.func.Q.M:"(chunk size) - chunk size for dsftg or load-process-save";
+
+.kdb.desc.func.Q.MAP:"(maps partitions) - Keeps partitions mapped to avoid the overhead of repeated file system calls during a select. (Since V3.1.), For use with partitioned HDBS, used in tandem with \l dir .Q.MAP currently has the following limitations: .Q.MAP does not work with linked columns, .Q.MAP does not work with virtual partition columns, use of .Q.MAP with compressed files is not recommended, as the uncompressed maps will be retained in memory";
+
+.kdb.desc.func.Q.n:"(nums)";
+
+.kdb.desc.func.Q.nA:"Strings: numerics (.Q.n) and upper-case alphabet and numerics (.Q.nA). .Q.nA is used for base-36 encoding and decoding.";
+
+.kdb.desc.func.Q.opt:"(command parameters) - .Q.opt .z.x - Presents command-line arguments as a dictionary, using the output of .z.x. Defaults can be added using .Q.def.";
+
+.kdb.desc.func.Q.P:"(segments) - In segmented DBs, returns a list of the segments (i.e. the contents of par.txt).";
+
+.kdb.desc.func.Q.par:"(get expected partition location) - .Q.par[dir;part;table] - where dir is a directory filepath, and part is a date and returns the expected location of a table";
+
+.kdb.desc.func.Q.PD:"(partiion locations) - In partitioned DBs, a list of partition locations – conformant to .Q.PV – which represents the partition location for each partition. (In non-segmented DBs, this will be simply count[.Q.PV]#`:..) .Q.PV!.Q.PD can be used to create a dictionary of partition-to-location information.";
+
+.kdb.desc.func.Q.pd:"(modified partition locations) - In partitioned DBs, .Q.PD as modified by .Q.view.";
+
+.kdb.desc.func.Q.:"()";
+.kdb.desc.func.Q.:"()";
+.kdb.desc.func.Q.:"()";
+.kdb.desc.func.Q.:"()";
+.kdb.desc.func.Q.:"()";
+.kdb.desc.func.Q.:"()";
+.kdb.desc.func.Q.:"()";
+.kdb.desc.func.Q.:"()";
+.kdb.desc.func.Q.:"()";
+.kdb.desc.func.Q.:"()";
+.kdb.desc.func.Q.:"()";
+.kdb.desc.func.Q.:"()";
+.kdb.desc.func.Q.:"()";
 
 .kdb.desc.func.z.ps:".z.ps[] (process-set) is the equivalent handler for asynchronous messages.";
 
