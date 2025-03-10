@@ -131,16 +131,40 @@
 
 .kdb.desc.func.Q.fc:"parallel on cut - .Q.fc[x;y] - Where x is is a unary atomic function, y is a list, and returns the result of evaluating f vec – using multiple threads if possible. (Since V2.6)";
 
-.kdb.desc.func.Q.ff:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
-.kdb.desc.func.Q.:"";
+.kdb.desc.func.Q.ff:"append columns - x is a table to modify and y is a table of columns to add to x and set to null. Returns x, with all new columns in y, with values in new columns set to null of the appropriate type.If there is a common column in x and y, the column from x is kept (i.e. it will not null any columns that exist in x).";
+
+.kdb.desc.func.Q.fk.:"foreign key - where x is a table column, returns ` if the column is not a foreign key or `tab if the column is a foreign key into tab.";
+
+.kdb.desc.func.Q.fmt:"precision format - where x and y are integer atoms and z is a numerica atom, returns z as a string of length x formatted y decimal places.";
+
+.kdb.desc.func.Q.fpn:"pipe streaming";
+
+.kdb.desc.func.Q.fps:"pipe streaming - where x is a unary function, y is a filepath to a fifo (named pipe) and z is an integer. Reads z-sized lumps of complete "\n" delimited records from a pipe and applies a function to each record. This enables you to implement a streaming algorithm for various purposes such as converting a large compressed CSV file into an on-disk kdb+ database without holding the data in memory all at once or using disk space required for the uncompressed file.";
+
+.kdb.desc.func.Q.fs:"file streaming";
+
+.kdb.desc.func.Q.fsn:"file streaming - where x is a unary function, y is a filepath, z is an integer. loops over file y, grabs z-sized lumps of complete "\n" delimited records, applies x to each record, and returns the size of the file as given by hcount. This enables you to implement a streaming algorithm to convert a large CSV file into an on-disk database without holding the data in memory all at once. .Q.fsn is almost identical to .Q.fs but takes an extra argument z, the size in bytes that chunks will be read in. This is particularly useful for balancing load speed and RAM usage.";
+
+.kdb.desc.func.Q.ft:"apply simple - where y is a keyed table, x is a unary function x[t]. As an example, note that you can index into a simple table with row indices, but not into a keyed table – for that you should use a select statement. However, to illustrate the method, we show an indexing function being applied to a keyed table. Now create an indexing function, and wrap it in .Q.ft. This works on both types of table:";
+
+.kdb.desc.func.Q.fu:"apply unique - Where x is a unary function and y is a list, returns x[y] after evaluating x only on distinct items of y, not a list, returns x[y]. .Q.fu applies x to the distinct items of y. Where for any index i, the result of x y i depends on no other item of y, then .Q.fu works as intended. Where this is not so, the result is unlikely to be expected or useful.";
+
+.kdb.desc.func.Q.gc:"garbage collect - Run garbage-collection and returns the amount of memory that was returned to the OS. It attempts to coalesce pieces of the heap into their original allocation units and returns any units ≥64MB to the OS. Refer to \g (garbage collection mode) for details on how memory is created on the heap. When secondary threads are configured and .Q.gc[] is invoked in the main thread, .Q.gc[] is automatically invoked in each secondary thread. If the call is instigated in a secondary thread, it affects that thread’s local heap only. Example of garbage collection in the default deferred mode, using .Q.w[] to view memory stats:";
+
+.kdb.desc.func.Q.gz:"gzip - .Q.gz[::] zlib loaded, .Q.gz cbv (unzipped), .Q.gz (cl;cbv) (zipped). Where cbv is a char vector (or byte vector since 4.1t 2021.09.03,4.0 2021.10.01). cl is compression level [1-9] as a long returns, for the general null, a boolean atom as whether Zlib is loaded. cbv, the inflated (unzipped) vector a 2-list, the deflated (zipped) vector";
+
+.kdb.desc.func.Q.hdpf:"hdpf (save tables) - The function: saves all tables to disk, by calling .Q.dpft  (saves as splayed tables to a partition), clears in-memory tables, sends reload message to HDB, by opening a temporary connection and sending \l .";
+
+.kdb.desc.func.Q.hg:"http get - Where x is a URL as a symbol atom or (since V3.6 2018.02.10) a string, returns a string for the result of an HTTP[S] GET query. (Since V3.4)";
+
+.kdb.desc.func.Q.host:"ip to hostname - where x is an IP address as an int atom, returns its hostname as a symbol atom";
+
+.kdb.desc.func.Q.hp:"http post - where x is a url as a symbol handle or string, y is a MIME type as a string, z is a the POST query as a string. Returns a string for the result of an HTTP[S] POST query. (Since V3.4)";
+
+.kdb.desc.func.Q.id:"sanitize - where x is a symbol atom, returns x with items sanitized to valid q names, a table, returns x with column names sanitized by removing characters that interfere with select/exec/update and adding string 1 to column names which clash with commands in the .q namespace. Updated in V3.2 to include .Q.res for checking collisions. A dictionary (since v4.1 2024.09.13), supports the same rules as table above. Table processing also has additional logic to cater for duplicate column names (names are now appended with 1,2,etc. when matched against previous columns) after applying previously defined rules.";
+
+.kdb.desc.func.Q.ind:"partitioned index - where x is a partitioned table, y is a long int vector of row indexes into x, and returns rows y from x. When picking individual records from an in-memory table you can simply use the special virtual field i: select from table where i<100. But you cannot do that directly for a partitioned table. .Q.ind comes to the rescue here, it takes a table and indexes into the table – and returns the appropriate rows.";
+
 .kdb.desc.func.Q.:"";
 .kdb.desc.func.Q.:"";
 .kdb.desc.func.Q.:"";
