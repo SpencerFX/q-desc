@@ -239,15 +239,21 @@
 
 .kdb.desc.func.Q.ty:"(type) .Q.ty x - Where x is a list, returns the type of x as a character code: lower case for a vector, upper case for a list of uniform type, else blank";
 
-.kdb.desc.func.Q.:"() - ";
-.kdb.desc.func.Q.:"() - ";
-.kdb.desc.func.Q.:"() - ";
-.kdb.desc.func.Q.:"() - ";
-.kdb.desc.func.Q.:"() - ";
-.kdb.desc.func.Q.:"() - ";
-.kdb.desc.func.Q.:"() - ";
-.kdb.desc.func.Q.:"() - ";
-.kdb.desc.func.Q.:"() - ";
+.kdb.desc.func.Q.u:"(date based) .Q.u - In segmented DBs, returns 1b if each partition is uniquely found in one segment. (E.g., true if segmenting is date-based, false if name-based.). In partitioned DBs, returns 1b.";
+
+.kdb.desc.func.Q.V:"(table to dict) - a table, returns a dictionary of its column values. a partitioned table, returns only the last partition (N.B. the partition field values themselves are not restricted to the last partition but include the whole range).";
+
+.kdb.desc.func.Q.v:"(value) - Where x is a filepath, returns the splayed table stored at x,any other symbol, returns the global named x, anything else, returns x";
+
+.kdb.desc.func.Q.view:"(subview) - Where x is a list of partition values that serves as a filter for all queries against any partitioned table in the database, x is added as a constraint in the first sub-phrase of the where-clause of every query. .Q.view is handy when you are executing queries against partitioned or segmented tables. Recall that multiple tables can share the partitioning. Q.view can guard against runaway queries that ask for all historical data.";
+
+.kdb.desc.func.Q.vp:"(missing partitions) - In partitioned DBs, returns a dictionary of table schemas for tables with missing partitions, as populated by .Q.bv. (Since V3.0 2012.01.26.)";
+
+.kdb.desc.func.Q.w:"(memory stats) - .Q.w[] - Returns the memory stats from \w into a more readable dictionary. Refer to \w for an explaination of each statistic.";
+
+.kdb.desc.func.Q.Xf:"(create file) .Q.Xf[x;y]- Where x is a mapped nested datatype as either an upper-case char atom, or as a short symbol (e.g. `char), y is a filepath";
+
+.kdb.desc.func.Q.x:"(non-command parameters) - Set by .Q.opt: a list of non-command parameters from the command line, where command parameters are prefixed by -.";
 
 .kdb.desc.func.z.ps:".z.ps[] (process-set) is the equivalent handler for asynchronous messages.";
 
