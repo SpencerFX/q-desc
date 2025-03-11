@@ -203,8 +203,10 @@
 
 .kdb.desc.func.Q.pd:"(modified partition locations) - In partitioned DBs, .Q.PD as modified by .Q.view.";
 
-.kdb.desc.func.Q.:"()";
-.kdb.desc.func.Q.:"()";
+.kdb.desc.func.Q.pf:"(partition field) - In partitioned DBs, the partition field. Possible values are `date`month`year`int.";
+
+.kdb.desc.func.Q.pn:"(partition counts) - In partitioned DBs, returns a dictionary of cached partition counts - conformant to .Q.pt, each conformant to .Q.pv - as populated by .Q.cn.";
+
 .kdb.desc.func.Q.:"()";
 .kdb.desc.func.Q.:"()";
 .kdb.desc.func.Q.:"()";
