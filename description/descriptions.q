@@ -199,25 +199,37 @@
 
 .kdb.desc.func.Q.par:"(get expected partition location) - .Q.par[dir;part;table] - where dir is a directory filepath, and part is a date and returns the expected location of a table";
 
-.kdb.desc.func.Q.PD:"(partiion locations) - In partitioned DBs, a list of partition locations – conformant to .Q.PV – which represents the partition location for each partition. (In non-segmented DBs, this will be simply count[.Q.PV]#`:..) .Q.PV!.Q.PD can be used to create a dictionary of partition-to-location information.";
+.kdb.desc.func.Q.PD:"(partiion locations) - In partitioned DBs, a list of partition locations - conformant to .Q.PV - which represents the partition location for each partition. (In non-segmented DBs, this will be simply count[.Q.PV]#`:..) .Q.PV!.Q.PD can be used to create a dictionary of partition-to-location information.";
 
 .kdb.desc.func.Q.pd:"(modified partition locations) - In partitioned DBs, .Q.PD as modified by .Q.view.";
 
 .kdb.desc.func.Q.pf:"(partition field) - In partitioned DBs, the partition field. Possible values are `date`month`year`int.";
 
-.kdb.desc.func.Q.pn:"(partition counts) - In partitioned DBs, returns a dictionary of cached partition counts - conformant to .Q.pt, each conformant to .Q.pv - as populated by .Q.cn.";
+.kdb.desc.func.Q.pn:"(partition counts) - In partitioned DBs, returns a dictionary of cached partition counts - conformant to .Q.pt, each conformant to .Q.pv - as populated by .Q.cn. .Q.pv!flip .Q.pn can be used to create a crosstab of table-to-partition-counts once .Q.pn is fully populated.";
 
-.kdb.desc.func.Q.:"()";
-.kdb.desc.func.Q.:"()";
-.kdb.desc.func.Q.:"()";
-.kdb.desc.func.Q.:"()";
-.kdb.desc.func.Q.:"()";
-.kdb.desc.func.Q.:"()";
-.kdb.desc.func.Q.:"()";
-.kdb.desc.func.Q.:"()";
-.kdb.desc.func.Q.:"()";
-.kdb.desc.func.Q.:"()";
-.kdb.desc.func.Q.:"()";
+.kdb.desc.func.Q.prf0:"(code profiler) - Where pid is a process ID, returns a table representing a snapshot of the call stack at the time of the call in another kdb+ process pid, with columns. The following is returned: name - assigned name of the function, file - path to the file containing the definition, line - line number of the definition, col - column offset of the definition, 0-based, text - function definition or source string, pos - execution position (caret) within text";
+
+.kdb.desc.func.Q.pt:"(partitioned tables) - Returns a list of partitioned tables.";
+
+.kdb.desc.func.Q.pv:"(modified partition value) - A list of the values of the partition domain: the values corresponding to the slice directories actually found in the root. In partitioned DBs, .Q.PV as modified by .Q.view.";
+
+.kdb.desc.func.Q.PV:"(partition values) - In partitioned DBs, returns a list of partition values - conformant to .Q.PD - which represents the partition value for each partition. (In a date-partitioned DB, unless the date has been modified by .Q.view, this is simply date.)";
+
+.kdb.desc.func.Q.qp:"(is partitioned) - Where x is a partitioned table, returns 1b, a splayed table, returns 0b, anything else, returns 0";
+
+.kdb.desc.func.Q.t:"(is table) - .Q.qt x - Where x is a table, returns 1b, else 0b.";
+
+.kdb.desc.func.Q.res:"(keywords) - Returns the control words and keywords as a symbol vector. key `.q returns the functions defined to extend k to the q language. Hence to get the full list of reserved words for the current version:";
+
+.kdb.desc.func.Q.:"() - ";
+.kdb.desc.func.Q.:"() - ";
+.kdb.desc.func.Q.:"() - ";
+.kdb.desc.func.Q.:"() - ";
+.kdb.desc.func.Q.:"() - ";
+.kdb.desc.func.Q.:"() - ";
+.kdb.desc.func.Q.:"() - ";
+.kdb.desc.func.Q.:"() - ";
+.kdb.desc.func.Q.:"() - ";
 
 .kdb.desc.func.z.ps:".z.ps[] (process-set) is the equivalent handler for asynchronous messages.";
 
