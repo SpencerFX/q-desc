@@ -221,6 +221,24 @@
 
 .kdb.desc.func.Q.res:"(keywords) - Returns the control words and keywords as a symbol vector. key `.q returns the functions defined to extend k to the q language. Hence to get the full list of reserved words for the current version:";
 
+.kdb.desc.func.Q.s:"(plain text) - Returns x formatted to plain text, as used by the console. Obeys console width and height set by \c.";
+
+.kdb.desc.func.Q.s1:"(string representation) - Returns a string representation of x.";
+
+.kdb.desc.func.Q.sbt:"(string backtrace) - Where x is a backtrace object returns it as a string formatted for display.";
+
+.kdb.desc.func.Q.sha1:"(SHA-1 encode) - Where x is a string, returns as a bytestream its SHA-1 hash.";
+
+.kdb.desc.func.Q.t:"(type letters) - List of chars indexed by datatype numbers.";
+
+.kdb.desc.func.Q.trp:"(extend trap at) - .Q.trp[f;x;g] - Where f is a unary function x is its argument g is a binary function. extends Trap At (@[f;x;g]) to collect backtrace: g gets called with arguments: 1. the error string and 2. the backtrace object. You can format the backtrace object with .Q.sbt.";
+
+.kdb.desc.func.Q.trpd:"(extend trap) - .Q.trpd[f;x;g] - Where f is a function of rank, x is an atom or list of count with items in the domains of f, g is a binary function. extends Trap (.[f;x;g]) to collect backtrace: g is called with arguments: the error string, the backtrace object";
+
+.kdb.desc.func.Q.ts:"(time and space) - Apply, with time and space. .Q.ts[x;y] - Where x and y are valid arguments to Apply returns a 2-item list: time and space as ts would return the result of .[x;y]";
+
+.kdb.desc.func.Q.ty:"(type) .Q.ty x - Where x is a list, returns the type of x as a character code: lower case for a vector, upper case for a list of uniform type, else blank";
+
 .kdb.desc.func.Q.:"() - ";
 .kdb.desc.func.Q.:"() - ";
 .kdb.desc.func.Q.:"() - ";
