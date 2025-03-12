@@ -57,9 +57,11 @@
  show any 9 2.0 -3.2 1.0
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show .kdb.desc.keywords.all;
+// .kdb.exp.keyword.asc[]
+.kdb.exp.keyword.asc:{
+ show .kdb.desc.keywords.asc;
+ show "asc 1 4 7 -2 3";
+ show asc 1 4 7 -2 3;
  };
 
 // .kdb.exp.keyword.[]
