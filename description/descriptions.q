@@ -433,8 +433,11 @@
 .kdb.desc.keywords.all:"This is an aggregate monadic function. The function returns boolean atomb 1b if all values in its argument are non-zero and 0b otherwise. The function all can be applied to any datatype except symbol by converting the type to boolean and then performing the operation.";
 
 .kdb.desc.keywords.and:"These are respectively the restrictions of min, mand and not to bool arguments.";
+
 .kdb.desc.keywords.any:"This is an aggregate monadic function. This function returns 1b if any value in its argument is non-zero and returns 0b if all values in its argument are 0";
-.kdb.desc.keywords.asc:"This function sorts a list and applies `s# attribute. On homogenous lists, asc sorts the list in ascending order and applies the `s# attribute. On a mixed list, asc sorts values within datatype groups. On a dictionary, asc sorts by the values. On a table, asc sorts by the first unkeyed column and applies the sorted attribute to that column"
+
+.kdb.desc.keywords.asc:"This function sorts a list and applies `s# attribute. On homogenous lists, asc sorts the list in ascending order and applies the `s# attribute. On a mixed list, asc sorts values within datatype groups. On a dictionary, asc sorts by the values. On a table, asc sorts by the first unkeyed column and applies the sorted attribute to that column";
+
 .kdb.desc.keywords.asin:
 .kdb.desc.keywords.atan:
 .kdb.desc.keywords.attr:
@@ -580,15 +583,29 @@
 .kdb.desc.keywords.union:
 .kdb.desc.keywords.update:
 .kdb.desc.keywords.upper:
-.kdb.desc.keywords.upsert:"This function can be used to update certain information in a table. If the table name is passed by value, a table is returned with the updated results. If the table name is passed by reference the table name as a symbol is returned and the changes are persisted in the table.";
+.kdb.desc.keywords.update:"This function can be used to update certain information in a table. If the table name is passed by value, a table is returned with the updated results. If the table name is passed by reference the table name as a symbol is returned and the changes are persisted in the table.";
 .kdb.desc.keywords.upper:
-.kdb.desc.keywords.:
-.kdb.desc.keywords.:
-.kdb.desc.keywords.:
-.kdb.desc.keywords.:
-.kdb.desc.keywords.:
-.kdb.desc.keywords.:
-.kdb.desc.keywords.:
-.kdb.desc.keywords.:
-.kdb.desc.keywords.:
-.kdb.desc.keywords.:
+.kdb.desc.keywords.upsert:"The verb upsert inserts or updates new records to a table. If the table is keyed and a record matches on a keyed column, then the matching row is updated. Otherwise the record is inserted at the end of the table."
+.kdb.desc.keywords.value:
+.kdb.desc.keywords.var:
+.kdb.desc.keywords.view:
+.kdb.desc.keywords.views:
+.kdb.desc.keywords.vs:
+.kdb.desc.keywords.wavg:
+.kdb.desc.keywords.where:
+.kdb.desc.keywords.within:
+.kdb.desc.keywords.wj:
+.kdb.desc.keywords.wj1:
+.kdb.desc.keywords.ww:
+.kdb.desc.keywords.wsum:
+.kdb.desc.keywords.xasc:
+.kdb.desc.keywords.xbar:
+.kdb.desc.keywords.xcol:
+.kdb.desc.keywords.xcols:
+.kdb.desc.keywords.xdesc:
+.kdb.desc.keywords.xexp:
+.kdb.desc.keywords.xgroup:
+.kdb.desc.keywords.xkey:
+.kdb.desc.keywords.xlog:
+.kdb.desc.keywords.xprev:
+.kdb.desc.keywords.xrank:
