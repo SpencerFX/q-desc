@@ -257,27 +257,55 @@
 
 .kdb.desc.func.z.ps:".z.ps[] (process-set) is the equivalent handler for asynchronous messages.";
 
-.kdb.desc.func.z.pw:"This is a hook for connecting to external validation services, and should return a boolean result. The parameters to it are the username and password supplied by the incoming call. When a new request comes in, a call can be made to an external system and return the permissions of the incoming user. Then .z.pw should return true or false and the kdb+ process will accept or reject the connection accordingly. The default implementation is:";
-
-.kdb.desc.func.z.po:"The parameter is the handle of the incoming connection request. At this point, as far as the client is concerned, the connection has already been successful. The server could still close the connection using hclose but the connection open command in the client would still complete successfully and return a connection handle.";
-
-.kdb.desc.func.z.pg:"The parameter is the incoming request. The default behaviour is to evaluate the expression.Example usage would be to restrict access to certain users, or to log incoming calls. It can also be useful for debugging purposes, to see exactly what calls are coming into the database, e.g."
-
-.kdb.desc.func.z.pi:"The parameter is the incoming command and the default behaviour is to value the input. This is invoked when calls are made from the q console. This message handler is really for completeness, so it is possible to log all calls which have been executed on a process.";
-
+.kdb.desc.func.z.a:""
+.kdb.desc.func.z.ac:""
+.kdb.desc.func.z.b:""
+.kdb.desc.func.z.bm:""
+.kdb.desc.func.z.c:""
+.kdb.desc.func.z.e:""
+.kdb.desc.func.z.ex:""
+.kdb.desc.func.z.exit:""
+.kdb.desc.func.z.ey:""
+.kdb.desc.func.z.f:""
+.kdb.desc.func.z.H:""
+.kdb.desc.func.z.h:""
+.kdb.desc.func.z.i:""
+.kdb.desc.func.z.K:""
+.kdb.desc.func.z.k:""
+.kdb.desc.func.z.l:""
+.kdb.desc.func.z.N:""
+.kdb.desc.func.z.n:""
+.kdb.desc.func.z.o:""
+.kdb.desc.func.z.P:""
+.kdb.desc.func.z.p:""
 .kdb.desc.func.z.pc:"The parameter is the handle of the connection which has been closed. The default behaviour is to do nothing. When this is invoked the connection has already been closed so .z.a, .z.u and.z.w are all local values. However, the argument passed to .z.pc is the connection handle that was being used before the connection was closed. This can be useful for cleaning up log tables."
-
+.kdb.desc.func.z.pd:""
+.kdb.desc.func.z.pg:"The parameter is the incoming request. The default behaviour is to evaluate the expression.Example usage would be to restrict access to certain users, or to log incoming calls. It can also be useful for debugging purposes, to see exactly what calls are coming into the database, e.g."
 .kdb.desc.func.z.ph:"This is the only message handler with a default definition. The parameter is the string sent from the web browser.";
-
+.kdb.desc.func.z.pi:"The parameter is the incoming command and the default behaviour is to value the input. This is invoked when calls are made from the q console. This message handler is really for completeness, so it is possible to log all calls which have been executed on a process.";
+.kdb.desc.func.z.pm:""
+.kdb.desc.func.z.po:"The parameter is the handle of the incoming connection request. At this point, as far as the client is concerned, the connection has already been successful. The server could still close the connection using hclose but the connection open command in the client would still complete successfully and return a connection handle.";
 .kdb.desc.func.z.pp:"This is undefined by default, but can be redefined to handle http post messages.";
-
-.kdb.desc.func.z.a:"the ip-address of the calling process.";
-
-.kdb.desc.func.z.h:"the hostname of the calling process.";
-
+.kdb.desc.func.z.pq:""
+.kdb.desc.func.z.ps:""
+.kdb.desc.func.z.pw:"This is a hook for connecting to external validation services, and should return a boolean result. The parameters to it are the username and password supplied by the incoming call. When a new request comes in, a call can be made to an external system and return the permissions of the incoming user. Then .z.pw should return true or false and the kdb+ process will accept or reject the connection accordingly. The default implementation is:";
+.kdb.desc.func.z.q:""
+.kdb.desc.func.z.r:""
+.kdb.desc.func.z.s:""
+.kdb.desc.func.z.ts:""
 .kdb.desc.func.z.u:"the username of the calling process.";
-
-.kdb.desc.func.z.w:"the integer handle of the calling process.";
+.kdb.desc.func.z.vs:""
+.kdb.desc.func.z.W:""
+.kdb.desc.func.z.w:""
+.kdb.desc.func.z.wc:""
+.kdb.desc.func.z.wo:""
+.kdb.desc.func.z.ws:""
+.kdb.desc.func.z.X:""
+.kdb.desc.func.z.x:""
+.kdb.desc.func.z.Z:""
+.kdb.desc.func.z.z:""
+.kdb.desc.func.z..zd:""
+.kdb.desc.func.z.T:""
 
 .kdb.desc.joins.pj:"Again an example of a left outer join which will return all rows from the source table, looking up any common columns and summing their values. If the lookup column does not exist in the table for a particular to then the values are zero filled.";
 
@@ -461,15 +489,15 @@
 .kdb.desc.keywords.ej:"The equijoin joins tables on a list of columns specified as the first argument."
 .kdb.desc.keywords.enlist:"A monadic primitive function, which enables one-item lists to be created. In the example above, a three item list is turned into a one item list with the itembeing a three item list."
 .kdb.desc.keywords.equal:"This is a dyadic relational function. This function produces boolean values, where 1b means that the each atom in a list is equal to the related atom. The relational functions q use a multiplicative tolerance when applied to floats. this makes arithmetic work better. Does not take into account type."
-.kdb.desc.keywords.eval:""
-.kdb.desc.keywords.except:""
-.kdb.desc.keywords.exec:""
-.kdb.desc.keywords.exit:""
-.kdb.desc.keywords.exp:""
-.kdb.desc.keywords.fby:""
-.kdb.desc.keywords.fill:""
-.kdb.desc.keywords.fills:""
-.kdb.desc.keywords.first:""
+.kdb.desc.keywords.eval:"The eval function is used to evaluate parse trees."
+.kdb.desc.keywords.except:"This function deletes items from a list."
+.kdb.desc.keywords.exec:"Written similarly to select statements, exec statements return the same results as select except in the forms of lists or dictionaries depending on the number of columns selected."
+.kdb.desc.keywords.exit:"This keyword terminates a process with a given exit code, e.g. exit 0."
+.kdb.desc.keywords.exp:"This function returns e^x (e to the power of x) where 'e' is the natural number and is approximately equal to 2.718282."
+.kdb.desc.keywords.fby:"This function can take the place of common by phrases, thereby simplifying them - useful in where clauses."
+.kdb.desc.keywords.fill:"There are three functions for processing null values. The dyadic function named fill replaces values in the right argument with the atomic left argument. Integer left arguments are promoted when the right argument is float or real. We could also choose to fill in with the non null-values."
+.kdb.desc.keywords.fills:"This function fills in nulls with the previous not null value."
+.kdb.desc.keywords.first:"The command returns the first atom of a list, a dictionary representation of the first row of a table or the value of the first element in a dictionary."
 .kdb.desc.keywords.fkeys:""
 .kdb.desc.keywords.flip:""
 .kdb.desc.keywords.floor:""
