@@ -41,13 +41,13 @@
 
 .kdb.desc.args.u:"Enables user/password authentication for ipc";
 
-.kdb.desc.args.U:"sets a password file, disables \x (even on the local console). The password file is a text file with one credential on each line. (No trailing blank line/s.)";
+.kdb.desc.args.U:"sets a password file, disables x (even on the local console). The password file is a text file with one credential on each line. (No trailing blank lines.)";
 
 .kdb.desc.args.w:"Workspace limit in MB for the heap across threads for memory domain 0. Default is 0: no limit.";
 
 .kdb.desc.args.W:"Set the start-of-week offset, where 0 is Saturday. The default is 2, i.e Monday.";
 
-.kdb.desc.args.z:"Set the format for "D"$ date parsing: 0 for mm/dd/yyyy and 1 for dd/mm/yyyy.";
+.kdb.desc.args.z:"Set the format for D$ date parsing: 0 for mm dd yyyy and 1 for dd mm yyyy.";
 
 .kdb.desc.tables.flatFile:"They are fully loaded into memory, that is why their size (memory footprint) should be small. Small size/configuration/keyed tables are suited for this type of table.";
 
@@ -139,21 +139,21 @@
 
 .kdb.desc.func.Q.fpn:"pipe streaming";
 
-.kdb.desc.func.Q.fps:"pipe streaming - where x is a unary function, y is a filepath to a fifo (named pipe) and z is an integer. Reads z-sized lumps of complete "\n" delimited records from a pipe and applies a function to each record. This enables you to implement a streaming algorithm for various purposes such as converting a large compressed CSV file into an on-disk kdb+ database without holding the data in memory all at once or using disk space required for the uncompressed file.";
+.kdb.desc.func.Q.fps:"pipe streaming - where x is a unary function, y is a filepath to a fifo (named pipe) and z is an integer. Reads z-sized lumps of complete n delimited records from a pipe and applies a function to each record. This enables you to implement a streaming algorithm for various purposes such as converting a large compressed CSV file into an on-disk kdb+ database without holding the data in memory all at once or using disk space required for the uncompressed file.";
 
 .kdb.desc.func.Q.fs:"file streaming";
 
-.kdb.desc.func.Q.fsn:"file streaming - where x is a unary function, y is a filepath, z is an integer. loops over file y, grabs z-sized lumps of complete "\n" delimited records, applies x to each record, and returns the size of the file as given by hcount. This enables you to implement a streaming algorithm to convert a large CSV file into an on-disk database without holding the data in memory all at once. .Q.fsn is almost identical to .Q.fs but takes an extra argument z, the size in bytes that chunks will be read in. This is particularly useful for balancing load speed and RAM usage.";
+.kdb.desc.func.Q.fsn:"file streaming - where x is a unary function, y is a filepath, z is an integer. loops over file y, grabs z-sized lumps of complete n delimited records, applies x to each record, and returns the size of the file as given by hcount. This enables you to implement a streaming algorithm to convert a large CSV file into an on-disk database without holding the data in memory all at once. .Q.fsn is almost identical to .Q.fs but takes an extra argument z, the size in bytes that chunks will be read in. This is particularly useful for balancing load speed and RAM usage.";
 
 .kdb.desc.func.Q.ft:"apply simple - where y is a keyed table, x is a unary function x[t]. As an example, note that you can index into a simple table with row indices, but not into a keyed table – for that you should use a select statement. However, to illustrate the method, we show an indexing function being applied to a keyed table. Now create an indexing function, and wrap it in .Q.ft. This works on both types of table:";
 
 .kdb.desc.func.Q.fu:"apply unique - Where x is a unary function and y is a list, returns x[y] after evaluating x only on distinct items of y, not a list, returns x[y]. .Q.fu applies x to the distinct items of y. Where for any index i, the result of x y i depends on no other item of y, then .Q.fu works as intended. Where this is not so, the result is unlikely to be expected or useful.";
 
-.kdb.desc.func.Q.gc:"garbage collect - Run garbage-collection and returns the amount of memory that was returned to the OS. It attempts to coalesce pieces of the heap into their original allocation units and returns any units ≥64MB to the OS. Refer to \g (garbage collection mode) for details on how memory is created on the heap. When secondary threads are configured and .Q.gc[] is invoked in the main thread, .Q.gc[] is automatically invoked in each secondary thread. If the call is instigated in a secondary thread, it affects that thread’s local heap only. Example of garbage collection in the default deferred mode, using .Q.w[] to view memory stats:";
+.kdb.desc.func.Q.gc:"garbage collect - Run garbage-collection and returns the amount of memory that was returned to the OS. It attempts to coalesce pieces of the heap into their original allocation units and returns any units ≥64MB to the OS. Refer to g (garbage collection mode) for details on how memory is created on the heap. When secondary threads are configured and .Q.gc[] is invoked in the main thread, .Q.gc[] is automatically invoked in each secondary thread. If the call is instigated in a secondary thread, it affects that thread’s local heap only. Example of garbage collection in the default deferred mode, using .Q.w[] to view memory stats:";
 
 .kdb.desc.func.Q.gz:"gzip - .Q.gz[::] zlib loaded, .Q.gz cbv (unzipped), .Q.gz (cl;cbv) (zipped). Where cbv is a char vector (or byte vector since 4.1t 2021.09.03,4.0 2021.10.01). cl is compression level [1-9] as a long returns, for the general null, a boolean atom as whether Zlib is loaded. cbv, the inflated (unzipped) vector a 2-list, the deflated (zipped) vector";
 
-.kdb.desc.func.Q.hdpf:"hdpf (save tables) - The function: saves all tables to disk, by calling .Q.dpft  (saves as splayed tables to a partition), clears in-memory tables, sends reload message to HDB, by opening a temporary connection and sending \l .";
+.kdb.desc.func.Q.hdpf:"hdpf (save tables) - The function: saves all tables to disk, by calling .Q.dpft  (saves as splayed tables to a partition), clears in-memory tables, sends reload message to HDB, by opening a temporary connection and sending l .";
 
 .kdb.desc.func.Q.hg:"http get - Where x is a URL as a symbol atom or (since V3.6 2018.02.10) a string, returns a string for the result of an HTTP[S] GET query. (Since V3.4)";
 
@@ -179,7 +179,7 @@
 
 .kdb.desc.func.Q.l:"load - where x is a symbol atom naming a directory in the current directory, loads it recursively as in load, but into the default namespace";
 
-.kdb.desc.func.Q.ld:"load and group - exposes logic used by '\l to grou script liens for evaluation";
+.kdb.desc.func.Q.ld:"load and group - exposes logic used by 'l to grou script liens for evaluation";
 
 .kdb.desc.func.Q.li:"load partitions - in the current hdb, adds any partitions which are both in the list supplied and on disk. Partitions can be a list or atomic variable.";
 
@@ -187,7 +187,7 @@
 
 .kdb.desc.func.Q.M:"(chunk size) - chunk size for dsftg or load-process-save";
 
-.kdb.desc.func.Q.MAP:"(maps partitions) - Keeps partitions mapped to avoid the overhead of repeated file system calls during a select. (Since V3.1.), For use with partitioned HDBS, used in tandem with \l dir .Q.MAP currently has the following limitations: .Q.MAP does not work with linked columns, .Q.MAP does not work with virtual partition columns, use of .Q.MAP with compressed files is not recommended, as the uncompressed maps will be retained in memory";
+.kdb.desc.func.Q.MAP:"(maps partitions) - Keeps partitions mapped to avoid the overhead of repeated file system calls during a select. (Since V3.1.), For use with partitioned HDBS, used in tandem with l dir .Q.MAP currently has the following limitations: .Q.MAP does not work with linked columns, .Q.MAP does not work with virtual partition columns, use of .Q.MAP with compressed files is not recommended, as the uncompressed maps will be retained in memory";
 
 .kdb.desc.func.Q.n:"(nums)";
 
@@ -221,7 +221,7 @@
 
 .kdb.desc.func.Q.res:"(keywords) - Returns the control words and keywords as a symbol vector. key `.q returns the functions defined to extend k to the q language. Hence to get the full list of reserved words for the current version:";
 
-.kdb.desc.func.Q.s:"(plain text) - Returns x formatted to plain text, as used by the console. Obeys console width and height set by \c.";
+.kdb.desc.func.Q.s:"(plain text) - Returns x formatted to plain text, as used by the console. Obeys console width and height set by c.";
 
 .kdb.desc.func.Q.s1:"(string representation) - Returns a string representation of x.";
 
@@ -249,7 +249,7 @@
 
 .kdb.desc.func.Q.vp:"(missing partitions) - In partitioned DBs, returns a dictionary of table schemas for tables with missing partitions, as populated by .Q.bv. (Since V3.0 2012.01.26.)";
 
-.kdb.desc.func.Q.w:"(memory stats) - .Q.w[] - Returns the memory stats from \w into a more readable dictionary. Refer to \w for an explaination of each statistic.";
+.kdb.desc.func.Q.w:"(memory stats) - .Q.w[] - Returns the memory stats from w into a more readable dictionary. Refer to w for an explaination of each statistic.";
 
 .kdb.desc.func.Q.Xf:"(create file) .Q.Xf[x;y]- Where x is a mapped nested datatype as either an upper-case char atom, or as a short symbol (e.g. `char), y is a filepath";
 
@@ -423,189 +423,182 @@
 .kdb.desc.errors.wsfull:"'wsfull - Workspace full - out of memory";
 
 .kdb.desc.keywords.abs:"absolute value. A multithreaded primitive."
-
 .kdb.desc.keywords.acos:"This is a unary funcation that returns the arcos (or inverse cosine) of x, with the result in radians.";
-
 .kdb.desc.keywords.aj:"Generally this is used to get the prevailing quote one tablwe as of the time of the trade (other table). aj[`sym`time;trade;quote]";
-
 .kdb.desc.keywords.aj0:"Same as the as of join except that the resulting time value is from the quote table instead of the boundary time from the trade table. aj0 returns the actual time from the second table.";
-
 .kdb.desc.keywords.all:"This is an aggregate monadic function. The function returns boolean atomb 1b if all values in its argument are non-zero and 0b otherwise. The function all can be applied to any datatype except symbol by converting the type to boolean and then performing the operation.";
-
 .kdb.desc.keywords.and:"These are respectively the restrictions of min, mand and not to bool arguments.";
-
 .kdb.desc.keywords.any:"This is an aggregate monadic function. This function returns 1b if any value in its argument is non-zero and returns 0b if all values in its argument are 0";
-
 .kdb.desc.keywords.asc:"This function sorts a list and applies `s# attribute. On homogenous lists, asc sorts the list in ascending order and applies the `s# attribute. On a mixed list, asc sorts values within datatype groups. On a dictionary, asc sorts by the values. On a table, asc sorts by the first unkeyed column and applies the sorted attribute to that column";
 
-.kdb.desc.keywords.asin:
-.kdb.desc.keywords.atan:
-.kdb.desc.keywords.attr:
-.kdb.desc.keywords.avg:
-.kdb.desc.keywords.avgs:
-.kdb.desc.keywords.bin:
-.kdb.desc.keywords.binr:
-.kdb.desc.keywords.ceiling:
-.kdb.desc.keywords.cols:
-.kdb.desc.keywords.cor:
-.kdb.desc.keywords.cos:
-.kdb.desc.keywords.count:
-.kdb.desc.keywords.cov:
-.kdb.desc.keywords.cross:
-.kdb.desc.keywords.cut:
-.kdb.desc.keywords.delete:
-.kdb.desc.keywords.deltas:
-.kdb.desc.keywords.desc:
-.kdb.desc.keywords.dev:
-.kdb.desc.keywords.differ:
-.kdb.desc.keywords.distinct:
-.kdb.desc.keywords.div:
-.kdb.desc.keywords.divide:
-.kdb.desc.keywords.do:
-.kdb.desc.keywords.dsave:
-.kdb.desc.keywords.each:
-.kdb.desc.keywords.eachboth:
-.kdb.desc.keywords.ej:
-.kdb.desc.keywords.enlist:
-.kdb.desc.keywords.equal:
-.kdb.desc.keywords.eval:
-.kdb.desc.keywords.except:
-.kdb.desc.keywords.exec:
-.kdb.desc.keywords.exit:
-.kdb.desc.keywords.exp:
-.kdb.desc.keywords.fby:
-.kdb.desc.keywords.fill:
-.kdb.desc.keywords.fills:
-.kdb.desc.keywords.first:
-.kdb.desc.keywords.fkeys:
-.kdb.desc.keywords.flip:
-.kdb.desc.keywords.floor:
-.kdb.desc.keywords.get:
-.kdb.desc.keywords.getenv:
-.kdb.desc.keywords.group:
-.kdb.desc.keywords.gtime:
-.kdb.desc.keywords.hclose:
-.kdb.desc.keywords.hcount:
-.kdb.desc.keywords.hdel:
-.kdb.desc.keywords.hopen:
-.kdb.desc.keywords.hsym:
-.kdb.desc.keywords.iasc:
-.kdb.desc.keywords.idesc:
-.kdb.desc.keywords.if:
-.kdb.desc.keywords.ij:
-.kdb.desc.keywords.in:
+.kdb.desc.keywords.asin:"This is a unary function that returns the arcsine (or inverse sine) of x in radians. The arguments must be within -1<=x<=1, otherwise the null value 0n is returned."
+.kdb.desc.keywords.atan:"This is a unary function that returns the arc tan (or inverse  tangent) of x, with the result in radians. Valid arguments must be approximately of the order +10 to the 9th power or -10 to the ninth power. If this is not the case then the function will not evaluate."
+.kdb.desc.keywords.attr:"The attr function gives the attributes of data,which describe certain properties; `s denotes sorted ascending, eg, `s#2 3 4. `u denotes unique, `u#2 3 4, `p and `g are used to refer to lists with reptition with `p standing for parted and `g for grouped. Attribute flags are descriptive, not prescriptive; amends and appends preserve flags if the attribute is preserved. In other words, a sorted list remains sorted until an element is inserted in such a manner that disrupts the sort. Furthermore, applying an attribute to a list will result in fail if the list does not fulfill the attributes requirements."
+.kdb.desc.keywords.avg:"This function returns the arithmetic mean of a list of numeric values. The averages of lists of conformant lists can be return as well."
+.kdb.desc.keywords.avgs:"The function avgs computes the running average of a list with numerica values."
+.kdb.desc.keywords.bin:"The function bin performs a binary search and gives the index of the last element in x which <=y. The result is -1 for y less than the first element of x. Although bin does not require an ascending list, the return value is undefined for all non-ascending lists."
+.kdb.desc.keywords.binr:"The function binr gives the index of the first element in x which is >=y. Like bin the items of the left argument should be ascending to return meaning results."
+.kdb.desc.keywords.ceiling:"The ceiling function is the complement to the floor function. given a float or real the ceiling function always rounds up to the nearest integer. It is equivalent to 1 + floor x."
+.kdb.desc.keywords.cols:"This keyword returns the columns of a table as a list."
+.kdb.desc.keywords.cor:"This function gives the correlation between two numeric lists of the same length. If each list only has one member, the float null 0n is returned. The function output is between 1 and -1, with 1 denoting perfect correlation and -1 denoting perfect anti-correlation."
+.kdb.desc.keywords.cos:"This unary function returns the cosine of x, where x is in radians. Note that cos x repeats iteself every 2*pi and consequently valid values of x are of the order + 10 to the ninth power or -10 to the ninth power."
+.kdb.desc.keywords.count:"This aggregate function counts the elements in a list,table, or dictionary and returns a single long value."
+.kdb.desc.keywords.cov:"This function gives the covariance between two numeric lists of the same length. Attempting to find the covariance between two single numbers produces the null float value 0f"
+.kdb.desc.keywords.cross:"This function gives the cartesian product of two arguments"
+.kdb.desc.keywords.cut:"This function allows a table or list to be cut at a certain point. Putting in negative numbers or a single zero results in a domain error. Putting in a number larger then the number of atoms results in the argument being returned as a single element list."
+.kdb.desc.keywords.delete:"This command enables rows or columns from a table to be deleted. The syntax is similar to that of a query."
+.kdb.desc.keywords.deltas:"The deltas function is another primitive uniform function, which produces the differences of neighbouring items in the argument. The ith item of the result of deltas v is v[i]-v[i-1] for i greater than 0. Note that the first item of the result is identical to the firsm item of the argument."
+.kdb.desc.keywords.desc:"This monadic function sorts a list from largest to smallest. Duplicates are allowed making this a uniform function."
+.kdb.desc.keywords.dev:"This function gives the mathematical deviation for a list of numeric values; it is therefore an aggregate function. The numeric list need to have at least 2 values or else the null 0f is returned."
+.kdb.desc.keywords.differ:"This uniform function checks each member of a list to see if it differs from the preceding element. It returns a list of bool values with 1b indicating that the current value and the preceding one do differ whilst a 0b indicates the opposite. The first atom of a list returns 1b by default."
+.kdb.desc.keywords.distinct:"This monadic function returns the distinct elements of a list."
+.kdb.desc.keywords.div:"The function div is a dyadic function which performs integer division on two values. The function preserves the type of the first argument, except char, bytes, and shorts are converted to ints."
+.kdb.desc.keywords.divide:"Divid is a dyadic arithmetic function. Note that divide is denote by eprcentage sign. Numeric datatypes can be mixed in arithmetic expressions and required conversions from one to another automatic. the arguments of percentage sign are converted to float before the operation is performed."
+.kdb.desc.keywords.do:"A dyadic function, which accepts an integer and a function. the do function runs the inputfunction the inputer number of times."
+.kdb.desc.keywords.dsave:"A dyadic function, the dscave function saves global tables to disk as a splayed enumerated and indexted tables. Provides similar functionalit to .Q.dpft"
+.kdb.desc.keywords.each:""
+.kdb.desc.keywords.eachboth:""
+.kdb.desc.keywords.ej:""
+.kdb.desc.keywords.enlist:""
+.kdb.desc.keywords.equal:""
+.kdb.desc.keywords.eval:""
+.kdb.desc.keywords.except:""
+.kdb.desc.keywords.exec:""
+.kdb.desc.keywords.exit:""
+.kdb.desc.keywords.exp:""
+.kdb.desc.keywords.fby:""
+.kdb.desc.keywords.fill:""
+.kdb.desc.keywords.fills:""
+.kdb.desc.keywords.first:""
+.kdb.desc.keywords.fkeys:""
+.kdb.desc.keywords.flip:""
+.kdb.desc.keywords.floor:""
+.kdb.desc.keywords.get:""
+.kdb.desc.keywords.getenv:""
+.kdb.desc.keywords.group:""
+.kdb.desc.keywords.gtime:""
+.kdb.desc.keywords.hclose:""
+.kdb.desc.keywords.hcount:""
+.kdb.desc.keywords.hdel:""
+.kdb.desc.keywords.hopen:""
+.kdb.desc.keywords.hsym:""
+.kdb.desc.keywords.iasc:""
+.kdb.desc.keywords.idesc:""
+.kdb.desc.keywords.if:""
+.kdb.desc.keywords.ij:""
+.kdb.desc.keywords.in:""
 .kdb.desc.keywords.insert:"This keyword is used to append new data to a table and returns the index of the new row. If insert is used on a key table and the key already axists an insert error will be returned.";
-.kdb.desc.keywords.inter:
-.kdb.desc.keywords.inv:
-.kdb.desc.keywords.key:
-.kdb.desc.keywords.keys:
-.kdb.desc.keywords.last:
-.kdb.desc.keywords.like:
-.kdb.desc.keywords.lj:
-.kdb.desc.keywords.ljf:
-.kdb.desc.keywords.load:
-.kdb.desc.keywords.log:
-.kdb.desc.keywords.lower:
-.kdb.desc.keywords.lsq:
-.kdb.desc.keywords.ltime:
-.kdb.desc.keywords.ltrime:
-.kdb.desc.keywords.match:
-.kdb.desc.keywords.mavg:
-.kdb.desc.keywords.max:
-.kdb.desc.keywords.maxs:
-.kdb.desc.keywords.mcount:
-.kdb.desc.keywords.md5:
-.kdb.desc.keywords.mdev:
-.kdb.desc.keywords.med:
-.kdb.desc.keywords.meta:
-.kdb.desc.keywords.min:
-.kdb.desc.keywords.mins:
-.kdb.desc.keywords.minus:
-.kdb.desc.keywords.mmax:
-.kdb.desc.keywords.mmin:
-.kdb.desc.keywords.mmu:
-.kdb.desc.keywords.mod:
-.kdb.desc.keywords.msum:
-.kdb.desc.keywords.multiplication:
-.kdb.desc.keywords.neg:
-.kdb.desc.keywords.next:
-.kdb.desc.keywords.not:
-.kdb.desc.keywords.null:
-.kdb.desc.keywords.over:
-.kdb.desc.keywords.parse:
-.kdb.desc.keywords.peach:
-.kdb.desc.keywords.pj:
-.kdb.desc.keywords.plus:
-.kdb.desc.keywords.prd:
-.kdb.desc.keywords.prds:
-.kdb.desc.keywords.prior:
-.kdb.desc.keywords.prev:
-.kdb.desc.keywords.rand:
-.kdb.desc.keywords.rank:
-.kdb.desc.keywords.ratios:
+.kdb.desc.keywords.inter:""
+.kdb.desc.keywords.inv:""
+.kdb.desc.keywords.key:""
+.kdb.desc.keywords.keys:""
+.kdb.desc.keywords.last:""
+.kdb.desc.keywords.like:""
+.kdb.desc.keywords.lj:""
+.kdb.desc.keywords.ljf:""
+.kdb.desc.keywords.load:""
+.kdb.desc.keywords.log:""
+.kdb.desc.keywords.lower:""
+.kdb.desc.keywords.lsq:""
+.kdb.desc.keywords.ltime:""
+.kdb.desc.keywords.ltrime:""
+.kdb.desc.keywords.match:""
+.kdb.desc.keywords.mavg:""
+.kdb.desc.keywords.max:""
+.kdb.desc.keywords.maxs:""
+.kdb.desc.keywords.mcount:""
+.kdb.desc.keywords.md5:""
+.kdb.desc.keywords.mdev:""
+.kdb.desc.keywords.med:""
+.kdb.desc.keywords.meta:""
+.kdb.desc.keywords.min:""
+.kdb.desc.keywords.mins:""
+.kdb.desc.keywords.minus:""
+.kdb.desc.keywords.mmax:""
+.kdb.desc.keywords.mmin:""
+.kdb.desc.keywords.mmu:""
+.kdb.desc.keywords.mod:""
+.kdb.desc.keywords.msum:""
+.kdb.desc.keywords.multiplication:""
+.kdb.desc.keywords.neg:""
+.kdb.desc.keywords.next:""
+.kdb.desc.keywords.not:""
+.kdb.desc.keywords.null:""
+.kdb.desc.keywords.over:""
+.kdb.desc.keywords.parse:""
+.kdb.desc.keywords.peach:""
+.kdb.desc.keywords.pj:""
+.kdb.desc.keywords.plus:""
+.kdb.desc.keywords.prd:""
+.kdb.desc.keywords.prds:""
+.kdb.desc.keywords.prior:""
+.kdb.desc.keywords.prev:""
+.kdb.desc.keywords.rand:""
+.kdb.desc.keywords.rank:""
+.kdb.desc.keywords.ratios:""
 .kdb.desc.keywords.raze:"return the items of x, collapsing one level of nesting"
-.kdb.desc.keywords.read0:
-.kdb.desc.keywords.read1:
-.kdb.desc.keywords.reciprocal:
-.kdb.desc.keywords.reval:
-.kdb.desc.keywords.reverse:
-.kdb.desc.keywords.rload:
-.kdb.desc.keywords.rotate:
-.kdb.desc.keywords.rsave:
-.kdb.desc.keywords.rtrim:
-.kdb.desc.keywords.save:
-.kdb.desc.keywords.scan:
-.kdb.desc.keywords.scov:
-.kdb.desc.keywords.sdev:
-.kdb.desc.keywords.select:
-.kdb.desc.keywords.set:
-.kdb.desc.keywords.sevenv:
-.kdb.desc.keywords.show:
-.kdb.desc.keywords.signum:
-.kdb.desc.keywords.sin:
-.kdb.desc.keywords.sqrt:
-.kdb.desc.keywords.ss:
-.kdb.desc.keywords.ssr:
-.kdb.desc.keywords.string:
-.kdb.desc.keywords.sublist:
-.kdb.desc.keywords.sum:
-.kdb.desc.keywords.sums:
-.kdb.desc.keywords.sv:
-.kdb.desc.keywords.svar:
-.kdb.desc.keywords.system:
-.kdb.desc.keywords.tables:
-.kdb.desc.keywords.tan:
-.kdb.desc.keywords.til:
-.kdb.desc.keywords.trim:
-.kdb.desc.keywords.type:
-.kdb.desc.keywords.uj:
-.kdb.desc.keywords.ungroup:
-.kdb.desc.keywords.union:
-.kdb.desc.keywords.update:
-.kdb.desc.keywords.upper:
+.kdb.desc.keywords.read0:""
+.kdb.desc.keywords.read1:""
+.kdb.desc.keywords.reciprocal:""
+.kdb.desc.keywords.reval:""
+.kdb.desc.keywords.reverse:""
+.kdb.desc.keywords.rload:""
+.kdb.desc.keywords.rotate:""
+.kdb.desc.keywords.rsave:""
+.kdb.desc.keywords.rtrim:""
+.kdb.desc.keywords.save:""
+.kdb.desc.keywords.scan:""
+.kdb.desc.keywords.scov:""
+.kdb.desc.keywords.sdev:""
+.kdb.desc.keywords.select:""
+.kdb.desc.keywords.set:""
+.kdb.desc.keywords.sevenv:""
+.kdb.desc.keywords.show:""
+.kdb.desc.keywords.signum:""
+.kdb.desc.keywords.sin:""
+.kdb.desc.keywords.sqrt:""
+.kdb.desc.keywords.ss:""
+.kdb.desc.keywords.ssr:""
+.kdb.desc.keywords.string:""
+.kdb.desc.keywords.sublist:""
+.kdb.desc.keywords.sum:""
+.kdb.desc.keywords.sums:""
+.kdb.desc.keywords.sv:""
+.kdb.desc.keywords.svar:""
+.kdb.desc.keywords.system:""
+.kdb.desc.keywords.tables:""
+.kdb.desc.keywords.tan:""
+.kdb.desc.keywords.til:""
+.kdb.desc.keywords.trim:""
+.kdb.desc.keywords.type:""
+.kdb.desc.keywords.uj:""
+.kdb.desc.keywords.ungroup:""
+.kdb.desc.keywords.union:""
+.kdb.desc.keywords.update:""
+.kdb.desc.keywords.upper:""
 .kdb.desc.keywords.update:"This function can be used to update certain information in a table. If the table name is passed by value, a table is returned with the updated results. If the table name is passed by reference the table name as a symbol is returned and the changes are persisted in the table.";
 .kdb.desc.keywords.upper:
 .kdb.desc.keywords.upsert:"The verb upsert inserts or updates new records to a table. If the table is keyed and a record matches on a keyed column, then the matching row is updated. Otherwise the record is inserted at the end of the table."
-.kdb.desc.keywords.value:
-.kdb.desc.keywords.var:
-.kdb.desc.keywords.view:
-.kdb.desc.keywords.views:
-.kdb.desc.keywords.vs:
-.kdb.desc.keywords.wavg:
-.kdb.desc.keywords.where:
-.kdb.desc.keywords.within:
-.kdb.desc.keywords.wj:
-.kdb.desc.keywords.wj1:
-.kdb.desc.keywords.ww:
-.kdb.desc.keywords.wsum:
-.kdb.desc.keywords.xasc:
-.kdb.desc.keywords.xbar:
-.kdb.desc.keywords.xcol:
-.kdb.desc.keywords.xcols:
-.kdb.desc.keywords.xdesc:
-.kdb.desc.keywords.xexp:
-.kdb.desc.keywords.xgroup:
-.kdb.desc.keywords.xkey:
-.kdb.desc.keywords.xlog:
-.kdb.desc.keywords.xprev:
-.kdb.desc.keywords.xrank:
+.kdb.desc.keywords.value:""
+.kdb.desc.keywords.var:""
+.kdb.desc.keywords.view:""
+.kdb.desc.keywords.views:""
+.kdb.desc.keywords.vs:""
+.kdb.desc.keywords.wavg:""
+.kdb.desc.keywords.where:""
+.kdb.desc.keywords.within:""
+.kdb.desc.keywords.wj:""
+.kdb.desc.keywords.wj1:""
+.kdb.desc.keywords.ww:""
+.kdb.desc.keywords.wsum:""
+.kdb.desc.keywords.xasc:""
+.kdb.desc.keywords.xbar:""
+.kdb.desc.keywords.xcol:""
+.kdb.desc.keywords.xcols:""
+.kdb.desc.keywords.xdesc:""
+.kdb.desc.keywords.xexp:""
+.kdb.desc.keywords.xgroup:""
+.kdb.desc.keywords.xkey:""
+.kdb.desc.keywords.xlog:""
+.kdb.desc.keywords.xprev:""
+.kdb.desc.keywords.xrank:""
