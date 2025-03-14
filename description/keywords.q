@@ -92,21 +92,21 @@
 .kdb.desc.keywords.md5:"This function exnrypts text using the message-digest algorithm 5.";
 .kdb.desc.keywords.mdev:"This uniform function computes the moving standard deviation of a list of numeric values. The first atom of the output is always 0, as this is the measure of the deviation of a single number. the next atom of the output is the deviation of the first and second atoms of the input and and so forth until the n'th atom of the input list is reached. After that, the first atom of the input is dropped from consideration and the next one is added.";
 .kdb.desc.keywords.med:"This function returns the mathematical median of a list of numeric values.";
-.kdb.desc.keywords.meta:"";
-.kdb.desc.keywords.min:""
-.kdb.desc.keywords.mins:""
-.kdb.desc.keywords.minus:""
-.kdb.desc.keywords.mmax:""
-.kdb.desc.keywords.mmin:""
-.kdb.desc.keywords.mmu:""
-.kdb.desc.keywords.mod:""
-.kdb.desc.keywords.msum:""
-.kdb.desc.keywords.multiplication:""
-.kdb.desc.keywords.neg:""
-.kdb.desc.keywords.next:""
-.kdb.desc.keywords.not:""
-.kdb.desc.keywords.null:""
-.kdb.desc.keywords.over:""
+.kdb.desc.keywords.meta:"Displays table meta data. the result is in the form of a keywed table with columns c,t,f,a. Where c is column name, t is data type, f is foreign key and a is attribute.";
+.kdb.desc.keywords.min:"Comparison function to see what is the max between two items. The max of 2 chars is the one with the highest byte order. Max and min can also apply to boolean results.";
+.kdb.desc.keywords.mins:"The mins function is a primitive uniform function. The nth result is the minimum of the first n items in the argument.";
+.kdb.desc.keywords.minus:"Minus is a dyadic arithmetic function. Numeric datatypes can be mixed in arithmetic expressions and required conversions from one to another are automatic. The sum, product and difference of two bools are ints. the difference of two ints is always an int, the modulo two to the 32 power value of the mathematical result. Analogously the difference of two longs or a long and an int is always a long, the modulo 2 to the 64 value of the mathematical result";
+.kdb.desc.keywords.mmax:"The mmax verb returns the N-item moving moaximum of its numeric right argument, with nulls after the first replaced by the preceding maximum. the first N items of the result are the maximums of the terms so far, and thereafter the result is the moving maximum.";
+.kdb.desc.keywords.mmin:"The mmin verb returns the Nitem moving minimum of its numeric right argument, with nulls treated as the minimum value. The first N items of the result are the minimums of the terms so far, and therafter the result is the moving minimum.";
+.kdb.desc.keywords.mmu:"This dyadic operator only works on matrices of type float. If a is a l x m matrix b is a m x n matrix, then a mmu b is a l x n matrix. This functions works for all matrices, except for the case of a column vector times a row vector. this is because both types of vectors are represented in the same way and mmu distinguishes between them according to the situation.";
+.kdb.desc.keywords.mod:"The modulus function returns the remainder of m divided by n";
+.kdb.desc.keywords.msum:"This uniform function is the n-number moving sum of the input list of numeric values. If n is greater than or equal to count list then the output is the same as that of the sums function. Until";
+.kdb.desc.keywords.multiplication:"times is a dyadic arithmetic function. Numeric datatypes can be mixed in arithmetic expressions and required conversions from one to another are automatic. The sum, product and difference of two bools are ints. The product of two ints is always an int, the modulo 2^32 value of the mathematical result. Analogously, the product of two longs or a long and an int is always a long, the modulo 2^64 value of the mathematical result.";
+.kdb.desc.keywords.neg:"Returns the negation of its argument and can be applied to all datatypes except sym and char. If the argument passed is an IPC handle, the message is sent asynchronously.";
+.kdb.desc.keywords.next:"Returns the next item in a list for each element. The final value will be a null with the same type as the first item in the list. If the first item is a list the last value will be a list, its format depending on the make up of the first item. It can also be used to cycle through a list. This use of next is uniform, with the first atom 2 being dropped and the null int being tacked on the end.";
+.kdb.desc.keywords.not:"There is one monadic relational function, named not. This function gives the relationship of all numeric values to zero: the result is 1b if the argument is identical to 0 and 0b if it is not.";
+.kdb.desc.keywords.null:"The monadic function null is an atomic function whose result has the same structure as the as the argument, with each atom replaced by 1b if the atom is a null or 0b otherwise. This function is useful when replacing null values in a way other than that defined by fill. For example, suppose you want to replace the null values with their previous values. The where function used with null gives the indices of the null values. The replacement can then be done as well.";
+.kdb.desc.keywords.over:"Over is an adverb which recusively applies a dyadic function a list where its first input is the previous result and second input is the next item in the list. Over returns only latest recursion. Ocer can either be denoted by the word over or a forward slash.";
 .kdb.desc.keywords.parse:""
 .kdb.desc.keywords.peach:""
 .kdb.desc.keywords.pj:""
