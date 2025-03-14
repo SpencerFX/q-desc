@@ -122,21 +122,21 @@
 .kdb.desc.keywords.read0:"This function can be used to read in a text file. Alternatively read1 can be used to read a portion of a file. In this case, the arguments read1 takes are a file handle, an offset at which to begin reading and a length to read."
 .kdb.desc.keywords.read1:"This function can be used to read in a file as a list of bytes. Alternatively, read1 can be used to read a portion of a file. In this case, the arguments read1 takes are a file handle, an offset at which to begin reading and a length to read."
 .kdb.desc.keywords.reciprocal:"This function returns the reciprocal of its argument. The argument is converted type float before the reciprocal is taken. The return is also of type float."
-.kdb.desc.keywords.reval:""
-.kdb.desc.keywords.reverse:""
-.kdb.desc.keywords.rload:""
-.kdb.desc.keywords.rotate:""
-.kdb.desc.keywords.rsave:""
-.kdb.desc.keywords.rtrim:""
-.kdb.desc.keywords.save:""
-.kdb.desc.keywords.scan:""
-.kdb.desc.keywords.scov:""
-.kdb.desc.keywords.sdev:""
-.kdb.desc.keywords.select:""
-.kdb.desc.keywords.set:""
-.kdb.desc.keywords.sevenv:""
-.kdb.desc.keywords.show:""
-.kdb.desc.keywords.signum:""
+.kdb.desc.keywords.reval:"The reval function is used to prevent clients from writing on the server. It is often used as part of the .z.pg or .ps.functions. This allows the server to prevent unauthorized editing.";
+.kdb.desc.keywords.reverse:"This uniform function reverses a list.";
+.kdb.desc.keywords.rload:"Loads a splayed table to the q workspace. the more common method involves using the get function.";
+.kdb.desc.keywords.rotate:"This function rotates a list or table. It takes an integer, n, as the left argument and a list or table as the right argument. If n is positive, it takes the first n items or rows and puts them on the right side of the list or bottom of the table. If n is negative, it takes the last n items or rows and puts them on the left side of the list or top of the table.";
+.kdb.desc.keywords.rsave:"Saves a table in splayed form. In order to save a splayed table, all columns type symbol must be enumerated. the more common method involves using the set function.";
+.kdb.desc.keywords.rtrim:"The rtrim function removes trailing spaces from a string.";
+.kdb.desc.keywords.save:"Depending on the file exension of the operand, this function can save global data to a binary, csv, json, txt, xls or xml file.";
+.kdb.desc.keywords.scan:"Scan is an adverb which when applied to dyadic functions recusively applies the dyadic function to a list where its first input is the previous result and second input is the next item in the list. Scan returns each result. Scan either be denoted by the word scan or a backslash. When scan acts upon a monadic function, it applies the function until it returns a repeat result. the first element of the output is always the input atom.";
+.kdb.desc.keywords.scov:"The function scov returns the statistical covariance of two numeric lists. the function uses the formul scov(x,y)=n % (n-1)*cov(x,y)";;
+.kdb.desc.keywords.sdev:"The sev function computes the standard deviation of a list of numbers.";
+.kdb.desc.keywords.select:"the select keyword is vital in querying tables via qSQL. It is used in the select from by where construct.";
+.kdb.desc.keywords.set:"The set function can be used to assign a value to a variable. It can also be used to save data to disk.";
+.kdb.desc.keywords.sevenv:"The function setenv is used to set an environmental variable in the operating system.";
+.kdb.desc.keywords.show:"The show function allows an argument to be shown on the console display.";
+.kdb.desc.keywords.signum:"This uniform function returns a numeric list who atoms have the int value 1, -1, 0 if the atom in the input list greater than zero then the output value is 1, if the atom in the input list is less than zero, then the output value is -1, and if 0 the corresponding output value is 0.";
 .kdb.desc.keywords.sin:""
 .kdb.desc.keywords.sqrt:""
 .kdb.desc.keywords.ss:""
