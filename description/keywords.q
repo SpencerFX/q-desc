@@ -70,29 +70,29 @@
 .kdb.desc.keywords.ij:"The inner join joins tables on the key columns of the second table.";
 .kdb.desc.keywords.in:"This dyadic function can be used to query lists (on the right-hand side) about their contents. the output is a bool list indicating whether or not a specified atom is in the queried list.";
 .kdb.desc.keywords.insert:"This keyword is used to append new data to a table and returns the index of the new row. If insert is used on a key table and the key already axists an insert error will be returned.";
-.kdb.desc.keywords.inter:"This dyadic function returns the intersection of two lists; that is the atoms they have in common."
-.kdb.desc.keywords.inv:"This monadic function returns the matrix inverse. The function only works on matrixes with float values."
-.kdb.desc.keywords.key:"The keyword key is overloaded with several different functions. It can be used to return the keys of a dictionary or the keyed columns of a table. It can also be used to return a list of objects in a directory. Key can also be used to return a list of numbers from 0 to n-1, where n is a positive integer/long value."
-.kdb.desc.keywords.keys:"This function obtains the keys of a table."
-.kdb.desc.keywords.last:"This keyword returns the last atom in a list, the last row in a table as a ditionary or the last value in a dictionary."
-.kdb.desc.keywords.like:"This function performs a string match, where list1[i] matches pattern in list2[i]. ? is a wildcard denoting any one character while * is a wildcard denoting any number of characters. When characters are enclosed in square brackets, the match can be on any single character in the brackets."
-.kdb.desc.keywords.lj:"The lj (left join) verb joins tables on the key columns of its right argument. the left argument is a table, and the right argument is a keyed table, where the key columns must be a subset of the column of the left argument. More information can be found in the Basic Table Joins section."
-.kdb.desc.keywords.ljf:"(left join earlier version) The ljf verb joins tables on the key columns of its right argument. The left argument is an unkeyed table and the right argument is a keyed table. If the right table has a null in the same column that the left key table has a non null value, the resulting table keeps the non-null value."
-.kdb.desc.keywords.load:"This keyword loads a q data file."
-.kdb.desc.keywords.log:"This function returns the natural logarithm of a non-negative numeric value."
-.kdb.desc.keywords.lower:"This function converts symbols or strings to lowercase symbols or strings of the same type."
-.kdb.desc.keywords.lsq:"The lsq verb is a matrix divid. x and y must be floating point matrices with the same number of columns. The number of rows of y must be less than or equal to the number of columns, and the rows of y must be linearly independent."
-.kdb.desc.keywords.ltime:"Converts to local time."
-.kdb.desc.keywords.ltrim:"The ltrim function removes leading spaces from a string"
-.kdb.desc.keywords.match:"Match is used to determine whether the two arguments are exactly identical. If they are exactly equivalent, matrch returns 1b. If they have any differences including type differences, match returns 0b. When comparing floats, comparison tolerance is used. It is also important to note that symbols from different enumerations will not match. Match depends on the datatype of arguments, not just the values."
-.kdb.desc.keywords.mavg:"Computes the n-number moving average of a list of numeric values. the function is uniform so that the moving average build up to the n-number one as the function goes along the list. The upshot of this is that the first atom of the output is the 1-number average of the input(first atom), the second is the 2-number average of the first and second atoms of the output and so forth and so on until the n-number moving average is reached. If the count of the list is m, and we perform n mvg list with n>=m, the moving average just up in the usual manner, so the i'th atom of the output is the i-number moving average starting from the beginning of the input list."
-.kdb.desc.keywords.max:"Comparison function to see what is the max between two items. The max of 2 chars is the one with the highest byte order. Max and min can also apply to boolean results"
-.kdb.desc.keywords.maxs:"The maxs function is a primitive uniform function. The nth result is the maximum of the first n items in the argument."
-.kdb.desc.keywords.mcount:"The mcount function returns the N-item moving count of the non-null items in its right argument. The first N items are the counts up to that index. After this, the result is the moving count."
-.kdb.desc.keywords.md5:"This function exnrypts text using the message-digest algorithm 5."
-.kdb.desc.keywords.mdev:"This uniform function computes the moving standard deviation of a list of numeric values. The first atom of the output is always 0, as this is the measure of the deviation of a single number. the next atom of the output is the deviation of the first and second atoms of the input and and so forth until the n'th atom of the input list is reached. After that, the first atom of the input is dropped from consideration and the next one is added."
-.kdb.desc.keywords.med:"This function returns the mathematical median of a list of numeric values."
-.kdb.desc.keywords.meta:""
+.kdb.desc.keywords.inter:"This dyadic function returns the intersection of two lists; that is the atoms they have in common.";
+.kdb.desc.keywords.inv:"This monadic function returns the matrix inverse. The function only works on matrixes with float values.";
+.kdb.desc.keywords.key:"The keyword key is overloaded with several different functions. It can be used to return the keys of a dictionary or the keyed columns of a table. It can also be used to return a list of objects in a directory. Key can also be used to return a list of numbers from 0 to n-1, where n is a positive integer/long value.";
+.kdb.desc.keywords.keys:"This function obtains the keys of a table.";
+.kdb.desc.keywords.last:"This keyword returns the last atom in a list, the last row in a table as a ditionary or the last value in a dictionary.";
+.kdb.desc.keywords.like:"This function performs a string match, where list1[i] matches pattern in list2[i]. ? is a wildcard denoting any one character while * is a wildcard denoting any number of characters. When characters are enclosed in square brackets, the match can be on any single character in the brackets.";
+.kdb.desc.keywords.lj:"The lj (left join) verb joins tables on the key columns of its right argument. the left argument is a table, and the right argument is a keyed table, where the key columns must be a subset of the column of the left argument. More information can be found in the Basic Table Joins section.";
+.kdb.desc.keywords.ljf:"(left join earlier version) The ljf verb joins tables on the key columns of its right argument. The left argument is an unkeyed table and the right argument is a keyed table. If the right table has a null in the same column that the left key table has a non null value, the resulting table keeps the non-null value.";
+.kdb.desc.keywords.load:"This keyword loads a q data file.";
+.kdb.desc.keywords.log:"This function returns the natural logarithm of a non-negative numeric value.";
+.kdb.desc.keywords.lower:"This function converts symbols or strings to lowercase symbols or strings of the same type.";
+.kdb.desc.keywords.lsq:"The lsq verb is a matrix divid. x and y must be floating point matrices with the same number of columns. The number of rows of y must be less than or equal to the number of columns, and the rows of y must be linearly independent.";
+.kdb.desc.keywords.ltime:"Converts to local time.";
+.kdb.desc.keywords.ltrim:"The ltrim function removes leading spaces from a string";
+.kdb.desc.keywords.match:"Match is used to determine whether the two arguments are exactly identical. If they are exactly equivalent, matrch returns 1b. If they have any differences including type differences, match returns 0b. When comparing floats, comparison tolerance is used. It is also important to note that symbols from different enumerations will not match. Match depends on the datatype of arguments, not just the values.";
+.kdb.desc.keywords.mavg:"Computes the n-number moving average of a list of numeric values. the function is uniform so that the moving average build up to the n-number one as the function goes along the list. The upshot of this is that the first atom of the output is the 1-number average of the input(first atom), the second is the 2-number average of the first and second atoms of the output and so forth and so on until the n-number moving average is reached. If the count of the list is m, and we perform n mvg list with n>=m, the moving average just up in the usual manner, so the i'th atom of the output is the i-number moving average starting from the beginning of the input list.";
+.kdb.desc.keywords.max:"Comparison function to see what is the max between two items. The max of 2 chars is the one with the highest byte order. Max and min can also apply to boolean results";
+.kdb.desc.keywords.maxs:"The maxs function is a primitive uniform function. The nth result is the maximum of the first n items in the argument.";
+.kdb.desc.keywords.mcount:"The mcount function returns the N-item moving count of the non-null items in its right argument. The first N items are the counts up to that index. After this, the result is the moving count.";
+.kdb.desc.keywords.md5:"This function exnrypts text using the message-digest algorithm 5.";
+.kdb.desc.keywords.mdev:"This uniform function computes the moving standard deviation of a list of numeric values. The first atom of the output is always 0, as this is the measure of the deviation of a single number. the next atom of the output is the deviation of the first and second atoms of the input and and so forth until the n'th atom of the input list is reached. After that, the first atom of the input is dropped from consideration and the next one is added.";
+.kdb.desc.keywords.med:"This function returns the mathematical median of a list of numeric values.";
+.kdb.desc.keywords.meta:"";
 .kdb.desc.keywords.min:""
 .kdb.desc.keywords.mins:""
 .kdb.desc.keywords.minus:""
