@@ -167,18 +167,18 @@
 .kdb.desc.keywords.wavg:"The function wavg is used to compute weighted averages. The function takes in two lists of equal length. The left argument is a list of weights and the right argument is a list of values. The result of the function is a float.";
 .kdb.desc.keywords.where:"This function takes a non-negative list of integers, x. The function returns a list of integers consisting of the build up of i copies of x[i]. This is particularly useful when the list x is bools. In this case, where will return the indices of where the list contains 1b. The function where is also commonly used as a part of qSQL queries.";
 .kdb.desc.keywords.within:"This function returns a boolean indicating whether its left argument is within the bounds of its right argument. The bounds are inclusive so elements of the left argument matching the bounds return 1b. The within function is commonly used where statements in qSQL queries.";
-.kdb.desc.keywords.wj:""
-.kdb.desc.keywords.wj1:""
-.kdb.desc.keywords.ww:""
-.kdb.desc.keywords.wsum:""
-.kdb.desc.keywords.xasc:""
-.kdb.desc.keywords.xbar:""
-.kdb.desc.keywords.xcol:""
-.kdb.desc.keywords.xcols:""
-.kdb.desc.keywords.xdesc:""
-.kdb.desc.keywords.xexp:""
-.kdb.desc.keywords.xgroup:""
-.kdb.desc.keywords.xkey:""
-.kdb.desc.keywords.xlog:""
-.kdb.desc.keywords.xprev:""
-.kdb.desc.keywords.xrank:""
+.kdb.desc.keywords.wj:"The window join is a generalization of the aj. It aggregates all values of specified columns within intervals. The prevailing quote is considered valid in a wj.";
+.kdb.desc.keywords.wj1:"The window join is a generalization of the aj. It aggregates all values of speciffied columns within intervals. Only quotes on or after entry into the window are considered.";
+.kdb.desc.keywords.ww:"Both wj and wj1 are implemented through the function ww since version 3.0.";
+.kdb.desc.keywords.wsum:"The function wsum is used to compute weighted sums. The function takes in two lists of equal length. The left argument is a list of weights and the right argument is a list of values. the result of the function is a float.";
+.kdb.desc.keywords.xasc:"This dyadic function allows a table (right-hand argument) to be sorted such that the left hand argument column specified is in ascending order, applies a sorted attribute to this column. If the left hand argument is a list of columns, subsequent columns will be sorted within their precessesors. If the table is passed by the reference, the table symbol is returned and the sorting attribute are persisted on the table.";
+.kdb.desc.keywords.xbar:"For ints and floats, this dyadic function acts as a scaled type of their floor function. This function is commonly used to group a table by time intervals.";
+.kdb.desc.keywords.xcol:"The xcol function is used to rename the columns of a table. The left argument is the new names of the first n columns and the right argument is the table name. If you wish to rename the nth column, you must list the names of the first n-1 columns also.";
+.kdb.desc.keywords.xcols:"This dyadic function allows the user to reorder the columns of a table. For instance, consider the following trade table, and put the last two columns by performing.";
+.kdb.desc.keywords.xdesc:"This dyadic functiojn allows a table to be sorted such that one column is in descending order.";
+.kdb.desc.keywords.xexp:"The xexp raises the left argument to the right argument.";
+.kdb.desc.keywords.xgroup:"This dyadic function allows the creation of a nest table. It groups based on the column specified in the left argument.";
+.kdb.desc.keywords.xkey:"This dyadic function allows a key to be set on a table.";
+.kdb.desc.keywords.xlog:"This dyadic functions computes the logarithm of right argument with the base being the left argument.";
+.kdb.desc.keywords.xprev:"This dyadic function returns the nth previous item for each element in its list.";
+.kdb.desc.keywords.xrank:"Wherreas rank gave each atom of a list, for example, its own unique index, xrank groups the entire list/table, etc, into n distinct groups. For instance, splitting the first ten natural numbers into 2 groups gives the unsuprirsing result. It can also be useful in grouping data.";
