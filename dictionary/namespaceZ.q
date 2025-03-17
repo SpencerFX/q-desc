@@ -55,6 +55,6 @@
         (`x; .kdb.desc.func.z.x);
         (`Z; .kdb.desc.func.z.Z);
         (`z; .kdb.desc.func.z.z);
-        (`d; .kdb.desc.func.z.d);
+        (`d; .kdb.desc.func.z.zd);
         (`T; .kdb.desc.func.z.T)
     );
