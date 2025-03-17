@@ -104,51 +104,51 @@
  };
 
 .kdb.exp.args.q:{
- show "CLI Example: -p";
- show .kdb.desc.args.p;
+ show "CLI Example: -q";
+ show .kdb.desc.args.q;
  };
 
 .kdb.exp.args.r:{
- show "CLI Example: -p";
- show .kdb.desc.args.p;
+ show "CLI Example: -r";
+ show .kdb.desc.args.r;
  };
 
 .kdb.exp.args.s:{
- show "CLI Example: -p";
- show .kdb.desc.args.p;
+ show "CLI Example: -s";
+ show .kdb.desc.args.s;
  };
 
 .kdb.exp.args.S:{
- show "CLI Example: -p";
- show .kdb.desc.args.p;
+ show "CLI Example: -S";
+ show .kdb.desc.args.S;
  };
 
 .kdb.exp.args.T:{
- show "CLI Example: -p";
- show .kdb.desc.args.p;
+ show "CLI Example: -T";
+ show .kdb.desc.args.T;
  };
 
 .kdb.exp.args.u:{
- show "CLI Example: -p";
- show .kdb.desc.args.p;
+ show "CLI Example: -u";
+ show .kdb.desc.args.u;
  };
 
 .kdb.exp.args.U:{
- show "CLI Example: -p";
- show .kdb.desc.args.p;
+ show "CLI Example: -u";
+ show .kdb.desc.args.U;
  };
 
 .kdb.exp.args.w:{
- show "CLI Example: -p";
- show .kdb.desc.args.p;
+ show "CLI Example: -w";
+ show .kdb.desc.args.w;
  };
 
 .kdb.exp.args.W:{
- show "CLI Example: -p";
- show .kdb.desc.args.p;
+ show "CLI Example: -W";
+ show .kdb.desc.args.W;
  };
 
 .kdb.exp.args.z:{
- show "CLI Example: -p";
- show .kdb.desc.args.p;
+ show "CLI Example: -z";
+ show .kdb.desc.args.z;
  };
