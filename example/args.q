@@ -103,52 +103,73 @@
  show "q -p 5";
  };
 
+// .kdb.exp.args.q
 .kdb.exp.args.q:{
  show "CLI Example: -q";
  show .kdb.desc.args.q;
+ show "q -q";
+ show "2+3 // 5 is not shown";
  };
 
+// .kdb.exp.args.r[]
 .kdb.exp.args.r:{
  show "CLI Example: -r";
  show .kdb.desc.args.r;
+ show "q -r :host:port[:user[:password]]"
  };
 
+// .kdb.exp.args.
 .kdb.exp.args.s:{
  show "CLI Example: -s";
  show .kdb.desc.args.s;
+ show "q -s 8";
  };
 
+// .kdb.exp.args.S[]
 .kdb.exp.args.S:{
  show "CLI Example: -S";
  show .kdb.desc.args.S;
+ show "q -S -314159i";
  };
 
+// .kdb.exp.args.T[]
 .kdb.exp.args.T:{
  show "CLI Example: -T";
  show .kdb.desc.args.T;
+ show "q -T 240";
  };
 
+// .kdb.exp.args.u[]
 .kdb.exp.args.u:{
  show "CLI Example: -u";
  show .kdb.desc.args.u;
+ show "q -p 5001 -u superUser:password";
  };
 
+// .kdb.exp.args.U[]
 .kdb.exp.args.U:{
  show "CLI Example: -u";
  show .kdb.desc.args.U;
+ show "password file contents may look like: user1:password1";
  };
 
+// .kdb.exp.args.w[]
 .kdb.exp.args.w:{
  show "CLI Example: -w";
  show .kdb.desc.args.w;
+ show "q -w 1000";
  };
 
+// .kdb.exp.args.W[]
 .kdb.exp.args.W:{
  show "CLI Example: -W";
  show .kdb.desc.args.W;
+ show "q -W 1 # sets the start of the week to Sunday";
  };
 
+// .kdb.exp.args.z[]
 .kdb.exp.args.z:{
  show "CLI Example: -z";
  show .kdb.desc.args.z;
+ show "q -z 1";
  };
