@@ -13,7 +13,7 @@
 
 .kdb.desc.args.e:"Sets error-trapping mode. The default is 0 (off).";
 
-.kdb.desc.args.E:"TLS Server Mode";
+.kdb.desc.args.E:"TLS Server Mode. -E 0 is plain, -E 1 is plain & TLS and -E 2 is TLS only";
 
 .kdb.desc.args.g:"Show or set garbage-collection mode. The default mode is 0 (deferred). Setting the garbage-collection mode will automatically call .Q.gc[] after setting the provided value. Q manages its own thread-local heap. Objects in q use reference counting. As soon as there are no references to an object, its memory is eligable to be returned to the heap. 0 (deferred): Returns memory to the thread-local heap. Will subsequently return memory to the OS when either .Q.gc[] is called or an allocation fails, hence has a performance advantage, but can be more difficult to dimension or manage memory requirements. 1 (immediate): As memory is returned to the thread-local heap, if the object is ≥64MB then the memory is returned to the OS instead. This has an associated performance overhead. As per defered mode, memory used by the heap may be subsequently returned to the OS when either .Q.gc[] is called or an allocation fails. When q is denied additional address space from the OS, it invokes .Q.gc[] and retries the request to the OS. If the subsequent attempt fail, the request exits with 'wsfull.";
 
