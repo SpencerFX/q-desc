@@ -542,4 +542,5 @@ system"c 350 550";
 .kdb.exp.func.Q.x:{
     show ".Q.x";
     show .kdb.desc.func.Q.x;
+    show .Q.x;
  };
