@@ -71,7 +71,7 @@
 
 .kdb.desc.func.Q.fu:"apply unique - Where x is a unary function and y is a list, returns x[y] after evaluating x only on distinct items of y, not a list, returns x[y]. .Q.fu applies x to the distinct items of y. Where for any index i, the result of x y i depends on no other item of y, then .Q.fu works as intended. Where this is not so, the result is unlikely to be expected or useful.";
 
-.kdb.desc.func.Q.gc:"garbage collect - Run garbage-collection and returns the amount of memory that was returned to the OS. It attempts to coalesce pieces of the heap into their original allocation units and returns any units ≥64MB to the OS. Refer to g (garbage collection mode) for details on how memory is created on the heap. When secondary threads are configured and .Q.gc[] is invoked in the main thread, .Q.gc[] is automatically invoked in each secondary thread. If the call is instigated in a secondary thread, it affects that thread’s local heap only. Example of garbage collection in the default deferred mode, using .Q.w[] to view memory stats:";
+.kdb.desc.func.Q.gc:"garbage collect - Run garbage-collection and returns the amount of memory that was returned to the OS. It attempts to coalesce pieces of the heap into their original allocation units and returns any units ≥64MB to the OS. Refer to g (garbage collection mode) for details on how memory is created on the heap. When secondary threads are configured and .Q.gc[] is invoked in the main thread, .Q.gc[] is automatically invoked in each secondary thread. If the call is instigated in a secondary thread, it affects that thread's local heap only. Example of garbage collection in the default deferred mode, using .Q.w[] to view memory stats:";
 
 .kdb.desc.func.Q.gz:"gzip - .Q.gz[::] zlib loaded, .Q.gz cbv (unzipped), .Q.gz (cl;cbv) (zipped). Where cbv is a char vector (or byte vector since 4.1t 2021.09.03,4.0 2021.10.01). cl is compression level [1-9] as a long returns, for the general null, a boolean atom as whether Zlib is loaded. cbv, the inflated (unzipped) vector a 2-list, the deflated (zipped) vector";
 
@@ -139,7 +139,7 @@
 
 .kdb.desc.func.Q.qp:"(is partitioned) - Where x is a partitioned table, returns 1b, a splayed table, returns 0b, anything else, returns 0";
 
-.kdb.desc.func.Q.t:"(is table) - .Q.qt x - Where x is a table, returns 1b, else 0b.";
+.kdb.desc.func.Q.qt:"(is table) - .Q.qt x - Where x is a table, returns 1b, else 0b.";
 
 .kdb.desc.func.Q.res:"(keywords) - Returns the control words and keywords as a symbol vector. key `.q returns the functions defined to extend k to the q language. Hence to get the full list of reserved words for the current version:";
 
