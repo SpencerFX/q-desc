@@ -5,10 +5,30 @@
 
 // Author: Spencer
 //==========================================================
-.kdb.desc.tables.flatFile:"They are fully loaded into memory, that is why their size (memory footprint) should be small. Small size/configuration/keyed tables are suited for this type of table.";
+.kdb.desc.datatypes.char:" It corresponds to a SQL CHAR. It is denoted by a single character enclosed in double quotes.";
 
-.kdb.desc.tables.splayedTables:"They are not loaded into memory but their columns (which are files on disk) are mmap-ed on demand when a query is executed against them. Their structure is suitable when queries don't touch all their columns, but only a restricted set, so only a sub set of files are accessed and loaded into memory. Medium size tables are suitable for this table type. Also the ones that can't be partitioned according to the database partition rule.";
+.kdb.desc.datatypes.symbol:"Symbols are atomic and immutable. They are suitable for representing recurring values.";
 
-.kdb.desc.tables.partitions:"They are special directories that contain tables split by a certain criteria. Partitions can only be of the following type: date, month, year, int. The partition type is determined from the partition name format: eg 2008.06.10 - the type is date, 2008.06 - the type is month, 2008 the type is year, 25 - the type is type. One database can contain only one partition type at a time. Each table in a partition will have an extra virtual column with the same type and name as the partition type, and as value the partition name.";
+.kdb.desc.datatypes.float:"Often called double in traditional languages. A float can hold (at least) 15 decimal digits of precision. It is denoted by optionally signed numeric digits with either a decimal point or an optional trailing type indicator f.";
 
-.kdb.desc.tables.sym:"The sym file is a kdb+ binary file containing the list of symbols from all splayed and partitioned tables. During the enumeration process, all columns of symbol type are converted to enumerations against the sym file, after new symbols are added to the sym file. Therefore the sym file contains a list of unique values. Being a kdb+ binary file, it can be read with get:";
+.kdb.desc.datatypes.real:"This type is called float in some languages. A real can hold at least 6 decimal digits of precision.";
+
+.kdb.desc.datatypes.boolean:"The boolean type uses one byte to store a bit and is denoted by the bit value with the trailing type indicator b. There are no keywords for true or false, nor are there separate logical operators for booleans.";
+
+.kdb.desc.datatypes.time:"time: If milliseconds are sufficient, use the time type, which stores the count of milliseconds from midnight in a 32-bit signed integer. It is denoted by hh:mm:ss.uuu where hh represents hours on the 24-hour clock, mm represents minutes, ss represents seconds, and uuu represents milliseconds.";
+
+.kdb.desc.datatypes.timespan:"timespan: If milliseconds are not sufficient, use the timespan type, which stores the count of nanoseconds from midnight as a long integer.";
+
+.kdb.desc.datatypes.datetime:"datetime(deprecated) : A datetime is the lexical combination of a date and a time, separated by T as in the ISO standard format. A datetime value stores in a float the fractional day count from midnight Jan 1, 2000.";
+
+.kdb.desc.datatypes.timestamp:"It is the lexical combination of a date and a timespan, separated by D. The underlying timestamp value is a long representing the count of nanoseconds since the millennium. Post-millennium is positive and pre- is negative.";
+
+.kdb.desc.datatypes.month:"month: The month type is stored as a 32-bit signed integer and is denoted by yyyy.mm with a trailing type indicator m. A month value is the count of months since the beginning of the millennium. Post-milieu is positive and pre is negative.";
+
+.kdb.desc.datatypes.minute:"The minute type is stored as a 32-bit signed integer and is denoted by hh:mm. A minute value counts the number of minutes from midnight.";
+
+.kdb.desc.datatypes.second:"The second type is stored as 32-bit signed integer and is denoted by hh:mm:ss. A second value counts the number of seconds from midnight.";
+
+.kdb.desc.datatypes.guid:"The guid type (since V3.0) is a 16-byte type, and can be used for storing arbitrary 16-byte values, typically transaction IDs.";
+
+.kdb.desc.datatypes.enumerations:"Enumerated types are numbered from 20h up to 76h. For example, in a new session with no enumerations defined: q)type `sym$10?sym:`AAPL`AIG`GOOG`IBM 20h";
