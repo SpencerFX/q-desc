@@ -1,7 +1,7 @@
 // INFO ====================================================
-// Purpose: Show examples for different joins
+// Purpose: Show examples for internal functions
 //==========================================================
-/ Examples of different joins
+/ Examples of internal functions
 
 // Author: Spencer
 //==========================================================
