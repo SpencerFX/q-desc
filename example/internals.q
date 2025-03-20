@@ -66,3 +66,25 @@
  show "-16!a";
  show -16!a;
  };
+
+// .kdb.exp.joins.minus18Bang[]
+.kdb.exp.joins.minus18Bang:{
+ show "Example: -18!x";
+ show .kdb.desc.func.minus18Bang;
+ show "count -8!til 1000 / uncompressed";
+ show count -8!til 1000;
+ show "count -18!til 1000 / compressed";
+ show count -18!til 1000;
+ };
+
+// .kdb.exp.joins.minus21Bang[]
+.kdb.exp.joins.minus21Bang:{
+ show "Example: -21!x";
+ show .kdb.desc.func.minus21Bang;
+ };
+
+// .kdb.exp.joins.minus22Bang[]
+.kdb.exp.joins.minus22Bang:{
+ show "Example: -22!x";
+ show .kdb.desc.func.minus22Bang;
+ };
