@@ -199,25 +199,33 @@
  t bin t;
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
- 
+// .kdb.exp.keyword.ceiling[]
+.kdb.exp.keyword.ceiling:{
+ show "example: ceiling - round up";
+ show .kdb.desc.keywords.ceiling;
+ show "ceiling -2.1 0 2.1";
+ show ceiling -2.1 0 2.1;
+ show "ceiling is an atomic function with implicit iteration";
+ show "ceiling`a`b!(1.2;3.4 5.6)";
+ show ceiling`a`b!(1.2;3.4 5.6)
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
-
+// .kdb.exp.keyword.cols[]
+.kdb.exp.keyword.cols:{
+ show "example: cols - column names of a table";
+ show .kdb.desc.keywords.cols;
+ show "cols trade";
+ show cols trade;
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
- 
+// .kdb.exp.keyword.cor[]
+.kdb.exp.keyword.cor:{
+ show "example: cor - correlation";
+ show .kdb.desc.keywords.core;
+ show "29 10 54 cor 1 3 9";
+ show 29 10 54 cor 1 3 9;
+ show "10 29 54 cor 1 3 9";
+ show 10 29 54 cor 1 3 9;
  };
 
 // .kdb.exp.keyword.[]
