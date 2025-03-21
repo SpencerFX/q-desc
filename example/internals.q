@@ -135,22 +135,43 @@
  show .kdb.desc.func.minus23Bang;
  };
 
-// .kdb.exp.func.minus33Bang
+// .kdb.exp.func.minus30Bang[]
+.kdb.exp.func.minus30Bang:{
+ show "Example: -30!x";
+ show .kdb.desc.func.minus30Bang;
+ show key .z.W;
+ show "-30!(first key .z.W;0b;`hello`world)";
+ show "results in error as the handle was not expecting a response msg";
+ };
+
+// .kdb.exp.func.minus33Bang[]
 .kdb.exp.func.minus33Bang:{
-
+ show "Example: -33!x";
+ show .kdb.desc.func.minus33Bang;
+ show "raze string -33!\"mypassword\"";
+ show raze string -33!"mypassword";
  };
 
-// .kdb.exp.func.minus36Bang
+// .kdb.exp.func.minus36Bang[]
 .kdb.exp.func.minus36Bang:{
-
+ show "Example: -36!x";
+ show .kdb.desc.func.minus36Bang;
+ show "syntax: -36!(::)    / since 4.1 2024.03.12 and 4.0 2024.03.02";
+ show "syntax: -36!(x;y)";
+ show "syntax: -36!(x;y;z) / since 4.1 2024.03.12 and 4.0 2024.03.02";
  };
 
-// .kdb.exp.func.minus38Bang
+// .kdb.exp.func.minus38Bang[]
 .kdb.exp.func.minus38Bang:{
-
+ show h::hopen `:localhost:5001;
+ show "{([]h)!-38!h:.z.H}[]";
+ show {([]h)!-38!h:.z.H}[];
  };
 
 // .kdb.exp.func.minus120Ban
 .kdb.exp.func.minus120Bang:{
-
+ show "Example: -120!x";
+ show .kdb.desc.func.minus120Bang;
+ show "-120!'(1 2 3;.m.x:1 2 3)";
+ show -120!'(1 2 3;.m.x:1 2 3);
  };
