@@ -64,84 +64,281 @@
  show asc 1 4 7 -2 3;
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
+// .kdb.exp.keyword.all[]
+.kdb.exp.keyword.all:{
+ show "example: all (multi-threaded primitive)";
  show .kdb.desc.keywords.all;
+ show "all null ([] c1:`a`b`c; c2:0n 0n 0n; c3:10 0N 30)";
+ show all null ([] c1:`a`b`c; c2:0n 0n 0n; c3:10 0N 30);
+ show "all 1 2 3=1 2 4";
+ show all 1 2 3=1 2 4
+ show "all 1 2 3=1 2 3";
+ show all 1 2 3=1 2 3;
+ show "all \"YNYN\" / string casts to 1111b";
+ show all "YNYN";
  };
 
 // .kdb.exp.keyword.[]
 .kdb.exp.keyword.:{
- show .kdb.desc.keywords.all;
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
  };
 
 // .kdb.exp.keyword.[]
 .kdb.exp.keyword.:{
- show .kdb.desc.keywords.all;
- };
-
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
-
- };
-
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
-
- };
-
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
-
- };
-
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
 
  };
 
 // .kdb.exp.keyword.[]
 .kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
 
  };
 
 // .kdb.exp.keyword.[]
 .kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
 
  };
 
 // .kdb.exp.keyword.[]
 .kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
 
  };
 
 // .kdb.exp.keyword.[]
 .kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
 
  };
 
 // .kdb.exp.keyword.[]
 .kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
 
  };
 
 // .kdb.exp.keyword.[]
 .kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
 
  };
 
 // .kdb.exp.keyword.[]
 .kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
 
  };
 
 // .kdb.exp.keyword.[]
 .kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
 
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+
+ };
+
+// .kdb.exp.keyword.[]
+.kdb.exp.keyword.:{
+ show "example: ";
+ show .kdb.desc.keywords.
+ 
  };
 
 // .kdb.exp.keyword.raze[]
 .kdb.exp.keyword.raze:{
-    system"c 30 250";
     show ".kdb.exp.keyword.raze";
     show raze (1 2; 3 4 5);
     b:(1 2;(3 4;5 6);7;8);
