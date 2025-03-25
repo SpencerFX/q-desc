@@ -246,17 +246,17 @@
  show count 0   / atom
  count "zero"  / vector
  count (2;3 5;"eight")  / mixed list
- RaggedArray:(1 2 3;4 5;6 7 8 9;0)
- count RaggedArray
- count each RaggedArray
+ RaggedArray:(1 2 3;4 5;6 7 8 9;0);
+ show count RaggedArray;
+ show count each RaggedArray;
  };
 
 // .kdb.exp.keyword.cov[]
 .kdb.exp.keyword.cov:{
  show "example: cov - covariance";
  show .kdb.desc.keywords.cov;
- show "2 3 5 7 cov 3 3 5 9";
- show 2 3 5 7 cov 3 3 5 9;
+ // show "2 3 5 7 cov 3 3 5 9";
+ // show 2 3 5 7 cov 3 3 5 9;
  show "select price cov size by sym from trade";
  show select price cov size by sym from trade;
  };
@@ -539,53 +539,94 @@
  show exec distinct s,p,s from sp;
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
- 
+// .kdb.exp.keyword.exp[]
+.kdb.exp.keyword.exp:{
+ show "example: exp";
+ show .kdb.desc.keywords.exp;
+ show "exp 1";
+ show exp 1;
+ show "exp -4.2 0 0.1 0n 0w";
+ show exp -4.2 0 0.1 0n 0w;
+ show "k:`k xkey update k:`abc`def`ghi from t:flip d:`a`b!(10 -21 3;4 5 -6)";
+ show k:`k xkey update k:`abc`def`ghi from t:flip d:`a`b!(10 -21 3;4 5 -6);
+ show exp d;
+ show exp t;
+ show exp k;
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
- 
+// .kdb.exp.keyword.xexp[]
+.kdb.exp.keyword.xexp:{
+ show "example: xexp";
+ show .kdb.desc.keywords.xexp;
+ show "2 xexp 8";
+ show 2 xexp 8;
+ show "1.5 xexp -4.2 0 0.1 0n 0w";
+ show 1.5 xexp -4.2 0 0.1 0n 0w;
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
-
+// .kdb.exp.keyword.fby[]
+.kdb.exp.keyword.fby:{
+ show "example: fby";
+ show .kdb.desc.keywords.fby;
+ show "syntax: (aggr;d) fby g";
+ show "select from sp where qty > (avg;qty) fby p";
+ show select from sp where qty > (avg;qty) fby p;
+ show "select from sp where qty = (max;qty) fby p";
+ show select from sp where qty = (max;qty) fby p;
+ show "update x:12?3 from `sp";
+ update x:12?3 from `sp;
+ show "show select from sp where qty = (max;qty) fby ([]s;x)";
+ show select from sp where qty = (max;qty) fby ([]s;x);
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
- 
+// .kdb.exp.keyword.fill[]
+.kdb.exp.keyword.fill:{
+ show "example: fill - replace fills";
+ show .kdb.desc.keywords.fill;
+ show "0^1 2 3 0N";
+ show 0^1 2 3 0N;
+ show "`nobody^`tom`dick``harry";
+ show `nobody^`tom`dick``harry;
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
- 
+// .kdb.exp.keyword.fills[]
+.kdb.exp.keyword.fills:{
+ show "example: fills - replace nulls with preceding non-nulls";
+ show .kdb.desc.keywords.fills;
+ show "syntax: fills x";
+ show "fills 0N 2 3 0N 0N 7 0N";
+ show fills 0N 2 3 0N 0N 7 0N;
+ show "update fills c2 from ([] `a`b`c`d`e`f; c2:1 0N 3 0N 0N 5)";
+ show update fills c2 from ([] `a`b`c`d`e`f; c2:1 0N 3 0N 0N 5);
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
-
+// .kdb.exp.keyword.first[]
+.kdb.exp.keyword.first:{
+ show "example: first - First item of a list";
+ show .kdb.desc.keywords.first;
+ show "first 1 2 3 4 5";
+ show first 1 2 3 4 5;
+ show "RaggedArray:(1 2 3;4 5;6 7 8 9;0)";
+ show RaggedArray:(1 2 3;4 5;6 7 8 9;0);
+ show "first each RaggedArray";
+ show first each RaggedArray;
+ show RaggedDict:`a`b`c!(1 2;3 4 5;"hello");
+ show "first each RaggedDict";
+ show first each RaggedDict;
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
- 
+// .kdb.exp.keyword.fkeys[]
+.kdb.exp.keyword.fkeys:{
+ show "example: fkeys - foreign key columns of a table";
+ show .kdb.desc.keywords.fkeys;
+ show "f:([x:1 2 3]y:10 20 30)";
+ show f:([x:1 2 3]y:10 20 30);
+ show "t:([]a:`f$2 2 2;b:0;c:`f$1 1 1)";
+ show t:([]a:`f$2 2 2;b:0;c:`f$1 1 1);
+ show "meta t";
+ show meta t;
+ show "fkeys t";
+ show fkeys t;
  };
 
 // .kdb.exp.keyword.[]
