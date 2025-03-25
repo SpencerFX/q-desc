@@ -36,5 +36,5 @@
         (`$"-33!"; .kdb.desc.func.minus33Bang);
         (`$"-36!"; .kdb.desc.func.minus36Bang);
         (`$"-38!"; .kdb.desc.func.minus38Bang);
-        (`$"-120!"; .kdb.desc.func.minus120Bang);
+        (`$"-120!"; .kdb.desc.func.minus120Bang)
     );
