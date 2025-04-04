@@ -147,49 +147,59 @@
 .kdb.exp.keyword.z.N:{
  show "Example: .z.N";
  show .kdb.desc.func.z.N;
-
+ show ".z.N";
+ show .z.N;
  };
 
 // .kdb.exp.keyword.z.n[]
 .kdb.exp.keyword.z.n:{
  show "Example: .z.n";
  show .kdb.desc.func.z.n;
-
+ show ".z.n";
+ show .z.n;
  };
 
 // .kdb.exp.keyword.z.o[]
 .kdb.exp.keyword.z.o:{
  show "Example: .z.o";
  show .kdb.desc.func.z.o;
-
+  show ".z.o";
+ show .z.o;
  };
 
 // .kdb.exp.keyword.z.P[]
 .kdb.exp.keyword.z.P:{
  show "Example: .z.P";
  show .kdb.desc.func.z.P;
-
+ show ".z.P";
+ show .z.P;
  };
 
 // .kdb.exp.keyword.z.p[]
 .kdb.exp.keyword.z.p:{
  show "Example: .z.p";
  show .kdb.desc.func.z.p;
-
+ show ".z.p";
+ show .z.p;
  };
 
 // .kdb.exp.keyword.z.pc[]
 .kdb.exp.keyword.z.pc:{
  show "Example: .z.pc";
  show .kdb.desc.func.z.pc;
-
+ show ".z.pc:{0N!(.z.a;.z.u;.z.w;x);x}";
+ .z.pc:{0N!(.z.a;.z.u;.z.w;x);x};
  };
 
 // .kdb.exp.keyword.z.pd[]
 .kdb.exp.keyword.z.pd:{
  show "Example: .z.pd";
  show .kdb.desc.func.z.pd;
-
+ show "open connections to 4 processes on the localhost.";
+ show ".z.pd:`u#hopen each 20000+til 4";
+ show "more complicated set-up:";
+ show ".z.pd:{n:abs system\"s\";$[n=count handles;handles;[hclose each handles;:handles::`u#hopen each 20000+til n]]}";
+ show ".z.pc:{handles::`u#handles except x;}";
  };
 
 // .kdb.exp.keyword.z.pg[]
@@ -203,21 +213,25 @@
 .kdb.exp.keyword.z.ph:{
  show "Example: .z.ph";
  show .kdb.desc.func.z.ph;
-
+ show ".z.ph is passed a single argument, a 2-item list (requestText;requestHeaderAsDictionary):";
+ show "requestText is parsed in .z.ph – detecting special cases like requests for CSV, XLS output – and the result is returned to the calling task.";
+ show "requestHeaderAsDictionary contains a dictionary of HTTP header names and values as sent by the client. This can be used to return content optimized for particular browsers.";
  };
 
 // .kdb.exp.keyword.z.pi[]
 .kdb.exp.keyword.z.pi:{
  show "Example: .z.pi";
- show .kdb.desc.func.z.pi
-
+ show .kdb.desc.func.z.pi;
+ aa:: ([]a:1 2 3;b:11 22 33);
+ show ".z.pi:{0N!value x;}";
  };
 
 // .kdb.exp.keyword.z.pm[]
 .kdb.exp.keyword.z.pm:{
  show "Example: .z.pm";
- show .kdb.desc.func.z.pm
-
+ show .kdb.desc.func.z.pm;
+ show "(`OPTIONS;requestText;requestHeaderDict)";
+ show "For the POST method use .z.pp, and for GET use .z.ph.";
  };
 
 // .kdb.exp.keyword.z.po[]
@@ -372,4 +386,3 @@
  show .kdb.desc.func.z.T;
 
  };
-
