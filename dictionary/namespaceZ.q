@@ -6,7 +6,7 @@
 // Author: Spencer
 //==========================================================
 // Dictionary for .z. related functions
-.kdb.dict.z: (!) . flip raze 2 cut
+.kdb.dict.Z: (!) . flip raze 2 cut
     (
         (`a; .kdb.desc.func.z.a);
         (`ac; .kdb.desc.func.z.ac);

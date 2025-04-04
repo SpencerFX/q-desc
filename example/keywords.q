@@ -629,18 +629,113 @@
  show fkeys t;
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
- 
+// .kdb.exp.keyword.flip[]
+.kdb.exp.keyword.flip:{
+ show "example: flip Returns x transposed, where x may be a list of lists, a dictionary or a table. ";
+ show .kdb.desc.keywords.flip;
+ show "flip (1 2 3;4 5 6)";
+ show flip (1 2 3;4 5 6);
+ show "D:`sym`price`size!(`IBM`MSFT;10.2 23.45;100 100)";
+ show D:`sym`price`size!(`IBM`MSFT;10.2 23.45;100 100);
+ show "flip D";
+ show flip D;
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
+// .kdb.exp.keyword.floor[]
+.kdb.exp.keyword.floor:{
+ show "example: floor - Round down";
+ show .kdb.desc.keywords.floor;
+ show "floor -2.1 0 2.1";
+ show floor -2.1 0 2.1;
+ show "domain b g x h i j e f c s p m d z n u v t";
+ show "range  . . . h i j j j c s . . . . . . . ."
+ };
 
+// .kdb.exp.keyword.get[]
+.kdb.exp.keyword.get:{
+ show "example: get - read or memory-map a variable or kdb+ data file";
+ show .kdb.desc.keywords.get;
+ show "t:get`:NewTrade";
+ show "a:42";
+ show "get `a";
+ };
+
+// .kdb.exp.keyword.getenv[]
+.kdb.exp.keyword.getenv:{
+ show "example: getenv - Get the value of an environment variable";
+ show .kdb.desc.keywords.getenv;
+ show "getenv `SHELL";
+ };
+
+// .kdb.exp.keyword.group[]
+.kdb.exp.keyword.group:{
+ show "example: group";
+ show .kdb.desc.keywords.group;
+ show "group \"mississippi\"";
+ show group "mississippi";
+ show "To count the number of occurrences of each distinct item:";
+ show "count each group \"mississippi\"";
+ show count each group "mississippi";
+ show "To get the index of the first occurrence of each distinct item";
+ show "first each group \"mississippi\"";
+ show first each group "mississippi";
+ };
+
+// .kdb.exp.keyword.gtime[]
+.kdb.exp.keyword.gtime:{
+ show "example:  gtime - utc equivalent of local timestamp";
+ show .kdb.desc.keywords.gtime;
+ show ".z.p";
+ show .z.p;
+ show "gtime .z.P";
+ show gtime .z.p;
+ };
+
+// .kdb.exp.keyword.hclose[]
+.kdb.exp.keyword.hclose:{
+ show "example: hclose";
+ show .kdb.desc.keywords.hclose;
+ show "h:hopen `::5001";
+ show "hclose h";
+ };
+
+// .kdb.exp.keyword.hcount[]
+.kdb.exp.keyword.hcount:{
+ show "example: hcount";
+ show .kdb.desc.keywords.hcount;
+ show "hcount`:c:/q/test.txt";
+ };
+
+// .kdb.exp.keyword.hdel[]
+.kdb.exp.keyword.hdel:{
+ show "example: hdel";
+ show .kdb.desc.keywords.hdel;
+ show "hdel`:test.txt";
+ show "`:test.txt";
+ };
+
+// .kdb.exp.keyword.hopen[]
+.kdb.exp.keyword.hopen:{
+ show "example: hopen";
+ show .kdb.desc.keywords.hopen;
+ show "filehandle";
+ show "hopen \":path/to/file.txt\"";
+ show "localhost, Unix domain socket";
+ show "hopen `:unix://5010";
+ show "SSL/TLS with hostname";
+ show "hopen `:tcps://mydb.us.com:5010";
+ show "IP address and timeout";
+ show "hopen(\":10.43.23.198:5010\";10000)";
+ };
+
+// .kdb.exp.keyword.hsym[]
+.kdb.exp.keyword.hsym:{
+ show "example: hsym";
+ show .kdb.desc.keywords.hsym;
+ show "hsym`c:/q/test.txt";
+ show hsym`c:/q/test.txt 
+ show "hsym`10.43.23.197";
+ show hsym`10.43.23.197;
  };
 
 // .kdb.exp.keyword.[]
