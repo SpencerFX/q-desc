@@ -6,8 +6,8 @@
 // Author: Spencer
 //==========================================================
 \c 300 500
-// .kdb.exp.keyword.abs[]
-.kdb.exp.keyword.abs:{
+// .kdb.exp.keywords.abs[]
+.kdb.exp.keywords.abs:{
  show "Example: abs";
  show "abs -1.0";
  show abs -1.0;
@@ -15,15 +15,15 @@
  show abs(10;20 -30);
  };
 
-// .kdb.exp.keyword.acos[]
-.kdb.exp.keyword.acos:{
+// .kdb.exp.keywords.acos[]
+.kdb.exp.keywords.acos:{
  show"acos usage";
  show"acos 0.1"
  show acos 0.1;
  };
 
-// .kdb.exp.keyword.aj[]
-.kdb.exp.keyword.aj:{
+// .kdb.exp.keywords.aj[]
+.kdb.exp.keywords.aj:{
  show "example: aj - asof join - multithreaded primitive";
  show .kdb.desc.keywords.aj
  show "syntax is: aj[<col1,col2>;<table1>;<table2>]";
@@ -36,8 +36,8 @@
  show "disk	 -  p#	-   sorted within c1 -	quote has `p#sym and time sorted within sym";
  };
 
-// .kdb.exp.keyword.aj0[]
-.kdb.exp.keyword.aj0:{
+// .kdb.exp.keywords.aj0[]
+.kdb.exp.keywords.aj0:{
  show "example: aj0 - asof join - multithreaded primitive";
  show .kdb.desc.keywords.aj
  show "syntax is: aj0[<col1,col2>;<table1>;<table2>]";
@@ -50,8 +50,8 @@
  show "disk	 -  p#	-   sorted within c1 -	quote has `p#sym and time sorted within sym";
  };
 
-// .kdb.exp.keyword.all[]
-.kdb.exp.keyword.all:{
+// .kdb.exp.keywords.all[]
+.kdb.exp.keywords.all:{
  show "example: all (multi-threaded primitive)";
  show .kdb.desc.keywords.all;
  show "all null ([] c1:`a`b`c; c2:0n 0n 0n; c3:10 0N 30)";
@@ -64,8 +64,8 @@
  show all "YNYN";
  };
 
-// .kdb.exp.keyword.any[]
-.kdb.exp.keyword.any:{
+// .kdb.exp.keywords.any[]
+.kdb.exp.keywords.any:{
  show "example: any (multi-threaded primitive)";
  show "syntax: any x    any[x]";
  show .kdb.desc.keywords.any;
@@ -76,8 +76,8 @@
  show "any \"YNYN\"";
  };
 
-// .kdb.exp.keyword.asc[]
-.kdb.exp.keyword.asc:{
+// .kdb.exp.keywords.asc[]
+.kdb.exp.keywords.asc:{
  show "example: asc - ascending sort";
  show .kdb.desc.keywords.asc;
  show "asc 2 1 3 4 2 1 2";
@@ -90,8 +90,8 @@
  show asc ([]a:3 4 1;b:`a`d`s);
  };
 
-// .kdb.exp.keyword.iasc[]
-.kdb.exp.keyword.iasc:{
+// .kdb.exp.keywords.iasc[]
+.kdb.exp.keywords.iasc:{
  show "example: iasc - ascending grade";
  show .kdb.desc.keywords.iasc;
  show "L:2 1 3 4 2 1 2";
@@ -102,8 +102,8 @@
  show L iasc L
  };
 
-// .kdb.exp.keyword.xasc[]
-.kdb.exp.keyword.xasc:{
+// .kdb.exp.keywords.xasc[]
+.kdb.exp.keywords.xasc:{
  show "example: xasc - Sort a table in ascending order of specified columns.";
  show .kdb.desc.keywords.xasc;
  show "`city xasc s  / sort on city";
@@ -116,8 +116,8 @@
  show "`c xasc `:dat/t";
  };
 
-// .kdb.exp.keyword.asin[]
-.kdb.exp.keyword.asin:{
+// .kdb.exp.keywords.asin[]
+.kdb.exp.keywords.asin:{
  show "example: asin";
  show .kdb.desc.keywords.asin;
  show "asin 0.8";
@@ -127,8 +127,8 @@
  show asin (.2;.3 .4);
  };
 
-// .kdb.exp.keyword.atan[]
-.kdb.exp.keyword.atan:{
+// .kdb.exp.keywords.atan[]
+.kdb.exp.keywords.atan:{
  show "example: atan";
  show .kdb.desc.keywords.atan;
  show "atan 0.8";
@@ -138,8 +138,8 @@
  show atan (.2;.3 .4);
  };
 
-// .kdb.exp.keyword.attr[]
-.kdb.exp.keyword.attr:{
+// .kdb.exp.keywords.attr[]
+.kdb.exp.keywords.attr:{
  show "example: attr - attributes of an object";
  show .kdb.desc.keywords.attr;
  show "attr 1 3 4";
@@ -148,8 +148,8 @@
  show attr asc 1 3 4;
  };
 
-// .kdb.exp.keyword.avg[]
-.kdb.exp.keyword.avg:{
+// .kdb.exp.keywords.avg[]
+.kdb.exp.keywords.avg:{
  show "example: avg";
  show .kdb.desc.keywords.avg;
  show "avg 1 2 3";
@@ -161,16 +161,16 @@
  show select ap:avg price by sym from trade;
  };
 
-// .kdb.exp.keyword.avgs[]
-.kdb.exp.keyword.avgs:{
+// .kdb.exp.keywords.avgs[]
+.kdb.exp.keywords.avgs:{
  show "example: avgs";
  show .kdb.desc.keywords.avgs;
  show "avgs 1 2 3 0n 4 -0w 0w";
  show avgs 1 2 3 0n 4 -0w 0w;
  };
 
-// .kdb.exp.keyword.bin[]
-.kdb.exp.keyword.bin:{
+// .kdb.exp.keywords.bin[]
+.kdb.exp.keywords.bin:{
  show "example: bin";
  show .kdb.desc.keywords.bin;
  show "0 2 4 6 8 10 bin 5";
@@ -184,8 +184,8 @@
  t bin t;
  };
 
-// .kdb.exp.keyword.binr[]
-.kdb.exp.keyword.binr:{
+// .kdb.exp.keywords.binr[]
+.kdb.exp.keywords.binr:{
  show "example: bin";
  show .kdb.desc.keywords.bin;
  show "0 2 4 6 8 10 bin 5";
@@ -199,8 +199,8 @@
  t bin t;
  };
 
-// .kdb.exp.keyword.ceiling[]
-.kdb.exp.keyword.ceiling:{
+// .kdb.exp.keywords.ceiling[]
+.kdb.exp.keywords.ceiling:{
  show "example: ceiling - round up";
  show .kdb.desc.keywords.ceiling;
  show "ceiling -2.1 0 2.1";
@@ -210,16 +210,16 @@
  show ceiling`a`b!(1.2;3.4 5.6);
  };
 
-// .kdb.exp.keyword.cols[]
-.kdb.exp.keyword.cols:{
+// .kdb.exp.keywords.cols[]
+.kdb.exp.keywords.cols:{
  show "example: cols - column names of a table";
  show .kdb.desc.keywords.cols;
  show "cols trade";
  show cols trade;
  };
 
-// .kdb.exp.keyword.cor[]
-.kdb.exp.keyword.cor:{
+// .kdb.exp.keywords.cor[]
+.kdb.exp.keywords.cor:{
  show "example: cor - correlation";
  show .kdb.desc.keywords.core;
  show "29 10 54 cor 1 3 9";
@@ -228,8 +228,8 @@
  show 10 29 54 cor 1 3 9;
  };
 
-// .kdb.exp.keyword.cos[]
-.kdb.exp.keyword.cos:{
+// .kdb.exp.keywords.cos[]
+.kdb.exp.keywords.cos:{
  show "example: cos - cosine";
  show .kdb.desc.keywords.cosine;
  show "cos 0.2";
@@ -239,8 +239,8 @@
  show cos (.2;.3 .4);
  };
 
-// .kdb.exp.keyword.count[]
-.kdb.exp.keyword.count:{
+// .kdb.exp.keywords.count[]
+.kdb.exp.keywords.count:{
  show "example: count - count the items of a list or dictionary";
  show .kdb.desc.keywords.count;
  show count 0   / atom
@@ -251,8 +251,8 @@
  show count each RaggedArray;
  };
 
-// .kdb.exp.keyword.cov[]
-.kdb.exp.keyword.cov:{
+// .kdb.exp.keywords.cov[]
+.kdb.exp.keywords.cov:{
  show "example: cov - covariance";
  show .kdb.desc.keywords.cov;
  // show "2 3 5 7 cov 3 3 5 9";
@@ -261,8 +261,8 @@
  show select price cov size by sym from trade;
  };
 
-// .kdb.exp.keyword.cross[]
-.kdb.exp.keyword.cross:{
+// .kdb.exp.keywords.cross[]
+.kdb.exp.keywords.cross:{
  show "example: cross - returns the cross pdocut of x and y.";
  show .kdb.desc.keywords.cross;
  show "1 2 3 cross 10 20";
@@ -271,8 +271,8 @@
  show (cross/)(2 3;10;"abc");
  };
 
-// .kdb.exp.keyword.cut[]
-.kdb.exp.keyword.cut:{
+// .kdb.exp.keywords.cut[]
+.kdb.exp.keywords.cut:{
  show "example: cut - cut a list or table into a matrix of x columns.";
  show .kdb.desc.keywords.cut;
  show "4 cut til 10";
@@ -280,8 +280,8 @@
  show "Otherwise cut behaves as _ Cut.";
  };
 
-// .kdb.exp.keyword.delete[]
-.kdb.exp.keyword.delete:{
+// .kdb.exp.keywords.delete[]
+.kdb.exp.keywords.delete:{
  show "example: delete";
  show .kdb.desc.keywords.delete;
  show "d:`a`b`c!til 3";
@@ -291,8 +291,8 @@
  show d
  };
 
-// .kdb.exp.keyword.deltas[]
-.kdb.exp.keyword.deltas:{
+// .kdb.exp.keywords.deltas[]
+.kdb.exp.keywords.deltas:{
  show "example: deltas - Differences between adjacent list items";
  show .kdb.desc.keywords.deltas;
  show "deltas 1 4 9 16";
@@ -304,8 +304,8 @@
  show select count i by signum deltas price from trade;
  };
 
-// .kdb.exp.keyword.desc[]
-.kdb.exp.keyword.desc:{
+// .kdb.exp.keywords.desc[]
+.kdb.exp.keywords.desc:{
  show "example: desc - descending sort";
  show .kdb.desc.keywords.desc;
  show "desc  2 1 3 4 2 1 2";
@@ -320,8 +320,8 @@
  show meta desc([]a:3 4 1;b:`a`d`s);
  };
 
-// .kdb.exp.keyword.idesc[]
-.kdb.exp.keyword.idesc:{
+// .kdb.exp.keywords.idesc[]
+.kdb.exp.keywords.idesc:{
  show "example: idesc - descending grade";
  show .kdb.desc.keywords.idesc;
  show "L:2 1 3 4 2 1 2";
@@ -334,8 +334,8 @@
  show idesc `a`c`b!1 2 3;
  };
 
-// .kdb.exp.keyword.xdesc[]
-.kdb.exp.keyword.xdesc:{
+// .kdb.exp.keywords.xdesc[]
+.kdb.exp.keywords.xdesc:{
  show "example: xdesc";
  show .kdb.desc.keywords.xdesc;
  show "xdesc can sort data on disk directly, without loading the entire table into memory: see xasc.";
@@ -344,8 +344,8 @@
  show `city xdesc s; 
  };
 
-// .kdb.exp.keyword.dev[]
-.kdb.exp.keyword.dev:{
+// .kdb.exp.keywords.dev[]
+.kdb.exp.keywords.dev:{
  show "example: dev - standard deviation - {sqrt var x}";
  show .kdb.desc.keywords.dev;
  show "dev 10 343 232 55";
@@ -353,8 +353,8 @@
  show "Since 4.1t 2022.04.15, can also traverse columns of tables and general/anymap/nested lists.";
  };
 
-// .kdb.exp.keyword.mdev[]
-.kdb.exp.keyword.mdev:{
+// .kdb.exp.keywords.mdev[]
+.kdb.exp.keywords.mdev:{
  show "example: mdev - moving deviations";
  show .kdb.desc.keywords.mdev;
  show "2 mdev 1 2 3 5 7 10";
@@ -370,8 +370,8 @@
  show 2 mdev t;
  };
 
-// .kdb.exp.keyword.sdev[]
-.kdb.exp.keyword.sdev:{
+// .kdb.exp.keywords.sdev[]
+.kdb.exp.keywords.sdev:{
  show "example: sdev - sample standard deviation - {sqrt var[x]*count[x]%-1+count x}";
  show .kdb.desc.keywords.sdev;
  show "sdev 10 343 232 55";
@@ -379,8 +379,8 @@
  show "Since 4.1t 2022.04.15, can also traverse columns of tables and general/anymap/nested lists.";
  };
 
-// .kdb.exp.keyword.differ[]
-.kdb.exp.keyword.differ:{
+// .kdb.exp.keywords.differ[]
+.kdb.exp.keywords.differ:{
  show "example: differ - find where list items change value";
  show .kdb.desc.keywords.differ;
  show "domain: b g x h i j e f c s p m d z n u v t";
@@ -404,8 +404,8 @@
  show tlist 1;
  };
 
-// .kdb.exp.keyword.distinct[]
-.kdb.exp.keyword.distinct:{
+// .kdb.exp.keywords.distinct[]
+.kdb.exp.keywords.distinct:{
  show "example: distinct - unique items of a list";
  show .kdb.desc.keywords.distinct;
  show "distinct 2 3 7 3 5 3";
@@ -414,8 +414,8 @@
  show distinct flip `a`b`c!(1 2 1;2 3 2;"aba");
  };
 
-// .kdb.exp.keyword.div[]
-.kdb.exp.keyword.div:{
+// .kdb.exp.keywords.div[]
+.kdb.exp.keywords.div:{
  show "example: div - integer division";
  show .kdb.desc.keywords.div;
  show "7 div 3";
@@ -434,8 +434,8 @@
  show k div 5;
  };
 
-// .kdb.exp.keyword.dsave[]
-.kdb.exp.keyword.dsave:{
+// .kdb.exp.keywords.dsave[]
+.kdb.exp.keywords.dsave:{
  show "example: dsave - Write global tables to disk as splayed, enumerated, indexed kdb+ tables.";
  show .kdb.desc.keywords.dsave;
  show "syntax: x dsave y     dsave[x;y]";
@@ -446,8 +446,8 @@
  show "`:/tmp/db2`2015.01.01 dsave`sym xasc'`t`q";
  };
 
-// .kdb.exp.keyword.each[]
-.kdb.exp.keyword.each:{
+// .kdb.exp.keywords.each[]
+.kdb.exp.keywords.each:{
  show "example: each - iterate a unary";
  show .kdb.desc.keywords.each;
  show " v1 each x   each[v1;x]       v1 peach x   peach[v1;x]";
@@ -456,8 +456,8 @@
  show count each ("the";"quick";" brown";"fox");
  };
 
-// .kdb.exp.keyword.ej[]
-.kdb.exp.keyword.ej:{
+// .kdb.exp.keywords.ej[]
+.kdb.exp.keywords.ej:{
  show "example: ej - equi join";
  show .kdb.desc.keywords.ej;
  show "syntax: ej[c;t1;t2]";
@@ -469,8 +469,8 @@
  show ej[`sym;s;t];
  };
 
-// .kdb.exp.keyword.ema[]
-.kdb.exp.keyword.ema:{
+// .kdb.exp.keywords.ema[]
+.kdb.exp.keywords.ema:{
  show "example: ema - Exponential moving average";
  show .kdb.desc.keywords.ema;
  show "syntax: x ema y    ema[x;y]";
@@ -483,8 +483,8 @@
  show (2%1+10)ema p;
  };
 
-// .kdb.exp.keyword.enlist[]
-.kdb.exp.keyword.enlist:{
+// .kdb.exp.keywords.enlist[]
+.kdb.exp.keywords.enlist:{
  show "example: enlist";
  show .kdb.desc.keywords.enlist;
  show "enlist x    enlist[x]    enlist[x;y;z;…]";
@@ -499,8 +499,8 @@
  show a:enlist[til 5;`ibm`goog;"hello"];
  };
 
-// .kdb.exp.keyword.eval[]
-.kdb.exp.keyword.eval:{
+// .kdb.exp.keywords.eval[]
+.kdb.exp.keywords.eval:{
  show "example: eval";
  show .kdb.desc.keywords.eval;
  show parse "2+3";
@@ -508,8 +508,8 @@
  show eval parse "2+3";
  };
 
-// .kdb.exp.keyword.except[]
-.kdb.exp.keyword.except:{
+// .kdb.exp.keywords.except[]
+.kdb.exp.keywords.except:{
  show "example: except - exclude items from a list";
  show .kdb.desc.keywords.except;
  show "syntax: x except y    except[x;y]";
@@ -519,8 +519,8 @@
  show 1 2 3 4 1 3 except 2 3;
  };
 
-// .kdb.exp.keyword.exec[]
-.kdb.exp.keyword.exec:{
+// .kdb.exp.keywords.exec[]
+.kdb.exp.keywords.exec:{
  show "example: exec - Return selected rows and columns from a table";
  show .kdb.desc.keywords.exec;
  show "syntax: exec [distinct] ps [by pb] from texp [where pw]";
@@ -539,8 +539,8 @@
  show exec distinct s,p,s from sp;
  };
 
-// .kdb.exp.keyword.exp[]
-.kdb.exp.keyword.exp:{
+// .kdb.exp.keywords.exp[]
+.kdb.exp.keywords.exp:{
  show "example: exp";
  show .kdb.desc.keywords.exp;
  show "exp 1";
@@ -554,8 +554,8 @@
  show exp k;
  };
 
-// .kdb.exp.keyword.xexp[]
-.kdb.exp.keyword.xexp:{
+// .kdb.exp.keywords.xexp[]
+.kdb.exp.keywords.xexp:{
  show "example: xexp";
  show .kdb.desc.keywords.xexp;
  show "2 xexp 8";
@@ -564,8 +564,8 @@
  show 1.5 xexp -4.2 0 0.1 0n 0w;
  };
 
-// .kdb.exp.keyword.fby[]
-.kdb.exp.keyword.fby:{
+// .kdb.exp.keywords.fby[]
+.kdb.exp.keywords.fby:{
  show "example: fby";
  show .kdb.desc.keywords.fby;
  show "syntax: (aggr;d) fby g";
@@ -579,8 +579,8 @@
  show select from sp where qty = (max;qty) fby ([]s;x);
  };
 
-// .kdb.exp.keyword.fill[]
-.kdb.exp.keyword.fill:{
+// .kdb.exp.keywords.fill[]
+.kdb.exp.keywords.fill:{
  show "example: fill - replace fills";
  show .kdb.desc.keywords.fill;
  show "0^1 2 3 0N";
@@ -589,8 +589,8 @@
  show `nobody^`tom`dick``harry;
  };
 
-// .kdb.exp.keyword.fills[]
-.kdb.exp.keyword.fills:{
+// .kdb.exp.keywords.fills[]
+.kdb.exp.keywords.fills:{
  show "example: fills - replace nulls with preceding non-nulls";
  show .kdb.desc.keywords.fills;
  show "syntax: fills x";
@@ -600,8 +600,8 @@
  show update fills c2 from ([] `a`b`c`d`e`f; c2:1 0N 3 0N 0N 5);
  };
 
-// .kdb.exp.keyword.first[]
-.kdb.exp.keyword.first:{
+// .kdb.exp.keywords.first[]
+.kdb.exp.keywords.first:{
  show "example: first - First item of a list";
  show .kdb.desc.keywords.first;
  show "first 1 2 3 4 5";
@@ -615,8 +615,8 @@
  show first each RaggedDict;
  };
 
-// .kdb.exp.keyword.fkeys[]
-.kdb.exp.keyword.fkeys:{
+// .kdb.exp.keywords.fkeys[]
+.kdb.exp.keywords.fkeys:{
  show "example: fkeys - foreign key columns of a table";
  show .kdb.desc.keywords.fkeys;
  show "f:([x:1 2 3]y:10 20 30)";
@@ -629,8 +629,8 @@
  show fkeys t;
  };
 
-// .kdb.exp.keyword.flip[]
-.kdb.exp.keyword.flip:{
+// .kdb.exp.keywords.flip[]
+.kdb.exp.keywords.flip:{
  show "example: flip Returns x transposed, where x may be a list of lists, a dictionary or a table. ";
  show .kdb.desc.keywords.flip;
  show "flip (1 2 3;4 5 6)";
@@ -641,8 +641,8 @@
  show flip D;
  };
 
-// .kdb.exp.keyword.floor[]
-.kdb.exp.keyword.floor:{
+// .kdb.exp.keywords.floor[]
+.kdb.exp.keywords.floor:{
  show "example: floor - Round down";
  show .kdb.desc.keywords.floor;
  show "floor -2.1 0 2.1";
@@ -651,8 +651,8 @@
  show "range  . . . h i j j j c s . . . . . . . ."
  };
 
-// .kdb.exp.keyword.get[]
-.kdb.exp.keyword.get:{
+// .kdb.exp.keywords.get[]
+.kdb.exp.keywords.get:{
  show "example: get - read or memory-map a variable or kdb+ data file";
  show .kdb.desc.keywords.get;
  show "t:get`:NewTrade";
@@ -660,15 +660,15 @@
  show "get `a";
  };
 
-// .kdb.exp.keyword.getenv[]
-.kdb.exp.keyword.getenv:{
+// .kdb.exp.keywords.getenv[]
+.kdb.exp.keywords.getenv:{
  show "example: getenv - Get the value of an environment variable";
  show .kdb.desc.keywords.getenv;
  show "getenv `SHELL";
  };
 
-// .kdb.exp.keyword.group[]
-.kdb.exp.keyword.group:{
+// .kdb.exp.keywords.group[]
+.kdb.exp.keywords.group:{
  show "example: group";
  show .kdb.desc.keywords.group;
  show "group \"mississippi\"";
@@ -681,8 +681,8 @@
  show first each group "mississippi";
  };
 
-// .kdb.exp.keyword.gtime[]
-.kdb.exp.keyword.gtime:{
+// .kdb.exp.keywords.gtime[]
+.kdb.exp.keywords.gtime:{
  show "example:  gtime - utc equivalent of local timestamp";
  show .kdb.desc.keywords.gtime;
  show ".z.p";
@@ -691,31 +691,31 @@
  show gtime .z.p;
  };
 
-// .kdb.exp.keyword.hclose[]
-.kdb.exp.keyword.hclose:{
+// .kdb.exp.keywords.hclose[]
+.kdb.exp.keywords.hclose:{
  show "example: hclose";
  show .kdb.desc.keywords.hclose;
  show "h:hopen `::5001";
  show "hclose h";
  };
 
-// .kdb.exp.keyword.hcount[]
-.kdb.exp.keyword.hcount:{
+// .kdb.exp.keywords.hcount[]
+.kdb.exp.keywords.hcount:{
  show "example: hcount";
  show .kdb.desc.keywords.hcount;
  show "hcount`:c:/q/test.txt";
  };
 
-// .kdb.exp.keyword.hdel[]
-.kdb.exp.keyword.hdel:{
+// .kdb.exp.keywords.hdel[]
+.kdb.exp.keywords.hdel:{
  show "example: hdel";
  show .kdb.desc.keywords.hdel;
  show "hdel`:test.txt";
  show "`:test.txt";
  };
 
-// .kdb.exp.keyword.hopen[]
-.kdb.exp.keyword.hopen:{
+// .kdb.exp.keywords.hopen[]
+.kdb.exp.keywords.hopen:{
  show "example: hopen";
  show .kdb.desc.keywords.hopen;
  show "filehandle";
@@ -728,8 +728,8 @@
  show "hopen(\":10.43.23.198:5010\";10000)";
  };
 
-// .kdb.exp.keyword.hsym[]
-.kdb.exp.keyword.hsym:{
+// .kdb.exp.keywords.hsym[]
+.kdb.exp.keywords.hsym:{
  show "example: hsym";
  show .kdb.desc.keywords.hsym;
  show "hsym`c:/q/test.txt";
@@ -738,8 +738,8 @@
  show hsym`10.43.23.197;
  };
 
-// .kdb.exp.keyword.ij[]
-.kdb.exp.keyword.ij:{
+// .kdb.exp.keywords.ij[]
+.kdb.exp.keywords.ij:{
  show "example: ij - inner join";
  show .kdb.desc.keywords.ij;
  show .kdb.desc.joins.ij;
@@ -749,8 +749,8 @@
  show trade ij info;
  };
 
-// .kdb.exp.keyword.ijf[]
-.kdb.exp.keyword.ijf:{
+// .kdb.exp.keywords.ijf[]
+.kdb.exp.keywords.ijf:{
  show "example: ijf - inner join";
  show .kdb.desc.keywords.ij;
  show .kdb.desc.joins.ij;
@@ -760,40 +760,663 @@
  show trade ij info;
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
+// .kdb.exp.keywords.in[]
+.kdb.exp.keywords.in:{
+ show "example: in";
+ show .kdb.desc.keywords.in;
 
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
+// .kdb.exp.keywords.insert[]
+.kdb.exp.keywords.insert:{
+ show "example: insert";
+ show .kdb.desc.keywords.insert;
+
+ };
+
+// .kdb.exp.keywords.inter[]
+.kdb.exp.keywords.inter:{
  show "example: ";
- show .kdb.desc.keywords.
+ show .kdb.desc.keywords.inter
  
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
+// .kdb.exp.keywords.inv[]
+.kdb.exp.keywords.inv:{
  show "example: ";
- show .kdb.desc.keywords.
+ show .kdb.desc.keywords.inv
+
+ };
+
+// .kdb.exp.keywords.key[]
+.kdb.exp.keywords.key:{
+ show "example: ";
+ show .kdb.desc.keywords.key
  
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
+// .kdb.exp.keywords.keys[]
+.kdb.exp.keywords.keys:{
  show "example: ";
- show .kdb.desc.keywords.
+ show .kdb.desc.keywords.keys
+ 
+ };
+
+// .kdb.exp.keywords.xkey[]
+.kdb.exp.keywords.xkey:{
+ show "example: ";
+ show .kdb.desc.keywords.xkey
 
  };
 
-// .kdb.exp.keyword.raze[]
-.kdb.exp.keyword.raze:{
-    show ".kdb.exp.keyword.raze";
+// .kdb.exp.keywords.like[]
+.kdb.exp.keywords.like:{
+ show "example: ";
+ show .kdb.desc.keywords.like
+ 
+ };
+
+// .kdb.exp.keywords.lj[]
+.kdb.exp.keywords.lj:{
+ show "example: ";
+ show .kdb.desc.keywords.lj
+ 
+ };
+
+// .kdb.exp.keywords.ljf[]
+.kdb.exp.keywords.ljf:{
+ show "example: ";
+ show .kdb.desc.keywords.ljf
+
+ };
+
+// .kdb.exp.keywords.load[]
+.kdb.exp.keywords.load:{
+ show "example: ";
+ show .kdb.desc.keywords.load
+ 
+ };
+
+// .kdb.exp.keywords.rload[]
+.kdb.exp.keywords.rload:{
+ show "example: ";
+ show .kdb.desc.keywords.rload
+ 
+ };
+
+// .kdb.exp.keywords.log[]
+.kdb.exp.keywords.log:{
+ show "example: ";
+ show .kdb.desc.keywords.log
+
+ };
+
+// .kdb.exp.keywords.xlog[]
+.kdb.exp.keywords.xlog:{
+ show "example: ";
+ show .kdb.desc.keywords.xlog
+ 
+ };
+
+// .kdb.exp.keywords.lower[]
+.kdb.exp.keywords.lower:{
+ show "example: ";
+ show .kdb.desc.keywords.lower
+ 
+ };
+
+// .kdb.exp.keywords.lsq[]
+.kdb.exp.keywords.lsq:{
+ show "example: ";
+ show .kdb.desc.keywords.lsq
+
+ };
+
+// .kdb.exp.keywords.lower[]
+.kdb.exp.keywords.lower:{
+ show "example: ";
+ show .kdb.desc.keywords.lower
+ 
+ };
+
+// .kdb.exp.keywords.max[]
+.kdb.exp.keywords.max:{
+ show "example: ";
+ show .kdb.desc.keywords.max
+ 
+ };
+
+// .kdb.exp.keywords.maxs[]
+.kdb.exp.keywords.maxs:{
+ show "example: ";
+ show .kdb.desc.keywords.maxs
+
+ };
+
+// .kdb.exp.keywords.mmax[]
+.kdb.exp.keywords.mmax:{
+ show "example: ";
+ show .kdb.desc.keywords.mmax
+ 
+ };
+
+// .kdb.exp.keywords.md5[]
+.kdb.exp.keywords.md5:{
+ show "example: ";
+ show .kdb.desc.keywords.md5
+ 
+ };
+
+// .kdb.exp.keywords.med[]
+.kdb.exp.keywords.med:{
+ show "example: ";
+ show .kdb.desc.keywords.med
+
+ };
+
+// .kdb.exp.keywords.meta[]
+.kdb.exp.keywords.meta:{
+ show "example: ";
+ show .kdb.desc.keywords.meta
+ 
+ };
+
+// .kdb.exp.keywords.min[]
+.kdb.exp.keywords.min:{
+ show "example: ";
+ show .kdb.desc.keywords.min
+ 
+ };
+
+// .kdb.exp.keywords.mins[]
+.kdb.exp.keywords.mins:{
+ show "example: ";
+ show .kdb.desc.keywords.mins
+
+ };
+
+// .kdb.exp.keywords.mmin[]
+.kdb.exp.keywords.mmin:{
+ show "example: ";
+ show .kdb.desc.keywords.mmin
+ 
+ };
+
+// .kdb.exp.keywords.mmu[]
+.kdb.exp.keywords.mmu:{
+ show "example: ";
+ show .kdb.desc.keywords.mmu
+ 
+ };
+
+// .kdb.exp.keywords.mod[]
+.kdb.exp.keywords.mod:{
+ show "example: ";
+ show .kdb.desc.keywords.mod
+
+ };
+
+// .kdb.exp.keywords.neg[]
+.kdb.exp.keywords.neg:{
+ show "example: ";
+ show .kdb.desc.keywords.neg
+ 
+ };
+
+// .kdb.exp.keywords.next[]
+.kdb.exp.keywords.next:{
+ show "example: ";
+ show .kdb.desc.keywords.next
+ 
+ };
+
+// .kdb.exp.keywords.prev[]
+.kdb.exp.keywords.prev:{
+ show "example: ";
+ show .kdb.desc.keywords.prev
+
+ };
+
+// .kdb.exp.keywords.xprev[]
+.kdb.exp.keywords.xprev:{
+ show "example: ";
+ show .kdb.desc.keywords.xprev
+
+ };
+
+// .kdb.exp.keywords.not[]
+.kdb.exp.keywords.not:{
+ show "example: ";
+ show .kdb.desc.keywords.not
+
+ };
+
+// .kdb.exp.keywords.null[]
+.kdb.exp.keywords.null:{
+ show "example: ";
+ show .kdb.desc.keywords.null
+
+ };
+
+// .kdb.exp.keywords.or[]
+.kdb.exp.keywords.or:{
+ show "example: ";
+ show .kdb.desc.keywords.or
+
+ };
+
+// .kdb.exp.keywords.over[]
+.kdb.exp.keywords.over:{
+ show "example: ";
+ show .kdb.desc.keywords.over
+
+ };
+
+// .kdb.exp.keywords.scan[]
+.kdb.exp.keywords.scan:{
+ show "example: ";
+ show .kdb.desc.keywords.scan
+
+ };
+
+// .kdb.exp.keywords.parse[]
+.kdb.exp.keywords.parse:{
+ show "example: ";
+ show .kdb.desc.keywords.parse
+
+ };
+
+// .kdb.exp.keywords.pj[]
+.kdb.exp.keywords.pj:{
+ show "example: ";
+ show .kdb.desc.keywords.pj
+
+ };
+
+// .kdb.exp.keywords.prd[]
+.kdb.exp.keywords.prd:{
+ show "example: ";
+ show .kdb.desc.keywords.prd
+
+ };
+
+// .kdb.exp.keywords.prds[]
+.kdb.exp.keywords.prds:{
+ show "example: ";
+ show .kdb.desc.keywords.prds
+
+ };
+
+// .kdb.exp.keywords.prior[]
+.kdb.exp.keywords.prior:{
+ show "example: ";
+ show .kdb.desc.keywords.prior
+
+ };
+
+// .kdb.exp.keywords.rand[]
+.kdb.exp.keywords.rand:{
+ show "example: ";
+ show .kdb.desc.keywords.rand
+
+ };
+
+// .kdb.exp.keywords.rank[]
+.kdb.exp.keywords.rank:{
+ show "example: ";
+ show .kdb.desc.keywords.rank
+
+ };
+
+// .kdb.exp.keywords.ratios[]
+.kdb.exp.keywords.ratios:{
+ show "example: ";
+ show .kdb.desc.keywords.ratios
+
+ };
+
+// .kdb.exp.keywords.raze[]
+.kdb.exp.keywords.raze:{
+    show ".kdb.exp.keywords.raze";
     show raze (1 2; 3 4 5);
     b:(1 2;(3 4;5 6);7;8);
-    show ".kdb.exp.keyword.raze with multiple levels";
+    show ".kdb.exp.keywords.raze with multiple levels";
     show b;
     show raze/[b];
+ };
+
+// .kdb.exp.keywords.read0[]
+.kdb.exp.keywords.read0:{
+ show "example: ";
+ show .kdb.desc.keywords.read0
+
+ };
+
+// .kdb.exp.keywords.read1[]
+.kdb.exp.keywords.read1:{
+ show "example: ";
+ show .kdb.desc.keywords.read1
+
+ };
+
+// .kdb.exp.keywords.reciprocal[]
+.kdb.exp.keywords.reciprocal:{
+ show "example: ";
+ show .kdb.desc.keywords.reciprocal
+
+ };
+
+// .kdb.exp.keywords.reverse[]
+.kdb.exp.keywords.reverse:{
+ show "example: ";
+ show .kdb.desc.keywords.reverse
+
+ };
+
+// .kdb.exp.keywords.rotate[]
+.kdb.exp.keywords.rotate:{
+ show "example: ";
+ show .kdb.desc.keywords.rotate
+
+ };
+
+// .kdb.exp.keywords.rsave[]
+.kdb.exp.keywords.rsave:{
+ show "example: ";
+ show .kdb.desc.keywords.rsave
+
+ };
+
+// .kdb.exp.keywords.select[]
+.kdb.exp.keywords.select:{
+ show "example: ";
+ show .kdb.desc.keywords.select
+
+ };
+
+// .kdb.exp.keywords.show[]
+.kdb.exp.keywords.show:{
+ show "example: ";
+ show .kdb.desc.keywords.show
+
+ };
+
+// .kdb.exp.keywords.signum[]
+.kdb.exp.keywords.signum:{
+ show "example: ";
+ show .kdb.desc.keywords.signum
+
+ };
+
+// .kdb.exp.keywords.sin[]
+.kdb.exp.keywords.sin:{
+ show "example: ";
+ show .kdb.desc.keywords.sin
+
+ };
+
+// .kdb.exp.keywords.asin[]
+.kdb.exp.keywords.asin:{
+ show "example: ";
+ show .kdb.desc.keywords.asin
+
+ };
+
+// .kdb.exp.keywords.sqrt[]
+.kdb.exp.keywords.sqrt:{
+ show "example: ";
+ show .kdb.desc.keywords.sqrt
+
+ };
+
+// .kdb.exp.keywords.ss[]
+.kdb.exp.keywords.ss:{
+ show "example: ";
+ show .kdb.desc.keywords.ss
+
+ };
+
+// .kdb.exp.keywords.ssr[]
+.kdb.exp.keywords.ssr:{
+ show "example: ";
+ show .kdb.desc.keywords.ssr
+
+ };
+
+// .kdb.exp.keywords.string[]
+.kdb.exp.keywords.string:{
+ show "example: ";
+ show .kdb.desc.keywords.string
+
+ };
+
+// .kdb.exp.keywords.sublist[]
+.kdb.exp.keywords.sublist:{
+ show "example: ";
+ show .kdb.desc.keywords.sublist
+
+ };
+
+// .kdb.exp.keywords.sum[]
+.kdb.exp.keywords.sum:{
+ show "example: ";
+ show .kdb.desc.keywords.sum
+
+ };
+
+// .kdb.exp.keywords.sums[]
+.kdb.exp.keywords.sums:{
+ show "example: ";
+ show .kdb.desc.keywords.sums
+
+ };
+
+// .kdb.exp.keywords.msum[]
+.kdb.exp.keywords.msum:{
+ show "example: ";
+ show .kdb.desc.keywords.msum
+
+ };
+
+// .kdb.exp.keywords.wsum[]
+.kdb.exp.keywords.wsum:{
+ show "example: ";
+ show .kdb.desc.keywords.wsum
+
+ };
+
+// .kdb.exp.keywords.sv[]
+.kdb.exp.keywords.sv:{
+ show "example: ";
+ show .kdb.desc.keywords.sv
+
+ };
+
+// .kdb.exp.keywords.system[]
+.kdb.exp.keywords.system:{
+ show "example: ";
+ show .kdb.desc.keywords.system
+
+ };
+
+// .kdb.exp.keywords.tables[]
+.kdb.exp.keywords.tables:{
+ show "example: ";
+ show .kdb.desc.keywords.tables
+
+ };
+
+// .kdb.exp.keywords.tan[]
+.kdb.exp.keywords.tan:{
+ show "example: ";
+ show .kdb.desc.keywords.tan
+
+ };
+
+// .kdb.exp.keywords.atan[]
+.kdb.exp.keywords.atan:{
+ show "example: ";
+ show .kdb.desc.keywords.atan
+
+ };
+
+// .kdb.exp.keywords.til[]
+.kdb.exp.keywords.til:{
+ show "example: ";
+ show .kdb.desc.keywords.til
+
+ };
+
+// .kdb.exp.keywords.trim[]
+.kdb.exp.keywords.trim:{
+ show "example: ";
+ show .kdb.desc.keywords.trim
+
+ };
+
+// .kdb.exp.keywords.ltrim[]
+.kdb.exp.keywords.ltrim:{
+ show "example: ";
+ show .kdb.desc.keywords.ltrim
+
+ };
+
+// .kdb.exp.keywords.rtrim[]
+.kdb.exp.keywords.rtrim:{
+ show "example: ";
+ show .kdb.desc.keywords.rtrim
+
+ };
+
+// .kdb.exp.keywords.type[]
+.kdb.exp.keywords.type:{
+ show "example: ";
+ show .kdb.desc.keywords.type
+
+ };
+
+// .kdb.exp.keywords.uj[]
+.kdb.exp.keywords.uj:{
+ show "example: ";
+ show .kdb.desc.keywords.uj
+
+ };
+
+// .kdb.exp.keywords.union[]
+.kdb.exp.keywords.union:{
+ show "example: ";
+ show .kdb.desc.keywords.union
+
+ };
+
+// .kdb.exp.keywords.ungroup[]
+.kdb.exp.keywords.ungroup:{
+ show "example: ";
+ show .kdb.desc.keywords.ungroup
+
+ };
+
+// .kdb.exp.keywords.update[]
+.kdb.exp.keywords.update:{
+ show "example: ";
+ show .kdb.desc.keywords.update
+
+ };
+
+// .kdb.exp.keywords.upsert[]
+.kdb.exp.keywords.upsert:{
+ show "example: ";
+ show .kdb.desc.keywords.upsert
+
+ };
+
+// .kdb.exp.keywords.value[]
+.kdb.exp.keywords.value:{
+ show "example: ";
+ show .kdb.desc.keywords.value
+
+ };
+
+// .kdb.exp.keywords.var[]
+.kdb.exp.keywords.var:{
+ show "example: ";
+ show .kdb.desc.keywords.var
+
+ };
+
+// .kdb.exp.keywords.svar[]
+.kdb.exp.keywords.svar:{
+ show "example: ";
+ show .kdb.desc.keywords.svar
+
+ };
+
+// .kdb.exp.keywords.view[]
+.kdb.exp.keywords.view:{
+ show "example: ";
+ show .kdb.desc.keywords.view
+
+ };
+
+// .kdb.exp.keywords.views[]
+.kdb.exp.keywords.views:{
+ show "example: ";
+ show .kdb.desc.keywords.views
+
+ };
+
+// .kdb.exp.keywords.vs[]
+.kdb.exp.keywords.vs:{
+ show "example: ";
+ show .kdb.desc.keywords.vs
+
+ };
+
+// .kdb.exp.keywords.where[]
+.kdb.exp.keywords.where:{
+ show "example: ";
+ show .kdb.desc.keywords.where
+
+ };
+
+// .kdb.exp.keywords.within[]
+.kdb.exp.keywords.within:{
+ show "example: ";
+ show .kdb.desc.keywords.within
+
+ };
+
+// .kdb.exp.keywords.wj[]
+.kdb.exp.keywords.wj:{
+ show "example: ";
+ show .kdb.desc.keywords.wj
+
+ };
+
+// .kdb.exp.keywords.wj1[]
+.kdb.exp.keywords.wj1:{
+ show "example: ";
+ show .kdb.desc.keywords.wj1
+
+ };
+
+// .kdb.exp.keywords.xbar[]
+.kdb.exp.keywords.xbar:{
+ show "example: ";
+ show .kdb.desc.keywords.xbar
+
+ };
+
+// .kdb.exp.keywords.xgroup[]
+.kdb.exp.keywords.xgroup:{
+ show "example: ";
+ show .kdb.desc.keywords.xgroup
+
+ };
+
+// .kdb.exp.keywords.xrank[]
+.kdb.exp.keywords.xrank:{
+ show "example: ";
+ show .kdb.desc.keywords.xrank
+
  };
