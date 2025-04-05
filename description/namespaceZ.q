@@ -5,7 +5,7 @@
 
 // Author: Spencer
 //==========================================================
-.kdb.desc.func.z.a:"IP address - theip address asa 32-bit integer. When invoked inside a .z.p* callback via a TCP/IP connection, it is the IP address of the client session, not the current session. For example, connecting from a remote machine. When invoked via a Unix Domain Socket, it is 0.";
+.kdb.desc.func.z.a:"IP address - theip address asa 32-bit integer. When invoked inside a .z.p callback via a TCP IP connection, it is the IP address of the client session, not the current session. For example, connecting from a remote machine. When invoked via a Unix Domain Socket, it is 0.";
 
 .kdb.desc.func.z.ac:"HTTP auth - .z.ac:(requestText;requestHeaderAsDictionary) - Lets you define custom code to authorize/authenticate an hhtp request, e.g. inspect HTTP headers representing oauth tokens, cookies, etc. Your custom code can then return different values based on what is discovered. .z.ac is a unary function, whose single parameter is a two-element list providing the request text and header. The function should return a two-element list. The list of possible return values is: (0;quotes) - User not authorized. Client is sent default 401 HTTP unauthorized response. An HTTP callback to handle the request will not be called. (1;username in quotes) - The provided username is used to set .z.u. The relevant HTTP callback to handle this request will be allowed. (2;response text) - The custom response to be sent should be provided in the response text section. The response text should be comprised of a valid HTTP response message, for example a 401 response with a customised message. An HTTP callback to handle the original request is not called. (4;empty quotes) - Fallback to basic access authentication, where the username/password are base64 decoded and processed via the -u/-U file and .z.pw (if defined). If the user is not permitted, the client is sent a default 401 HTTP unauthorized response. Since V4.0 2021.07.12.";
 
@@ -34,7 +34,6 @@
 .kdb.desc.func.z.K:"version - the major version number as a flot of the version of kdb+ being used.";
 
 .kdb.desc.func.z.k:"release data - date on which the version of kdb+ being used was released.";
-
 
 .kdb.desc.func.z.l:"License information as a list of strings; () for non-commercial 32-bit versions. bannerText is the custom text displayed at startup, and always contains the license number as the last token.";
 
@@ -66,7 +65,7 @@
 
 .kdb.desc.func.z.pq:"qcon - Remote connections using the qcon text protocol are routed to .z.pq, which defaults to calling .z.pi. (Since V3.5+3.6 2019.01.31.)";
 
-.kdb.desc.func.z.ps:"set - Where f is a unary function, .z.ps is evaluated with the object that is passed to this kdb+ session via an asynchronous request. The return value is discarded. .z.ps can be unset with \x .z.ps, which restores the default behavior. The default behavior is equivalent to setting .z.ps to value. Note that .z.ps is used in preference to .z.pg when messages are sent to the local process using handle 0.";
+.kdb.desc.func.z.ps:"set - Where f is a unary function, .z.ps is evaluated with the object that is passed to this kdb+ session via an asynchronous request. The return value is discarded. .z.ps can be unset with backslash x .z.ps, which restores the default behavior. The default behavior is equivalent to setting .z.ps to value. Note that .z.ps is used in preference to .z.pg when messages are sent to the local process using handle 0.";
 
 .kdb.desc.func.z.pw:"validate user - This is a hook for connecting to external validation services, and should return a boolean result. The parameters to it are the username and password supplied by the incoming call. When a new request comes in, a call can be made to an external system and return the permissions of the incoming user. Then .z.pw should return true or false and the kdb+ process will accept or reject the connection accordingly. The default implementation is:";
 
