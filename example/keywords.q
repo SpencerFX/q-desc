@@ -738,18 +738,26 @@
  show hsym`10.43.23.197;
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
- 
+// .kdb.exp.keyword.ij[]
+.kdb.exp.keyword.ij:{
+ show "example: ij - inner join";
+ show .kdb.desc.keywords.ij;
+ show .kdb.desc.joins.ij;
+ show info;
+ show trade;
+ show "trade ij info";
+ show trade ij info;
  };
 
-// .kdb.exp.keyword.[]
-.kdb.exp.keyword.:{
- show "example: ";
- show .kdb.desc.keywords.
- 
+// .kdb.exp.keyword.ijf[]
+.kdb.exp.keyword.ijf:{
+ show "example: ijf - inner join";
+ show .kdb.desc.keywords.ij;
+ show .kdb.desc.joins.ij;
+ show info;
+ show trade;
+ show "trade ij info";
+ show trade ij info;
  };
 
 // .kdb.exp.keyword.[]
