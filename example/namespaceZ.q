@@ -189,6 +189,10 @@
  show .kdb.desc.func.z.pc;
  show ".z.pc:{0N!(.z.a;.z.u;.z.w;x);x}";
  .z.pc:{0N!(.z.a;.z.u;.z.w;x);x};
+ show "Registry:([zw:`int$()] callback:`symbol$())"
+ show "register:{[cb] `Registry upsert (.z.w; cb);}"
+ show ".z.po:{`Registry upsert (x; `unregistered);}";
+ show ".z.pc:{delete from `Registry where zw=x;}";
  };
 
 // .kdb.exp.keyword.z.pd[]
@@ -236,153 +240,183 @@
 
 // .kdb.exp.keyword.z.po[]
 .kdb.exp.keyword.z.po:{
- show "Example: .z.po";
- show .kdb.desc.func.z.po
-
+ show "Example: .z.po - open";
+ show .kdb.desc.func.z.po;
+ show ".z.po is evaluated when a connection to the a kdb process has been requested. It is validated against any -u or -U information or .z.pw checks";
+ show "Registry:([zw:`int$()] callback:`symbol$())"
+ show "register:{[cb] `Registry upsert (.z.w; cb);}"
+ show ".z.po:{`Registry upsert (x; `unregistered);}";
+ show ".z.pc:{delete from `Registry where zw=x;}";
  };
 
 // .kdb.exp.keyword.z.pp[]
 .kdb.exp.keyword.z.pp:{
- show "Example: .z.pp";
- show .kdb.desc.func.z.pp
-
+ show "Example: .z.pp - HTTP post";
+ show .kdb.desc.func.z.pp;
+ show "You may be able to modify this so that it calls value on the first item of its argument and returns the result to the calling taks.";
  };
 
 // .kdb.exp.keyword.z.pq[]
 .kdb.exp.keyword.z.pq:{
- show "Example: .z.pq";
- show .kdb.desc.func.z.pq
-
+ show "Example: .z.pq - qcon";
+ show .kdb.desc.func.z.pq;
+ show "This allows a user to handle remote qcon connections (via .z.pq) without defining special handling for console processing (via .z.pi).";
  };
 
 // .kdb.exp.keyword.z.ps[]
 .kdb.exp.keyword.z.ps:{
- show "Example: .z.ps";
- show .kdb.desc.func.z.ps
-
+ show "Example: .z.ps - set";
+ show .kdb.desc.func.z.ps;
+ show ".z.ps:{[x]0N!(`zps;x);value x}";
+ show ".z.pg:{[x]0N!(`zpg;x);value x}";
+ .z.ps:{[x]0N!(`zps;x);value x}; 
+ .z.pg:{[x]0N!(`zpg;x);value x}; 
+ show 0 "2+2";
  };
 
 // .kdb.exp.keyword.z.pw[]
 .kdb.exp.keyword.z.pw:{
- show "Example: .z.pw";
- show .kdb.desc.func.z.pw
-
+ show "Example: .z.pw - validate user";
+ show .kdb.desc.func.z.pw;
+ show "{[user;pswd]1b}";
+ show "As .z.pw is simply a function it can be used to implement rules such as: ordinary users can sign on only between 0800 and 1800 on weekdays or can go out to external resources like an LDAP directory.";
+ show "If .z.pw returns 0b the task attempting to establish the connection will get an 'access error.";
  };
 
 // .kdb.exp.keyword.z.q[]
 .kdb.exp.keyword.z.q:{
- show "Example: .z.q";
- show .kdb.desc.func.z.q
+ show "Example: .z.q - quiet mode";
+ show .kdb.desc.func.z.q;
+ "See command line option -q";
 
  };
 // .kdb.exp.keyword.z.r[]
 .kdb.exp.keyword.z.r:{
- show "Example: .z.r";
- show .kdb.desc.func.z.r
+ show "Example: .z.r - blocked";
+ show .kdb.desc.func.z.r;
 
  };
 
 // .kdb.exp.keyword.z.s[]
 .kdb.exp.keyword.z.s:{
- show "Example: .z.s";
- show .kdb.desc.func.z.s
-
+ show "Example: .z.s - self";
+ show .kdb.desc.func.z.s;
+ show "fact:{$[x<=0;1;x*.z.s x-1]}";
+ show "fact[5]";
+ fact:{$[x<=0;1;x*.z.s x-1]};
+ show fact[5];
  };
 
 // .kdb.exp.keyword.z.ts[]
 .kdb.exp.keyword.z.ts:{
- show "Example: .z.ts";
- show .kdb.desc.func.z.ts
-
+ show "Example: .z.ts - timer";
+ show .kdb.desc.func.z.ts;
+ show "system\"t 1000\" / setting the timer to every second";
+ show ".z.ts:{0N!x}";
+ show "2010.12.16D17:12:12.849442000";
  };
 
 // .kdb.exp.keyword.z.u[]
 .kdb.exp.keyword.z.u:{
- show "Example: .z.u";
- show .kdb.desc.func.z.u
-
+ show "Example: .z.u - user id";
+ show .kdb.desc.func.z.u;
+ show .z.u;
  };
 
 // .kdb.exp.keyword.z.vs[]
 .kdb.exp.keyword.z.vs:{
- show "Example: .z.vs";
- show .kdb.desc.func.z.vs
-
+ show "Example: .z.vs - value set";
+ show .kdb.desc.func.z.vs;
+ show "The following example sets .z.vs to display the symbol, the index and the value of the variable.";
+ show ".z.vs:{0N!(x;y;value x)}";
+ .z.vs:{0N!(x;y;value x)};
+ show m:(1 2;3 4);
  };
 
 // .kdb.exp.keyword.z.W[]
 .kdb.exp.keyword.z.W:{
- show "Example: .z.W";
- show .kdb.desc.func.z.W
-
+ show "Example: .z.W - handles";
+ show .kdb.desc.func.z.W;
+ show "neg[h]({};til 1000000); neg[h]({};til 10); .z.W";
+ show "3| 8000030 110";
  };
 
 // .kdb.exp.keyword.z.w[]
 .kdb.exp.keyword.z.w:{
- show "Example: .z.w";
- show .kdb.desc.func.z.w
-
+ show "Example: .z.w - handle";
+ show .kdb.desc.func.z.w;
+ show ".z.w";
+ show .z.w;
  };
 
 // .kdb.exp.keyword.z.wc[]
 .kdb.exp.keyword.z.wc:{
- show "Example: .z.wc";
- show .kdb.desc.func.z.wc
-
+ show "Example: .z.wc - websocket close";
+ show .kdb.desc.func.z.wc;
+ show "f[h] is evaluated after a websocket connection has been closed. (Since V3.3t 2014.11.26.)";
  };
 
 // .kdb.exp.keyword.z.wo[]
 .kdb.exp.keyword.z.wo:{
- show "Example: .z.wo";
- show .kdb.desc.func.z.wo
-
+ show "Example: .z.wo - websocket open";
+ show .kdb.desc.func.z.wo;
  };
 
 // .kdb.exp.keyword.z.ws[]
 .kdb.exp.keyword.z.ws:{
- show "Example: .z.ws";
- show .kdb.desc.func.z.ws
-
+ show "Example: .z.ws - websockets";
+ show .kdb.desc.func.z.ws;
  };
 
 // .kdb.exp.keyword.z.X[]
 .kdb.exp.keyword.z.X:{
- show "Example: .z.X";
- show .kdb.desc.func.z.X
-
+ show "Example: .z.X - raw command line";
+ show .kdb.desc.func.z.X;
+ show ".z.X";
+ show .z.X;
+ show ".Q.opt .z.X";
+ show .Q.opt .z.X;
  };
 
 // .kdb.exp.keyword.z.x[]
 .kdb.exp.keyword.z.x:{
- show "Example: .z.x";
- show .kdb.desc.func.z.x
-
+ show "Example: .z.x - argv";
+ show .kdb.desc.func.z.x;
+ show ".z.x";
+ show .z.x;
  };
 
 // .kdb.exp.keyword.z.Z[]
 .kdb.exp.keyword.z.Z:{
- show "Example: .z.Z";
- show .kdb.desc.func.z.Z
-
+ show "Example: .z.Z - local datetime";
+ show .kdb.desc.func.z.Z;
+ show ".z.Z";
+ show .z.Z;
  };
 
 // .kdb.exp.keyword.z.z[]
 .kdb.exp.keyword.z.z:{
- show "Example: .z.z";
- show .kdb.desc.func.z.z
-
+ show "Example: .z.z - utc datetime";
+ show .kdb.desc.func.z.z;
+ show ".z.z";
+ show .z.z;
  };
 
 // .kdb.exp.keyword.z.zd[]
 .kdb.exp.keyword.z.zd:{
- show "Example: .z.zd";
- show .kdb.desc.func.z.zd
-
+ show "Example: .z.zd - compression/encryption defaults";
+ show .kdb.desc.func.z.zd;
+ show ".z.zd:(lbs;alg;lvl)";
+ show ".z.zd:17 2 6        / set zip defaults";
+ show "system \"x .z.zd\"  / clear zip defaults";
  };
 
 // .kdb.exp.keyword.z.T[]
 .kdb.exp.keyword.z.T:{
- show "Example: .z.T";
+ show "Example: .z.T - time short cuts";
  show .kdb.desc.func.z.T;
-
+ show ".z.T";
+ show .z.T;
+ show ".z.t";
+ show .z.t;
  };
