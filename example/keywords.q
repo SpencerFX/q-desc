@@ -921,93 +921,118 @@
 
 // .kdb.exp.keywords.lsq[]
 .kdb.exp.keywords.lsq:{
- show "example: ";
- show .kdb.desc.keywords.lsq
-
+ show "example: lsq";
+ show .kdb.desc.keywords.lsq;
+ a:1f+3 4#til 12;
+ b:4 4#2 7 -2 5 5 3 6 1 -2 5 2 7 5 0 3 4f;
+ show a;
+ show b;
+ show "a lsq b";
+ show a lsq b;
  };
 
 // .kdb.exp.keywords.lower[]
 .kdb.exp.keywords.lower:{
- show "example: ";
- show .kdb.desc.keywords.lower
- 
+ show "example: lower";
+ show .kdb.desc.keywords.lower;
+ show "lower\"IBM\"";
+ show lower"IBM";
  };
 
 // .kdb.exp.keywords.max[]
 .kdb.exp.keywords.max:{
- show "example: ";
- show .kdb.desc.keywords.max
- 
+ show "example: max";
+ show .kdb.desc.keywords.max;
+ show "max 2 5 7 1 3";
+ show max 2 5 7 1 3;
+ show "max \"genie\"";
+ show max "genie";
  };
 
 // .kdb.exp.keywords.maxs[]
 .kdb.exp.keywords.maxs:{
- show "example: ";
- show .kdb.desc.keywords.maxs
-
+ show "example: maxs";
+ show .kdb.desc.keywords.maxs;
+ show "maxs 2 5 7 1 3";
+ show maxs 2 5 7 1 3;
  };
 
 // .kdb.exp.keywords.mmax[]
 .kdb.exp.keywords.mmax:{
- show "example: ";
- show .kdb.desc.keywords.mmax
- 
+ show "example: mmax";
+ show .kdb.desc.keywords.mmax;
+ show "3 mmax 2 7 1 3 5 2 8";
+ show 3 mmax 2 7 1 3 5 2 8; 
  };
 
 // .kdb.exp.keywords.md5[]
 .kdb.exp.keywords.md5:{
- show "example: ";
- show .kdb.desc.keywords.md5
- 
+ show "example: md5 - message digest hash";
+ show .kdb.desc.keywords.md5;
+ show "md5 \"this is a not so secret message\"";
+ show md5 "this is a not so secret message";
  };
 
 // .kdb.exp.keywords.med[]
 .kdb.exp.keywords.med:{
- show "example: ";
- show .kdb.desc.keywords.med
-
+ show "example: med - median";
+ show .kdb.desc.keywords.med;
+ show "med 10 34 23 123 5 56";
+ show med 10 34 23 123 5 56;
  };
 
 // .kdb.exp.keywords.meta[]
 .kdb.exp.keywords.meta:{
- show "example: ";
- show .kdb.desc.keywords.meta
- 
+ show "example: meta - metadata for a table";
+ show .kdb.desc.keywords.meta;
+ show "meta trade";
+ show meta trade;
  };
 
 // .kdb.exp.keywords.min[]
 .kdb.exp.keywords.min:{
- show "example: ";
- show .kdb.desc.keywords.min
- 
+ show "example: min - minimum";
+ show .kdb.desc.keywords.min;
+  show "min 2 5 7 1 3";
+ show min 2 5 7 1 3;
+ show "min \"genie\"";
+ show min "genie";
  };
 
 // .kdb.exp.keywords.mins[]
 .kdb.exp.keywords.mins:{
- show "example: ";
- show .kdb.desc.keywords.mins
-
+ show "example: mins - minimums";
+ show .kdb.desc.keywords.mins;
+ show "mins 2 5 7 1 3";
+ show mins 2 5 7 1 3;
  };
 
 // .kdb.exp.keywords.mmin[]
 .kdb.exp.keywords.mmin:{
- show "example: ";
- show .kdb.desc.keywords.mmin
- 
+ show "example: mmin - moving minimums";
+ show .kdb.desc.keywords.mmin;
+  show "3 mmin 2 7 1 3 5 2 8";
+ show 3 mmin 2 7 1 3 5 2 8; 
  };
 
 // .kdb.exp.keywords.mmu[]
 .kdb.exp.keywords.mmu:{
- show "example: ";
- show .kdb.desc.keywords.mmu
- 
+ show "example: mmu - matrix multiply";
+ show .kdb.desc.keywords.mmu;
+ show a:2 4#2 4 8 3 5 6 0 7f;
+ show b:4 3#"f"$til 12;
+ show "a mmu b";;
+ show a mmu b;
  };
 
 // .kdb.exp.keywords.mod[]
 .kdb.exp.keywords.mod:{
- show "example: ";
- show .kdb.desc.keywords.mod
-
+ show "example: mod - modulus";
+ show .kdb.desc.keywords.mod;
+ show "-3 -2 -1 0 1 2 3 4 mod 3";
+ show -3 -2 -1 0 1 2 3 4 mod 3;
+ show "7 mod 2 3 4";
+ show 7 mod 2 3 4;
  };
 
 // .kdb.exp.keywords.neg[]
