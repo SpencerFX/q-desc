@@ -762,107 +762,161 @@
 
 // .kdb.exp.keywords.in[]
 .kdb.exp.keywords.in:{
- show "example: in";
+ show "example: in - whether x is an item of y";
  show .kdb.desc.keywords.in;
-
+ show "\"x\" in \"a\" / atom in atom";
+ show "x" in "a";
+ show "\"x\" in \"acdexyz\" / atom in vector";
+ show "x" in "acdexyz";
+ show "\"wx\" in \"acdexyz\" / vector in vector";
+ show "wx" in "acdexyz";                          
+ show "(\"abc\";(\"def\";\"ghi\");\"jkl\")in \"bed\" / list in vector";
+ show ("abc";("def";"ghi");"jkl")in "bed";   
  };
 
 // .kdb.exp.keywords.insert[]
 .kdb.exp.keywords.insert:{
- show "example: insert";
+ show "example: insert - Insert or append records to a table";
  show .kdb.desc.keywords.insert;
-
+ show x:([a:`x`y];b:10 20);
+ show "`x insert (`z;30)";
+ show `x insert (`z;30);
+ show x;
+ show "several records may be appended at once";
+ show "`x insert (`s`t;40 50)";
+ show `x insert (`s`t;40 50);
+ show x;
  };
 
 // .kdb.exp.keywords.inter[]
 .kdb.exp.keywords.inter:{
- show "example: ";
- show .kdb.desc.keywords.inter
- 
+ show "example: inter - intersection of two lists or dictionaries";
+ show .kdb.desc.keywords.inter;
+ show "1 3 4 2 inter 2 3 5 7 11";
+ show 1 3 4 2 inter 2 3 5 7 11;
+ show x:(`a`b)!(1 2 3;`x`y`z);
+ show y:(`a`b`c)!(1 2 3;2 3 5;`x`y`z);
+ show "x inter y";
+ show x inter y;
+ show x:([]a:`x`y`z`t;b:10 20 30 40);
+ show y:([]a:`y`t`x;b:50 40 10);
+ show "x inter y";
+ show x inter y;
  };
 
 // .kdb.exp.keywords.inv[]
 .kdb.exp.keywords.inv:{
- show "example: ";
- show .kdb.desc.keywords.inv
-
+ show "example: inv - matrix inverse";
+ show .kdb.desc.keywords.inv;
+ show a:3 3#2 4 8 3 5 6 0 7 1f;
+ show "inv a";
+ show inv a;
  };
 
 // .kdb.exp.keywords.key[]
 .kdb.exp.keywords.key:{
- show "example: ";
- show .kdb.desc.keywords.key
- 
+ show "example: key";
+ show .kdb.desc.keywords.key;
+ show D:`q`w`e!(1 2;3 4;5 6);
+ show key D;
+ show key `.;
+ show K:([s:`q`w`e]g:1 2 3;h:4 5 6);
+ show key K;
+ show key`:c:/q;
+ f:([f:1 2 3]v:`a`b`c);
+ x:`f$3 2;
+ key x;
+ key each ("abc";101b;1 2 3h;1 2 3;1 2 3;1 2 3f);
+ ids:`a`b`c;
+ x:`ids$`a`c;
+ key x;
  };
 
 // .kdb.exp.keywords.keys[]
 .kdb.exp.keywords.keys:{
- show "example: ";
+ show "example: keys - get or set key columns of a table";
  show .kdb.desc.keywords.keys
- 
+ keys trade;
+ keys `sym xkey trade;
  };
 
 // .kdb.exp.keywords.xkey[]
 .kdb.exp.keywords.xkey:{
- show "example: ";
- show .kdb.desc.keywords.xkey
-
+ show "example: keys - get or set key columns of a table";
+ show .kdb.desc.keywords.xkey;
+ show `sym xkey trade;
  };
 
 // .kdb.exp.keywords.like[]
 .kdb.exp.keywords.like:{
- show "example: ";
- show .kdb.desc.keywords.like
- 
+ show "example: like - whether text matches a pattern";
+ show .kdb.desc.keywords.like;
+ show "`quick like \"qu?ck\"";
+ show `quick like "qu?ck";
+ show "`brown like \"br[ao]wn\"";
+ show `brown like "br[ao]wn";
+ show "`quickly like \"quick*\"";
+ show `quickly like "quick*";
+ show "(`a`b`c!`quick`brown`fox)like \"brown\"";
+ show (`a`b`c!`quick`brown`fox)like "brown";
  };
 
 // .kdb.exp.keywords.lj[]
 .kdb.exp.keywords.lj:{
- show "example: ";
- show .kdb.desc.keywords.lj
- 
+ show "example: lj";
+ show .kdb.desc.keywords.lj;
+ show "syntax is: lj[<unkeyed>;<keyed>] or <unkeyed> lj <keyed>";
+ show sector;
+ show trades;
+ show "trade lj sector";
+ show trade lj sector;
  };
 
 // .kdb.exp.keywords.ljf[]
 .kdb.exp.keywords.ljf:{
- show "example: ";
- show .kdb.desc.keywords.ljf
-
+ show "example: ljf";
+ show .kdb.desc.keywords.ljf;
+ show "syntax is: lj[<unkeyed>;<keyed>] or <unkeyed> lj <keyed>";
+ show sector;
+ show trades;
+ show "trade lj sector";
+ show trade lj sector;
  };
 
 // .kdb.exp.keywords.load[]
 .kdb.exp.keywords.load:{
- show "example: ";
- show .kdb.desc.keywords.load
- 
+ show "example: load - load binary data from a file or directory";
+ show .kdb.desc.keywords.load;
  };
 
 // .kdb.exp.keywords.rload[]
 .kdb.exp.keywords.rload:{
- show "example: ";
- show .kdb.desc.keywords.rload
- 
+ show "example: rload - load a splayed table from a directory";
+ show .kdb.desc.keywords.rload;
  };
 
 // .kdb.exp.keywords.log[]
 .kdb.exp.keywords.log:{
- show "example: ";
- show .kdb.desc.keywords.log
-
+ show "example: log - natural logarithm";
+ show .kdb.desc.keywords.log;
+ show "log is a multithreaded primitive."
+ show log 0.5;
+ show log -2 0n 0 0.1 1 42;
  };
 
 // .kdb.exp.keywords.xlog[]
 .kdb.exp.keywords.xlog:{
- show "example: ";
- show .kdb.desc.keywords.xlog
- 
+ show "example: xlog";
+ show .kdb.desc.keywords.xlog;
+ show 1.5 xlog 0 0.125 1 3 0n;
  };
 
 // .kdb.exp.keywords.lower[]
 .kdb.exp.keywords.lower:{
- show "example: ";
- show .kdb.desc.keywords.lower
- 
+ show "example: lower - shift case";
+ show .kdb.desc.keywords.lower;
+ show "lower `IBM";
+ show lower `IBM;
  };
 
 // .kdb.exp.keywords.lsq[]
