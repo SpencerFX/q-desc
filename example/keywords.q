@@ -1037,121 +1037,187 @@
 
 // .kdb.exp.keywords.neg[]
 .kdb.exp.keywords.neg:{
- show "example: ";
- show .kdb.desc.keywords.neg
- 
+ show "example: neg - negate";
+ show .kdb.desc.keywords.neg;
+ show "neg -1 0 1 2";
+ show neg -1 0 1 2;
+ show "neg 01001b";
+ show neg 01001b;
+ show "domain: b g x h i j e f c s p m d z n u v t";
+ show "range:  i . i h i j e f i . p m d z n u v t";
  };
 
 // .kdb.exp.keywords.next[]
 .kdb.exp.keywords.next:{
- show "example: ";
- show .kdb.desc.keywords.next
- 
+ show "example: next - Immediate or near neighbors";
+ show .kdb.desc.keywords.next;
+ show "next 2 3 5 7 11";
+ show next 2 3 5 7 11;
+ show "next (1 2;\"abc\";`ibm)";
+ show next (1 2;"abc";`ibm);
+ show update (next time)-time by sym from quote;
  };
 
 // .kdb.exp.keywords.prev[]
 .kdb.exp.keywords.prev:{
- show "example: ";
- show .kdb.desc.keywords.prev
-
+ show "example: prev - Immediately preceding item/s in a list";
+ show .kdb.desc.keywords.prev;
+ show "prev 2 3 5 7 11";
+ show prev 2 3 5 7 11;
+ show "prev (1 2;\"abc\";`ibm)";
+ show "update time:prev time by sym from quote";
+ show update time:prev time by sym from quote;
  };
 
 // .kdb.exp.keywords.xprev[]
 .kdb.exp.keywords.xprev:{
- show "example: ";
- show .kdb.desc.keywords.xprev
-
+ show "example: xprev - Nearby items in a list";
+ show .kdb.desc.keywords.xprev;
+ show "2 xprev 2 7 5 3 11";
+ show 2 xprev 2 7 5 3 11;
+ show "-2 xprev 2 7 5 3 11";
+ show -2 xprev 2 7 5 3 11;
+ show "1 xprev \"abcde\"";
+ show 1 xprev "abcde";
  };
 
 // .kdb.exp.keywords.not[]
 .kdb.exp.keywords.not:{
- show "example: ";
- show .kdb.desc.keywords.not
-
+ show "example: not - Not zero";
+ show .kdb.desc.keywords.not;
+ show "not -1 0 1 2";
+ show not -1 0 1 2;
+ show "not `a`b!(-1 0 2;\"abc\",\"c\"$0)";
+ show not `a`b!(-1 0 2;"abc","c"$0);
  };
 
 // .kdb.exp.keywords.null[]
 .kdb.exp.keywords.null:{
- show "example: ";
- show .kdb.desc.keywords.null
-
+ show "example: null - is null";
+ show .kdb.desc.keywords.null;
+ show "null 0 0n 0w 1 0n";
+ show null 0 0n 0w 1 0n;
+ show "where all null ([] c1:`a`b`c; c2:0n 0n 0n; c3:10 0N 30)";
+ show where all null ([] c1:`a`b`c; c2:0n 0n 0n; c3:10 0N 30);
+ show "null` ";
+ show null` ;
  };
 
 // .kdb.exp.keywords.or[]
 .kdb.exp.keywords.or:{
- show "example: ";
- show .kdb.desc.keywords.or
-
+ show "example: or - greater of two values, logical OR";
+ show .kdb.desc.keywords.or;
+ show "5 or 10";
+ show 5 or 10;
  };
 
 // .kdb.exp.keywords.over[]
 .kdb.exp.keywords.over:{
- show "example: ";
- show .kdb.desc.keywords.over
-
+ show "example: over";
+ show .kdb.desc.keywords.over;
+ show n:("the ";("quick ";"brown ";("fox ";"jumps ";"over ");"the ");("lazy ";"dog."));
+ show "raze over n";
+ show raze over n;
+ show "(*) over 1 2 3 4 5";
+ show (*) over 1 2 3 4 5;
+ show "all      over[and;]   &/  Lesser Over";
+ show "any      over[or;]    |/  Greater Over";
+ show "max      over[|;]     |/  Greater Over";
+ show "min      over[&;]     &/  Lesser Over";
+ show "prd      over[*;]     */  qMultiply Over";
+ show "raze     over[,;]     ,/  Join Over";
+ show "sum      over[+;]     +/  Add Over";
  };
 
 // .kdb.exp.keywords.scan[]
 .kdb.exp.keywords.scan:{
- show "example: ";
- show .kdb.desc.keywords.scan
-
+ show "example: scan";
+ show .kdb.desc.keywords.scan;
+ show "{x*x} scan .01";
+ show {x*x} scan .01;
+ show "(+) scan 1 2 3 4 5";
+ show (+) scan 1 2 3 4 5;
+ /show "maxs     scan[|;]     |\  Greater Scan";
+ /show "mins     scan[&;]     &\  Lesser Scan";
+ /show "prds     scan[*;]     *\  Multiply Scan";
+ /show "sums     scan[+;]     +\  Add Scan";
  };
 
 // .kdb.exp.keywords.parse[]
 .kdb.exp.keywords.parse:{
- show "example: ";
- show .kdb.desc.keywords.parse
-
+ show "example: parse - parse a string";
+ show .kdb.desc.keywords.parse;
+ show "parse \"1 2 3 + 5\"";
+ show parse "1 2 3 + 5" ;
+ show "parse \"1 2 3 +/: 5 7\"";
+ show parse "1 2 3 +/: 5 7";
+ show "eval parse \"1 2 3 +/: 5 7\"";
+ show eval parse "1 2 3 +/: 5 7";
+ show "parse \"select part:p,qty by sup:s from sp where qty>200,p=`p1\"";
+ show parse "select part:p,qty by sup:s from sp where qty>200,p=`p1";
  };
 
 // .kdb.exp.keywords.pj[]
 .kdb.exp.keywords.pj:{
- show "example: ";
- show .kdb.desc.keywords.pj
-
+ show "Example: plus join";
+ show .kdb.desc.joins.pj;
+ show "syntax is: pj[<unkeyed or keyed>;<keyed>]";
+ show stocks:([]sym:`IBM`AAPL`GOOG;amount:400 700 1200);
+ show newpurchases:([sym:`IBM`GOOG]amount:60 30);
+ show "pj[stocks;newpurchases]";
+ show pj[stocks;newpurchases]
  };
 
 // .kdb.exp.keywords.prd[]
 .kdb.exp.keywords.prd:{
- show "example: ";
- show .kdb.desc.keywords.prd
-
+ show "example: prd - product";
+ show .kdb.desc.keywords.prd;
+ show "prd 2 3 5 7";
+ show prd 2 3 5 7;
  };
 
 // .kdb.exp.keywords.prds[]
 .kdb.exp.keywords.prds:{
- show "example: ";
- show .kdb.desc.keywords.prds
-
+ show "example: prds - products";
+ show .kdb.desc.keywords.prds;
+ show "prds 2 3 5 7";
+ show prds 2 3 5 7;
  };
 
 // .kdb.exp.keywords.prior[]
 .kdb.exp.keywords.prior:{
- show "example: ";
- show .kdb.desc.keywords.prior
-
+ show "example: prior";
+ show .kdb.desc.keywords.prior;
+ show "(+) prior til 10";
+ show (+) prior til 10;
  };
 
 // .kdb.exp.keywords.rand[]
 .kdb.exp.keywords.rand:{
- show "example: ";
- show .kdb.desc.keywords.rand
-
+ show "example: rand - pick randomly";
+ show .kdb.desc.keywords.rand;
+ show "rand 1 30 45 32";
+ show rand 1 30 45 32;
+ show "rand each 20#6";
+ show rand each 20#6;
  };
 
 // .kdb.exp.keywords.rank[]
 .kdb.exp.keywords.rank:{
- show "example: ";
- show .kdb.desc.keywords.rank
-
+ show "example: rank - position in the sorted list";
+ show .kdb.desc.keywords.rank;
+ show "rank 2 7 3 2 5";
+ show rank 2 7 3 2 5;
+ show "iasc 2 7 3 2 5";
+ show iasc 2 7 3 2 5;
  };
 
 // .kdb.exp.keywords.ratios[]
 .kdb.exp.keywords.ratios:{
- show "example: ";
- show .kdb.desc.keywords.ratios
-
+ show "example: ratios - ratios between items";
+ show .kdb.desc.keywords.ratios;
+ show "update ret:ratios price by sym from trade";
+ show update ret:ratios price by sym from trade;
  };
 
 // .kdb.exp.keywords.raze[]
@@ -1166,336 +1232,351 @@
 
 // .kdb.exp.keywords.read0[]
 .kdb.exp.keywords.read0:{
- show "example: ";
- show .kdb.desc.keywords.read0
-
+ show "example: read0 - read tex from a file or process handle";
+ show .kdb.desc.keywords.read0;
+ show "read0`:test.txt";
+ show "read0 (`:foo;6;5)";
  };
 
 // .kdb.exp.keywords.read1[]
 .kdb.exp.keywords.read1:{
- show "example: ";
- show .kdb.desc.keywords.read1
-
+ show "example: read1 - Read bytes from a file or named pipe";
+ show .kdb.desc.keywords.read1;
+ show "read1`:test.txt";
  };
 
 // .kdb.exp.keywords.reciprocal[]
 .kdb.exp.keywords.reciprocal:{
- show "example: ";
- show .kdb.desc.keywords.reciprocal
-
+ show "example: reciprocal - reciprocal of a number";
+ show .kdb.desc.keywords.reciprocal;
+ show "reciprocal (12;13 14)";
+ show reciprocal (12;13 14);
+ show "domain b g x h i j e f c s p m d z n u v t";
+ show "range  f . f f f f f f f . p f f z f f f f";
  };
 
 // .kdb.exp.keywords.reverse[]
 .kdb.exp.keywords.reverse:{
- show "example: ";
- show .kdb.desc.keywords.reverse
-
+ show "example: reverse - Reverse the order of items of a list or dictionary";
+ show .kdb.desc.keywords.reverse;
+ show "reverse 1 2 3 4";
+ show reverse 1 2 3 4;
+ show d:`a`b!(1 2 3;"xyz");
+ show "reverse d";
+ show reverse d;
  };
 
 // .kdb.exp.keywords.rotate[]
 .kdb.exp.keywords.rotate:{
- show "example: ";
- show .kdb.desc.keywords.rotate
-
+ show "example: rotate - Shift the items of a list to the left or right";
+ show .kdb.desc.keywords.rotate;
+ show "2 rotate 2 3 5 7 11";
+ show 2 rotate 2 3 5 7 11;
+ show "-2 rotate 2 3 5 7 11";
+ show -2 rotate 2 3 5 7 11;
  };
 
-// .kdb.exp.keywords.rsave[]
 .kdb.exp.keywords.rsave:{
- show "example: ";
- show .kdb.desc.keywords.rsave
-
+ show "example: rsave - Save an object to a file";
+ show .kdb.desc.keywords.rsave;
+ t:([] a:1 2 3; b:`x`y`z);
+ show "rsave[`:/tmp/rsave.q] t";
+ show rsave[`:/tmp/rsave.q] t;
  };
 
-// .kdb.exp.keywords.select[]
 .kdb.exp.keywords.select:{
- show "example: ";
- show .kdb.desc.keywords.select
-
+ show "example: select - Query a table";
+ show .kdb.desc.keywords.select;
+ t:([] sym:`a`b`a; px:10 20 30);
+ show "select from t where sym=`a";
+ show select from t where sym=`a;
  };
 
-// .kdb.exp.keywords.show[]
 .kdb.exp.keywords.show:{
- show "example: ";
- show .kdb.desc.keywords.show
-
+ show "example: show - Display an expression";
+ show .kdb.desc.keywords.show;
+ show "show 1+2";
+ show 1+2;
  };
 
-// .kdb.exp.keywords.signum[]
 .kdb.exp.keywords.signum:{
- show "example: ";
- show .kdb.desc.keywords.signum
-
+ show "example: signum - Sign of a number";
+ show .kdb.desc.keywords.signum;
+ show "signum -5 0 7";
+ show signum -5 0 7;
  };
 
-// .kdb.exp.keywords.sin[]
 .kdb.exp.keywords.sin:{
- show "example: ";
- show .kdb.desc.keywords.sin
-
+ show "example: sin - Sine function";
+ show .kdb.desc.keywords.sin;
+ show "sin 0 0.5";
+ show sin 0 0.5;
  };
 
-// .kdb.exp.keywords.asin[]
 .kdb.exp.keywords.asin:{
- show "example: ";
- show .kdb.desc.keywords.asin
-
+ show "example: asin - Inverse sine";
+ show .kdb.desc.keywords.asin;
+ show "asin 0 0.5";
+ show asin 0 0.5;
  };
 
-// .kdb.exp.keywords.sqrt[]
 .kdb.exp.keywords.sqrt:{
- show "example: ";
- show .kdb.desc.keywords.sqrt
-
+ show "example: sqrt - Square root";
+ show .kdb.desc.keywords.sqrt;
+ show "sqrt 1 4 9";
+ show sqrt 1 4 9;
  };
 
-// .kdb.exp.keywords.ss[]
 .kdb.exp.keywords.ss:{
- show "example: ";
- show .kdb.desc.keywords.ss
-
+ show "example: ss - String search";
+ show .kdb.desc.keywords.ss;
+ show "\"hello world\" ss \"o\"";
+ show "hello world" ss "o";
  };
 
-// .kdb.exp.keywords.ssr[]
 .kdb.exp.keywords.ssr:{
- show "example: ";
- show .kdb.desc.keywords.ssr
-
+ show "example: ssr - String search and replace";
+ show .kdb.desc.keywords.ssr;
+ show "\"hello world\" ssr (\"o\";\"0\")";
+ show "hello world" ssr ("o";"0");
  };
 
-// .kdb.exp.keywords.string[]
 .kdb.exp.keywords.string:{
- show "example: ";
- show .kdb.desc.keywords.string
-
+ show "example: string - Convert to string";
+ show .kdb.desc.keywords.string;
+ show "string 123";
+ show string 123;
  };
 
-// .kdb.exp.keywords.sublist[]
 .kdb.exp.keywords.sublist:{
- show "example: ";
- show .kdb.desc.keywords.sublist
-
+ show "example: sublist - Extract items by index list";
+ show .kdb.desc.keywords.sublist;
+ show "1 3 sublist `a`b`c`d`e";
+ show 1 3 sublist `a`b`c`d`e;
  };
 
-// .kdb.exp.keywords.sum[]
 .kdb.exp.keywords.sum:{
- show "example: ";
- show .kdb.desc.keywords.sum
-
+ show "example: sum - Total of a list";
+ show .kdb.desc.keywords.sum;
+ show "sum 1 2 3 4";
+ show sum 1 2 3 4;
  };
 
-// .kdb.exp.keywords.sums[]
 .kdb.exp.keywords.sums:{
- show "example: ";
- show .kdb.desc.keywords.sums
-
+ show "example: sums - Cumulative sums";
+ show .kdb.desc.keywords.sums;
+ show "sums 1 2 3 4";
+ show sums 1 2 3 4;
  };
 
-// .kdb.exp.keywords.msum[]
 .kdb.exp.keywords.msum:{
- show "example: ";
- show .kdb.desc.keywords.msum
-
+ show "example: msum - Moving sum";
+ show .kdb.desc.keywords.msum;
+ show "2 msum 1 2 3 4 5";
+ show 2 msum 1 2 3 4 5;
  };
 
-// .kdb.exp.keywords.wsum[]
 .kdb.exp.keywords.wsum:{
- show "example: ";
- show .kdb.desc.keywords.wsum
-
+ show "example: wsum - Weighted sum";
+ show .kdb.desc.keywords.wsum;
+ show "1 2 wsum 10 20";
+ show 1 2 wsum 10 20;
  };
 
-// .kdb.exp.keywords.sv[]
 .kdb.exp.keywords.sv:{
- show "example: ";
- show .kdb.desc.keywords.sv
-
+ show "example: sv - Join strings";
+ show .kdb.desc.keywords.sv;
+ show "\"-\" sv (\"a\";\"b\";\"c\")";
+ show "-" sv ("a";"b";"c");
  };
 
-// .kdb.exp.keywords.system[]
-.kdb.exp.keywords.system:{
- show "example: ";
- show .kdb.desc.keywords.system
-
- };
-
-// .kdb.exp.keywords.tables[]
-.kdb.exp.keywords.tables:{
- show "example: ";
- show .kdb.desc.keywords.tables
-
- };
-
-// .kdb.exp.keywords.tan[]
-.kdb.exp.keywords.tan:{
- show "example: ";
- show .kdb.desc.keywords.tan
-
- };
-
-// .kdb.exp.keywords.atan[]
-.kdb.exp.keywords.atan:{
- show "example: ";
- show .kdb.desc.keywords.atan
-
- };
-
-// .kdb.exp.keywords.til[]
-.kdb.exp.keywords.til:{
- show "example: ";
- show .kdb.desc.keywords.til
-
- };
-
-// .kdb.exp.keywords.trim[]
-.kdb.exp.keywords.trim:{
- show "example: ";
- show .kdb.desc.keywords.trim
-
- };
-
-// .kdb.exp.keywords.ltrim[]
-.kdb.exp.keywords.ltrim:{
- show "example: ";
- show .kdb.desc.keywords.ltrim
-
- };
-
-// .kdb.exp.keywords.rtrim[]
-.kdb.exp.keywords.rtrim:{
- show "example: ";
- show .kdb.desc.keywords.rtrim
-
- };
-
-// .kdb.exp.keywords.type[]
-.kdb.exp.keywords.type:{
- show "example: ";
- show .kdb.desc.keywords.type
-
- };
-
-// .kdb.exp.keywords.uj[]
-.kdb.exp.keywords.uj:{
- show "example: ";
- show .kdb.desc.keywords.uj
-
- };
-
-// .kdb.exp.keywords.union[]
-.kdb.exp.keywords.union:{
- show "example: ";
- show .kdb.desc.keywords.union
-
- };
-
-// .kdb.exp.keywords.ungroup[]
-.kdb.exp.keywords.ungroup:{
- show "example: ";
- show .kdb.desc.keywords.ungroup
-
- };
-
-// .kdb.exp.keywords.update[]
-.kdb.exp.keywords.update:{
- show "example: ";
- show .kdb.desc.keywords.update
-
- };
-
-// .kdb.exp.keywords.upsert[]
-.kdb.exp.keywords.upsert:{
- show "example: ";
- show .kdb.desc.keywords.upsert
-
- };
-
-// .kdb.exp.keywords.value[]
-.kdb.exp.keywords.value:{
- show "example: ";
- show .kdb.desc.keywords.value
-
- };
-
-// .kdb.exp.keywords.var[]
-.kdb.exp.keywords.var:{
- show "example: ";
- show .kdb.desc.keywords.var
-
- };
-
-// .kdb.exp.keywords.svar[]
-.kdb.exp.keywords.svar:{
- show "example: ";
- show .kdb.desc.keywords.svar
-
- };
-
-// .kdb.exp.keywords.view[]
-.kdb.exp.keywords.view:{
- show "example: ";
- show .kdb.desc.keywords.view
-
- };
-
-// .kdb.exp.keywords.views[]
-.kdb.exp.keywords.views:{
- show "example: ";
- show .kdb.desc.keywords.views
-
- };
-
-// .kdb.exp.keywords.vs[]
 .kdb.exp.keywords.vs:{
- show "example: ";
- show .kdb.desc.keywords.vs
-
+ show "example: vs - Split string";
+ show .kdb.desc.keywords.vs;
+ show "\"-\" vs \"a-b-c\"";
+ show "-" vs "a-b-c";
  };
 
-// .kdb.exp.keywords.where[]
-.kdb.exp.keywords.where:{
- show "example: ";
- show .kdb.desc.keywords.where
-
+.kdb.exp.keywords.system:{
+ show "example: system - Execute system command";
+ show .kdb.desc.keywords.system;
+ show "system \"l\"";
+ show system "l";
  };
 
-// .kdb.exp.keywords.within[]
-.kdb.exp.keywords.within:{
- show "example: ";
- show .kdb.desc.keywords.within
-
+.kdb.exp.keywords.tables:{
+ show "example: tables - List tables in namespace";
+ show .kdb.desc.keywords.tables;
+ show "tables[]";
+ show tables[];
  };
 
-// .kdb.exp.keywords.wj[]
+.kdb.exp.keywords.tan:{
+ show "example: tan - Tangent";
+ show .kdb.desc.keywords.tan;
+ show "tan 0 0.5";
+ show tan 0 0.5;
+ };
+
+.kdb.exp.keywords.atan:{
+ show "example: atan - Inverse tangent";
+ show .kdb.desc.keywords.atan;
+ show "atan 0 1";
+ show atan 0 1;
+ };
+
+til
+.kdb.exp.keywords.til:{
+ show "example: til - Integers from 0 to n-1";
+ show .kdb.desc.keywords.til;
+ show "til 5";
+ show til 5;
+ };
+
+.kdb.exp.keywords.trim:{
+ show "example: trim - Trim whitespace";
+ show .kdb.desc.keywords.trim;
+ show "trim \"  abc  \"";
+ show trim "  abc  ";
+ };
+
+.kdb.exp.keywords.ltrim:{
+ show "example: ltrim - Trim left whitespace";
+ show .kdb.desc.keywords.ltrim;
+ show "ltrim \"  abc\"";
+ show ltrim "  abc";
+ };
+
+.kdb.exp.keywords.rtrim:{
+ show "example: rtrim - Trim right whitespace";
+ show .kdb.desc.keywords.rtrim;
+ show "rtrim \"abc  \"";
+ show rtrim "abc  ";
+ };
+
+
+.kdb.exp.keywords.type:{
+ show "example: type - Data type code";
+ show .kdb.desc.keywords.type;
+ show "type 1 2 3";
+ show type 1 2 3;
+ };
+
+.kdb.exp.keywords.uj:{
+ show "example: uj - Union join";
+ show .kdb.desc.keywords.uj;
+ t1:([] id:1 2; v:10 20);
+ t2:([] id:2 3; v:30 40);
+ show "t1 uj t2";
+ show t1 uj t2;
+ };
+
 .kdb.exp.keywords.wj:{
- show "example: ";
- show .kdb.desc.keywords.wj
-
+ show "example: wj - Window join";
+ show .kdb.desc.keywords.wj;
  };
 
-// .kdb.exp.keywords.wj1[]
 .kdb.exp.keywords.wj1:{
- show "example: ";
- show .kdb.desc.keywords.wj1
-
+ show "example: wj1 - Window join (first)";
+ show .kdb.desc.keywords.wj1;
  };
 
-// .kdb.exp.keywords.xbar[]
+.kdb.exp.keywords.union:{
+ show "example: union - Set union";
+ show .kdb.desc.keywords.union;
+ show "union[1 2 3;3 4]";
+ show union[1 2 3;3 4];
+ };
+
+.kdb.exp.keywords.ungroup:{
+ show "example: ungroup - Flatten grouped columns";
+ show .kdb.desc.keywords.ungroup;
+ t:([] a:1 2; b:(10 20;30 40));
+ show "ungroup t";
+ show ungroup t;
+ };
+
+.kdb.exp.keywords.update:{
+ show "example: update - Modify table";
+ show .kdb.desc.keywords.update;
+ t:([] a:1 2 3; b:10 20 30);
+ show "update b:b*2 from t";
+ show update b:b*2 from t;
+ };
+
+.kdb.exp.keywords.upsert:{
+ show "example: upsert - Insert or update";
+ show .kdb.desc.keywords.upsert;
+ t:([] id:1 2; v:10 20);
+ show "upsert[t;([] id:2 3; v:30 40)]";
+ show upsert[t;([] id:2 3; v:30 40)];
+ };
+
+.kdb.exp.keywords.value:{
+ show "example: value - Evaluate symbol";
+ show .kdb.desc.keywords.value;
+ x:42;
+ show "value `x";
+ show value `x;
+ };
+
+.kdb.exp.keywords.var:{
+ show "example: var - Variance";
+ show .kdb.desc.keywords.var;
+ show "var 1 2 3 4";
+ show var 1 2 3 4;
+ };
+
+.kdb.exp.keywords.svar:{
+ show "example: svar - Sample variance";
+ show .kdb.desc.keywords.svar;
+ show "svar 1 2 3 4";
+ show svar 1 2 3 4;
+ };
+
+.kdb.exp.keywords.view:{
+ show "example: view - Create a view";
+ show .kdb.desc.keywords.view;
+ };
+
+.kdb.exp.keywords.views:{
+ show "example: views - List views";
+ show .kdb.desc.keywords.views;
+ show "views[]";
+ show views[];
+ };
+
+.kdb.exp.keywords.where:{
+ show "example: where - Indices of true values";
+ show .kdb.desc.keywords.where;
+ show "where 1 0 1 1";
+ show where 1 0 1 1;
+ };
+
+.kdb.exp.keywords.within:{
+ show "example: within - Membership in range";
+ show .kdb.desc.keywords.within;
+ show "5 within 1 10";
+ show 5 within 1 10;
+ };
+
 .kdb.exp.keywords.xbar:{
- show "example: ";
- show .kdb.desc.keywords.xbar
-
+ show "example: xbar - Bucket values";
+ show .kdb.desc.keywords.xbar;
+ show "2 xbar 1 2 3 4 5";
+ show 2 xbar 1 2 3 4 5;
  };
 
-// .kdb.exp.keywords.xgroup[]
 .kdb.exp.keywords.xgroup:{
- show "example: ";
- show .kdb.desc.keywords.xgroup
-
+ show "example: xgroup - Group by key";
+ show .kdb.desc.keywords.xgroup;
+ show "xgroup[`a`b`a;1 2 3]";
+ show xgroup[`a`b`a;1 2 3];
  };
 
-// .kdb.exp.keywords.xrank[]
 .kdb.exp.keywords.xrank:{
- show "example: ";
- show .kdb.desc.keywords.xrank
-
+ show "example: xrank - Rank within groups";
+ show .kdb.desc.keywords.xrank;
+ show "xrank 30 10 20";
+ show xrank 30 10 20;
  };
