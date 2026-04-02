@@ -6,32 +6,44 @@
 / classify discovered test suite names
 / --------------------------------------------------
 .analyze.classify.testSuites:{[discoverDict]
-  iteratorSuites:$[0<count discoverDict`iterators; enlist `runIterators; `symbol$()];
-  joinSuites:$[0<count discoverDict`joins; enlist `runJoins; `symbol$()];
-  overloadSuites:$[0<count discoverDict`overloads; enlist `runOverloads; `symbol$()];
+  suites:`symbol$();
 
-  distinct raze (iteratorSuites;joinSuites;overloadSuites)
+  if[0<count discoverDict`iterators;
+    suites:suites,enlist `runIterators
+  ];
+
+  if[0<count discoverDict`joins;
+    suites:suites,enlist `runJoins
+  ];
+
+  if[0<count discoverDict`overloads;
+    suites:suites,enlist `runOverloads
+  ];
+
+  distinct suites
+ };
+
+/ --------------------------------------------------
+/ build rows for one category
+/ --------------------------------------------------
+.analyze.classify.categoryRows:{[categoryName;useCaseList;testSuiteName]
+  rowCount:count useCaseList;
+
+  $[rowCount=0;
+    ([] category:`symbol$();useCase:`symbol$();testSuite:`symbol$());
+    ([] category:rowCount#categoryName;
+       useCase:useCaseList;
+       testSuite:rowCount#testSuiteName)
+  ]
  };
 
 / --------------------------------------------------
 / classify discovered use cases into table
 / --------------------------------------------------
 .analyze.classify.useCases:{[discoverDict]
-  iteratorRows:([] category:`symbol$();useCase:`symbol$();testSuite:`symbol$());
-  joinRows:([] category:`symbol$();useCase:`symbol$();testSuite:`symbol$());
-  overloadRows:([] category:`symbol$();useCase:`symbol$();testSuite:`symbol$());
+  iterRows:.analyze.classify.categoryRows[`iterator;discoverDict`iterators;`runIterators];
+  joinRows:.analyze.classify.categoryRows[`join;discoverDict`joins;`runJoins];
+  overRows:.analyze.classify.categoryRows[`overload;discoverDict`overloads;`runOverloads];
 
-  if[0<count discoverDict`iterators;
-    iteratorRows:([] category:(count discoverDict`iterators)#`iterator;useCase:discoverDict`iterators;testSuite:(count discoverDict`iterators)#`runIterators)
-  ];
-
-  if[0<count discoverDict`joins;
-    joinRows:([] category:(count discoverDict`joins)#`join;useCase:discoverDict`joins;testSuite:(count discoverDict`joins)#`runJoins)
-  ];
-
-  if[0<count discoverDict`overloads;
-    overloadRows:([] category:(count discoverDict`overloads)#`overload;useCase:discoverDict`overloads;testSuite:(count discoverDict`overloads)#`runOverloads)
-  ];
-
-  raze (iteratorRows;joinRows;overloadRows)
+  raze (iterRows;joinRows;overRows)
  };

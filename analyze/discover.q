@@ -21,29 +21,24 @@
 / --------------------------------------------------
 .analyze.discover.lineHasPattern:{[line;patternText]
   lineStr:.analyze.discover.toLineString line;
-  patStr:string patternText;
-  lineLen:count lineStr;
+  patStr:patternText;
   patLen:count patStr;
-  idx:0;
-  found:0b;
+  rem:lineStr;
+  sub:"";
 
-  if[patLen=0;
+  if[0=patLen;
     :1b
   ];
 
-  if[lineLen<patLen;
-    :0b
-  ];
-
-  while[idx<=lineLen-patLen;
-    if[patStr~patLen#idx _ lineStr;
-      found:1b;
-      idx:lineLen
+  while[patLen<=count rem;
+    sub:patLen#rem;
+    if[sub~patStr;
+      :1b
     ];
-    idx+:1
+    rem:1 _ rem
   ];
 
-  found
+  0b
  };
 
 / --------------------------------------------------
@@ -51,114 +46,110 @@
 / --------------------------------------------------
 .analyze.discover.hasPattern:{[scriptLines;patternText]
   lines:.analyze.discover.normalizeLines scriptLines;
-  idx:0;
-  lineTotal:count lines;
-  found:0b;
+  i:0;
+  n:count lines;
 
-  while[idx<lineTotal;
-    if[.analyze.discover.lineHasPattern[lines idx;patternText];
-      found:1b;
-      idx:lineTotal
+  while[i<n;
+    if[.analyze.discover.lineHasPattern[lines i;patternText];
+      :1b
     ];
-    idx+:1
+    i+:1
   ];
 
-  found
+  0b
+ };
+/ --------------------------------------------------
+/ build evidence rows for a list of patterns
+/ --------------------------------------------------
+.analyze.discover.patternListEvidence:{[scriptLines;category;useCase;patternList]
+  rows:([] category:`symbol$();useCase:`symbol$();pattern:();lineNumber:`long$();lineText:());
+  i:0;
+  n:count patternList;
+
+  while[i<n;
+    rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;category;useCase;patternList i]);
+    i+:1
+  ];
+
+  distinct rows
+ };
+
+/ -------------------------------------------------
+/ evidence for iterator-related patterns
+/ --------------------------------------------------
+.analyze.discover.iteratorsEvidence:{[scriptLines]
+  rows:([] category:`symbol$();useCase:`symbol$();pattern:();lineNumber:`long$();lineText:());
+
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`iterator;`each;"+/'"]);
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`iterator;`over;"+/"]);
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`iterator;`scan;"+\\"]);
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`iterator;`prior;"prior"]);
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`iterator;`prior;"deltas"]);
+
+  distinct rows
+ };
+
+/ --------------------------------------------------
+/ evidence for join-related patterns
+/ --------------------------------------------------
+.analyze.discover.joinsEvidence:{[scriptLines]
+  rows:([] category:`symbol$();useCase:`symbol$();pattern:();lineNumber:`long$();lineText:());
+
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`join;`aj;"aj["]);
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`join;`lj;"lj["]);
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`join;`ij;"ij["]);
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`join;`uj;"uj["]);
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`join;`pj;"pj["]);
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`join;`ej;"ej["]);
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`join;`wj;"wj["]);
+
+  rows
+ };
+/ --------------------------------------------------
+/ evidence for overload-related patterns
+/ --------------------------------------------------
+.analyze.discover.overloadsEvidence:{[scriptLines]
+  rows:([] category:`symbol$();useCase:`symbol$();pattern:();lineNumber:`long$();lineText:());
+
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`overload;`vectorConditional;"?["]);
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`overload;`findOrRollOrPermute;" ? "]);
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`overload;`indexAt;"@/"]);
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`overload;`amendOrTrap;"@["]);
+  rows:raze (rows;.analyze.discover.patternEvidence[scriptLines;`overload;`dotApplyOrTrap;".["]);
+
+  rows
  };
 
 / --------------------------------------------------
 / discover iterator-related patterns
 / --------------------------------------------------
 .analyze.discover.iterators:{[scriptLines]
-  hits:`symbol$();
-
-  if[.analyze.discover.hasPattern[scriptLines;"'"];
-    hits:hits,enlist `each
-  ];
-
-  if[.analyze.discover.hasPattern[scriptLines;"/"];
-    hits:hits,enlist `over
-  ];
-
-  if[.analyze.discover.hasPattern[scriptLines;"\\"];
-    hits:hits,enlist `scan
-  ];
-
-  if[.analyze.discover.hasPattern[scriptLines;"prior"];
-    hits:hits,enlist `prior
-  ];
-
-  if[.analyze.discover.hasPattern[scriptLines;"deltas"];
-    hits:hits,enlist `prior
-  ];
-
-  distinct hits
+  distinct .analyze.discover.iteratorsEvidence[scriptLines]`useCase
  };
 
 / --------------------------------------------------
 / discover join-related patterns
 / --------------------------------------------------
 .analyze.discover.joins:{[scriptLines]
-  hits:`symbol$();
-
-  if[.analyze.discover.hasPattern[scriptLines;"aj["];
-    hits:hits,enlist `aj
-  ];
-
-  if[.analyze.discover.hasPattern[scriptLines;"lj["];
-    hits:hits,enlist `lj
-  ];
-
-  if[.analyze.discover.hasPattern[scriptLines;"ij["];
-    hits:hits,enlist `ij
-  ];
-
-  if[.analyze.discover.hasPattern[scriptLines;"uj["];
-    hits:hits,enlist `uj
-  ];
-
-  if[.analyze.discover.hasPattern[scriptLines;"pj["];
-    hits:hits,enlist `pj
-  ];
-
-  if[.analyze.discover.hasPattern[scriptLines;"ej["];
-    hits:hits,enlist `ej
-  ];
-
-  if[.analyze.discover.hasPattern[scriptLines;"wj["];
-    hits:hits,enlist `wj
-  ];
-
-  distinct hits
+  distinct .analyze.discover.joinsEvidence[scriptLines]`useCase
  };
 
 / --------------------------------------------------
 / discover overload-related patterns
 / --------------------------------------------------
 .analyze.discover.overloads:{[scriptLines]
-  hits:`symbol$();
+  distinct .analyze.discover.overloadsEvidence[scriptLines]`useCase
+ };
 
-  if[.analyze.discover.hasPattern[scriptLines;"?["];
-    hits:hits,enlist `vectorConditional
-  ];
-
-  if[.analyze.discover.hasPattern[scriptLines;" ? "];
-    hits:hits,enlist `findOrRollOrPermute
-  ];
-
-  if[.analyze.discover.hasPattern[scriptLines;"@/"];
-    hits:hits,enlist `indexAt
-  ];
-
-  if[.analyze.discover.hasPattern[scriptLines;"@["];
-    hits:hits,enlist `amendOrTrap
-  ];
-
-  if[.analyze.discover.hasPattern[scriptLines;".["];
-    hits:hits,enlist `dotApplyOrTrap
-  ];
-
-  distinct hits
+/ --------------------------------------------------
+/ collect all evidence
+/ --------------------------------------------------
+.analyze.discover.evidence:{[scriptLines]
+  rows:([] category:`symbol$();useCase:`symbol$();pattern:();lineNumber:`long$();lineText:());
+  rows,: .analyze.discover.iteratorsEvidence scriptLines;
+  rows,: .analyze.discover.joinsEvidence scriptLines;
+  rows,: .analyze.discover.overloadsEvidence scriptLines;
+  rows
  };
 
 / --------------------------------------------------
