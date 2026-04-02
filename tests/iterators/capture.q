@@ -6,19 +6,57 @@
 / map q type code to readable label
 / --------------------------------------------------
 .test.iter.typeLabel:{[typeCode]
-  codes:-19 -18 -17 -16 -15 -14 -13 -12 -11 -10 -9 -8 -7 -6 -5 -4 -2 -1 0 1 2 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 98 99 100 104 105;
-  labels:`timeAtom`secondAtom`minuteAtom`timespanAtom`datetimeAtom`dateAtom`monthAtom`timestampAtom`symbolAtom`charAtom`floatAtom`realAtom`longAtom`intAtom`shortAtom`byteAtom`guidAtom`booleanAtom`generalList`booleanList`guidList`byteList`shortList`intList`longList`realList`floatList`charList`symbolList`timestampList`monthList`dateList`datetimeList`timespanList`minuteList`secondList`timeList`dictionary`table`lambda`projection`primitive;
-  idx:codes?typeCode;
-  $[idx<count codes;string labels idx;"unknown(",string typeCode,")"]
+  code:`int$typeCode;
+  $[code=-19;"timeAtom";
+    code=-18;"secondAtom";
+    code=-17;"minuteAtom";
+    code=-16;"timespanAtom";
+    code=-15;"datetimeAtom";
+    code=-14;"dateAtom";
+    code=-13;"monthAtom";
+    code=-12;"timestampAtom";
+    code=-11;"symbolAtom";
+    code=-10;"charAtom";
+    code=-9;"floatAtom";
+    code=-8;"realAtom";
+    code=-7;"longAtom";
+    code=-6;"intAtom";
+    code=-5;"shortAtom";
+    code=-4;"byteAtom";
+    code=-2;"guidAtom";
+    code=-1;"booleanAtom";
+    code=0;"generalList";
+    code=1;"booleanList";
+    code=2;"guidList";
+    code=4;"byteList";
+    code=5;"shortList";
+    code=6;"intList";
+    code=7;"longList";
+    code=8;"realList";
+    code=9;"floatList";
+    code=10;"charList";
+    code=11;"symbolList";
+    code=12;"timestampList";
+    code=13;"monthList";
+    code=14;"dateList";
+    code=15;"datetimeList";
+    code=16;"timespanList";
+    code=17;"minuteList";
+    code=18;"secondList";
+    code=19;"timeList";
+    code=98;"dictionary";
+    code=99;"table";
+    code=100;"lambda";
+    code=104;"projection";
+    code=105;"primitive";
+    "unknown(",string code,")"]
  };
 
 / --------------------------------------------------
 / generate safe printable preview of object
 / --------------------------------------------------
 .test.iter.preview:{[objVal]
-  out:"";
-  @[{$[99h=type x;out::"table[",string count x,"]";out::.Q.s1 x];::()};objVal;{out::"<unprintable>";::()}];
-  out
+  @[{$[99h=type x;"table[",string count x,"] ",.Q.s1 x;.Q.s1 x]};objVal;{"<unprintable>"}]
  };
 
 / --------------------------------------------------
@@ -35,14 +73,13 @@
   argList:.test.iter.normalizeArgs argVals;
   ok:1b;
   errText:"";
-  resultVal:(::);
 
-  .[derivedFunc;argList;{ok::0b;errText::string x;resultVal::(::);::()}];
+  resultVal:.[derivedFunc;argList;{ok::0b;errText::string x;(::)}];
 
   argTypeCodes:type each argList;
   argTypeNames:.test.iter.typeLabel each argTypeCodes;
   argPreviews:.test.iter.preview each argList;
-  resultTypeCode:$[ok;type resultVal;0N];
+  resultTypeCode:$[ok;type resultVal;0Nh];
   resultTypeName:$[ok;.test.iter.typeLabel resultTypeCode;""];
   resultPreview:$[ok;.test.iter.preview resultVal;""];
 

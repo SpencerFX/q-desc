@@ -25,12 +25,13 @@ allResults:raze (
   .test.iter.case.overSum[];
   .test.iter.case.overSeededSum[];
   .test.iter.case.scanSum[];
-  .test.iter.case.priorDiff[]);
+  .test.iter.case.priorDiff[]
+ );
 
 / --------------------------------------------------
 / build summary table
 / --------------------------------------------------
-summary:([] metric:`total`passed`failed;value:(count allResults;sum allResults`pass;sum not allResults`pass));
+summary:([] metric:`total`passed`failed;metricValue:(count allResults;sum allResults`pass;sum not allResults`pass));
 
 / --------------------------------------------------
 / display results
