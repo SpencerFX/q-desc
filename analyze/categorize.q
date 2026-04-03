@@ -21,7 +21,7 @@
 / convert path to display file name
 / --------------------------------------------------
 .analyze.categorize.fileName:{[filePath]
-  pathStr:string filePath;
+  pathStr:filePath;
   rem:pathStr;
   out:pathStr;
   ch:"";
@@ -34,7 +34,7 @@
     rem:1 _ rem
   ];
 
-  out
+  `$out
  };
 
 / --------------------------------------------------
@@ -50,6 +50,7 @@
 / --------------------------------------------------
 .analyze.categorize.functionNameFromLine:{[line]
   lineStr:.analyze.discover.toLineString line;
+  .sp.lineStr:lineStr;
   rem:lineStr;
   name:"";
   ch:"";
@@ -104,9 +105,6 @@
 / --------------------------------------------------
 / categorize one file
 / --------------------------------------------------
-/ --------------------------------------------------
-/ categorize one file
-/ --------------------------------------------------
 .analyze.categorize.file:{[filePath]
   .analyze.categorize.ensureLoaded[];
 
@@ -124,14 +122,7 @@
   lineNum:0;
   catRow:(::);
 
-  fileNames:();
-  functionNames:();
-  functionLineNumbers:();
-  categories:`symbol$();
-  useCases:`symbol$();
-  operations:();
-  operationLineNumbers:();
-  lineTexts:();
+  listOfRows:();
 
   while[i<n;
     lineVal:lines i;
@@ -149,14 +140,16 @@
         catRow:catalog j;
 
         if[.analyze.categorize.matchesCatalogRow[lineVal;catRow];
-          fileNames,:enlist fileName;
-          functionNames,:enlist currentFunctionName;
-          functionLineNumbers,:enlist currentFunctionLine;
-          categories,:enlist catRow`category;
-          useCases,:enlist catRow`useCase;
-          operations,:enlist catRow`operation;
-          operationLineNumbers,:enlist lineNum;
-          lineTexts,:enlist .analyze.discover.toLineString lineVal
+          listOfRows,:enlist (
+            fileName;
+            currentFunctionName;
+            currentFunctionLine;
+            catRow`category;
+            catRow`useCase;
+            catRow`operation;
+            lineNum;
+            .analyze.discover.toLineString lineVal
+          )
         ];
 
         j+:1
@@ -171,14 +164,17 @@
     i+:1
   ];
 
-  ([] fileName:fileNames;
-      functionName:functionNames;
-      functionLineNumber:`long$functionLineNumbers;
-      category:categories;
-      useCase:useCases;
-      operation:operations;
-      operationLineNumber:`long$operationLineNumbers;
-      lineText:lineTexts)
+  $[0=count listOfRows;
+    ([] fileName:`symbol$();
+        functionName:();
+        functionLineNumber:`long$();
+        category:`symbol$();
+        useCase:`symbol$();
+        operation:();
+        operationLineNumber:`long$();
+        lineText:());
+    flip `fileName`functionName`functionLineNumber`category`useCase`operation`operationLineNumber`lineText!flip listOfRows
+  ]
  };
 / --------------------------------------------------
 / display categorization for one file
