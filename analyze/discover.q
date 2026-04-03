@@ -59,6 +59,37 @@
   0b
  };
 / --------------------------------------------------
+/ build evidence rows for one pattern
+/ --------------------------------------------------
+.analyze.discover.patternEvidence:{[scriptLines;category;useCase;patternText]
+  lines:.analyze.discover.normalizeLines scriptLines;
+  i:0;
+  n:count lines;
+
+  categories:`symbol$();
+  useCases:`symbol$();
+  patterns:();
+  lineNumbers:`long$();
+  lineTexts:();
+
+  while[i<n;
+    if[.analyze.discover.lineHasPattern[lines i;patternText];
+      categories,:enlist category;
+      useCases,:enlist useCase;
+      patterns,:enlist string patternText;
+      lineNumbers,:enlist 1+i;
+      lineTexts,:enlist .analyze.discover.toLineString lines i
+    ];
+    i+:1
+  ];
+
+  ([] category:categories;
+      useCase:useCases;
+      pattern:patterns;
+      lineNumber:lineNumbers;
+      lineText:lineTexts)
+ };
+/ --------------------------------------------------
 / build evidence rows for a list of patterns
 / --------------------------------------------------
 .analyze.discover.patternListEvidence:{[scriptLines;category;useCase;patternList]
