@@ -10,5 +10,5 @@
       category:registryTbl`category;
       subCategory:registryTbl`subCategory;
       typeName:registryTbl`typeName;
-      argList:enlist each registryTbl`value)
+      argList:enlist each registryTbl`val)
  };

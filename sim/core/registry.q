@@ -11,7 +11,7 @@
       subCategory:`symbol$();
       typeCode:`int$();
       typeName:();
-      value:())
+      val:())
  };
 
 / --------------------------------------------------

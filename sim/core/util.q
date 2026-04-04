@@ -69,5 +69,5 @@
       subCategory:enlist subCategory;
       typeCode:enlist type objVal;
       typeName:enlist .sim.util.typeLabel type objVal;
-      value:enlist objVal)
+      val:enlist objVal)
  };

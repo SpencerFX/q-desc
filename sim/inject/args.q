@@ -7,28 +7,41 @@
 / --------------------------------------------------
 .sim.inject.args.single:{[registryTbl]
   ([] name:registryTbl`name;
-      argList:enlist each registryTbl`value)
+      argList:enlist each registryTbl`val)
  };
-
 / --------------------------------------------------
 / build two-arg cases
 / --------------------------------------------------
 .sim.inject.args.pairs:{[registryTbl]
-  vals:registryTbl`value;
+  names:registryTbl`name;
+  vals:registryTbl`objVal;
   n:count vals;
   i:0;
-  rows:([] leftIdx:`long$();rightIdx:`long$();argList:());
+
+  leftIdxs:();
+  rightIdxs:();
+  leftNames:`symbol$();
+  rightNames:`symbol$();
+  argLists:();
 
   while[i<n;
     j:0;
+
     while[j<n;
-      rows,: enlist ([] leftIdx:enlist i;
-                         rightIdx:enlist j;
-                         argList:enlist enlist[vals i;vals j]);
+      leftIdxs,:enlist i;
+      rightIdxs,:enlist j;
+      leftNames,:enlist names i;
+      rightNames,:enlist names j;
+      argLists,:enlist enlist[vals i;vals j];
       j+:1
     ];
+
     i+:1
   ];
 
-  rows
+  ([] leftIdx:`long$leftIdxs;
+      rightIdx:`long$rightIdxs;
+      leftName:leftNames;
+      rightName:rightNames;
+      argList:argLists)
  };
