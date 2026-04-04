@@ -79,10 +79,26 @@
 / operation catalog
 / --------------------------------------------------
 .analyze.categorize.catalog:{[]
-  ([] category:`iterator`iterator`iterator`iterator`join`join`join`join`join`join`join`overload`overload`overload`overload`overload;
-      useCase:`each`over`scan`prior`aj`lj`ij`uj`pj`ej`wj`vectorConditional`findOrRollOrPermute`indexAt`amendOrTrap`dotApplyOrTrap;
-      operation:("'";"/";"\\";"prior";"aj";"lj";"ij";"uj";"pj";"ej";"wj";"?";"?";"@";"@";".");
-      pattern:("+/'";"+/";"+\\";"prior";"aj[";"lj[";"ij[";"uj[";"pj[";"ej[";"wj[";"?[";" ? ";"@/";"@[";".["))
+  baseCatalog:([]
+    category:`iterator`iterator`iterator`iterator`join`join`join`join`join`join`join`overload`overload`overload`overload`overload;
+    useCase:`each`over`scan`prior`aj`lj`ij`uj`pj`ej`wj`vectorConditional`findOrRollOrPermute`indexAt`amendOrTrap`dotApplyOrTrap;
+    operation:("'";"/";"\\";"prior";"aj";"lj";"ij";"uj";"pj";"ej";"wj";"?";"?";"@";"@";".");
+    pattern:("+/'";"+/";"+\\";"prior";"aj[";"lj[";"ij[";"uj[";"pj[";"ej[";"wj[";"?[";" ? ";"@/";"@[";".[")
+  );
+
+  keywordList:key .kdb.exp.keywords;
+
+  keywordCatalog:$[
+    0=count keywordList;
+      ([] category:`symbol$();useCase:`symbol$();operation:();pattern:());
+      ([] category:(count keywordList)#`keyword;
+          useCase:keywordList;
+          operation:string each keywordList;
+          pattern:string each keywordList)
+  ];
+
+  t:raze (baseCatalog;keywordCatalog);
+  t
  };
 
 / --------------------------------------------------
@@ -181,6 +197,7 @@
 / --------------------------------------------------
 .analyze.categorize.show:{[filePath]
   rows:.analyze.categorize.file filePath;
+  rows:select from rows where not null useCase;
   show rows;
   rows
  };
