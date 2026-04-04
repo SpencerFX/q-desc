@@ -201,3 +201,49 @@
   show rows;
   rows
  };
+/ ==================================================
+/ parse //@func and //@param comment blocks
+/ ==================================================
+
+/ --------------------------------------------------
+/ empty function signature table
+/ --------------------------------------------------
+.analyze.sig.emptyTable:{[]
+  ([] functionName:`symbol$();arg1:();arg2:();arg3:();arg4:();arg5:();arg6:();arg7:();arg8:())
+ };
+
+/ --------------------------------------------------
+/ parse comment metadata from file path
+/ --------------------------------------------------
+.analyze.sig.fromFile:{[filePath]
+  lineVals:.analyze.load.text filePath;
+  funcLines:first each {ss[x;"//@func"]}each lineVals;
+  funcsLines:lineVals where not null funcLines;
+  funcs:`$trim last each ("|" vs'funcLines);
+  paramLines:first each {ss[x;"//@param"]}each lineVals;
+  params:where not null paramLines;
+  /params:last each groupFuncParams[where not null funcLines;params];
+  currentP:"J"$trim each raze each -1_''2_''("|" vs '' (lineVals [last each groupFuncParams[where not null funcs;params]]));
+  missingParams:(8-count each "J"$trim each raze each -1_''2_''("|" vs '' (lineVals [last each groupFuncParams[where not null funcs;params]])))#\:0Nj;
+  fullParams:(currentP,'missingParams);
+  list: funcs,'(currentP,'missingParams)
+  'break;
+ };
+
+groupFuncParams:{[funcIdxs;paramIdxs]
+  n:count funcIdxs;
+  i:0;
+  out:();
+
+  while[i<n;
+    f:funcIdxs i;
+    nextF:$[i<n-1;funcIdxs 1+i;1+max (funcIdxs,paramIdxs)];
+
+    p:paramIdxs where (paramIdxs>f) & (paramIdxs<nextF);
+
+    out,:enlist (f;p);
+    i+:1
+  ];
+
+  out
+ };
