@@ -50,7 +50,6 @@
 / --------------------------------------------------
 .analyze.categorize.functionNameFromLine:{[line]
   lineStr:.analyze.discover.toLineString line;
-  .sp.lineStr:lineStr;
   rem:lineStr;
   name:"";
   ch:"";
@@ -211,8 +210,8 @@
   funcs:`$trim last each ("|" vs'(lineVals funcLines));
   paramLines:first each {ss[x;"//@param"]}each lineVals;
   params:where not null paramLines;
-  currentP:"J"$trim each raze each -1_''2_''("|" vs '' (lineVals [last each groupFuncParams[funcLines;params]]));
-  missingParams:(8-count each "J"$trim each raze each -1_''2_''("|" vs '' (lineVals [last each groupFuncParams[funcLines;params]])))#\:0Nj;
+  currentP:"J"$trim each raze each -1_''2_''("|" vs '' (lineVals [last each .analyze.categorize.groupFuncParams[funcLines;params]]));
+  missingParams:(8-count each "J"$trim each raze each -1_''2_''("|" vs '' (lineVals [last each .analyze.categorize.groupFuncParams[funcLines;params]])))#\:0Nj;
   fullParams:(currentP,'missingParams);
   list: funcs,'(currentP,'missingParams);
   argTab: (`functionName`arg1`arg2`arg3`arg4`arg5`arg6`arg7`arg8)!/:(list);
@@ -221,7 +220,7 @@
 / --------------------------------------------------
 / pair param notes with function details
 / --------------------------------------------------
-groupFuncParams:{[funcIdxs;paramIdxs]
+.analyze.categorize.groupFuncParams:{[funcIdxs;paramIdxs]
   n:count funcIdxs;
   i:0;
   out:();

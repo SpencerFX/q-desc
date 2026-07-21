@@ -44,8 +44,8 @@
     code=17;"minuteList";
     code=18;"secondList";
     code=19;"timeList";
-    code=98;"dictionary";
-    code=99;"table";
+    code=98;"table";
+    code=99;"dictionary";
     code=100;"lambda";
     code=104;"projection";
     code=105;"primitive";

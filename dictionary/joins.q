@@ -10,8 +10,10 @@
     (
         (`pj; .kdb.desc.joins.pj);
         (`aj; .kdb.desc.joins.aj);
+        (`ej; .kdb.desc.joins.ej);
         (`uj; .kdb.desc.joins.uj);
         (`lj; .kdb.desc.joins.lj);
         (`ij; .kdb.desc.joins.ij);
-        (`comma; .kdb.desc.joins.comma)
+        (`comma; .kdb.desc.joins.comma);
+        (`wj; .kdb.desc.joins.wj)
     );

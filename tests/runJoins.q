@@ -24,7 +24,10 @@ allResults:raze (
   .test.join.case.ljBasic[];
   .test.join.case.pjBasic[];
   .test.join.case.ujBasic[];
-  .test.join.case.ajBasic[]
+  .test.join.case.ajBasic[];
+  .test.join.case.ijBasic[];
+  .test.join.case.ejBasic[];
+  .test.join.case.wjBasic[]
  );
 
 / --------------------------------------------------

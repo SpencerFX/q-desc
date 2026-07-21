@@ -3,17 +3,6 @@
 / ==================================================
 
 / --------------------------------------------------
-/ initialize analyze modules
-/ --------------------------------------------------
-.analyze.init:{[]
-  system "l analyze/load.q";
-  system "l analyze/discover.q";
-  system "l analyze/classify.q";
-  system "l analyze/run.q";
-  `ok
- };
-
-/ --------------------------------------------------
 / ensure analyze modules are loaded
 / --------------------------------------------------
 .analyze.run.ensureLoaded:{[]
