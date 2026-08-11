@@ -215,7 +215,8 @@
   missingParams:(8-count each "J"$trim each raze each -1_''2_''("|" vs '' (lineVals [last each groupFuncParams[funcLines;params]])))#\:0Nj;
   fullParams:(currentP,'missingParams);
   list: funcs,'(currentP,'missingParams);
-  argTab: (`functionName`arg1`arg2`arg3`arg4`arg5`arg6`arg7`arg8)!/:(list);
+  argTab: (`functionName`arg1`arg2`arg3`arg4`arg5`arg6`arg7`arg8`isTable`isKeyed)!/:(list);
+  'break;
   argTab
  };
 / --------------------------------------------------
