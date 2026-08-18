@@ -27,8 +27,8 @@
   ch:"";
 
   while[count rem;
-    ch:1#rem;
-    if[ch~"/" or ch~"\\";
+    ch:first rem;
+    if[(ch~"/") or (ch~"\\");
       out:1 _ rem
     ];
     rem:1 _ rem
@@ -55,7 +55,7 @@
   ch:"";
 
   while[count rem;
-    ch:1#rem;
+    ch:first rem;
     if[ch~":";
       :name
     ];
