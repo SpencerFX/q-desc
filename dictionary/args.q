@@ -17,6 +17,7 @@
         (`l; .kdb.desc.args.l);
         (`L; .kdb.desc.args.L);
         (`m; .kdb.desc.args.m);
+        (`o; .kdb.desc.args.o);
         (`p; .kdb.desc.args.p);
         (`P; .kdb.desc.args.P);
         (`q; .kdb.desc.args.q);

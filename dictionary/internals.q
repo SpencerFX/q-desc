@@ -15,7 +15,7 @@
         (`$"-4!"; .kdb.desc.func.minus4Bang);
         (`$"-5!"; .kdb.desc.func.minus5Bang);
         (`$"-6!"; .kdb.desc.func.minus6Bang);
-        (`$"-7!"; .kdb.desc.func.minus6Bang);
+        (`$"-7!"; .kdb.desc.func.minus7Bang);
         (`$"-8!"; .kdb.desc.func.minus8Bang);
         (`$"-9!"; .kdb.desc.func.minus9Bang);
         (`$"-10!"; .kdb.desc.func.minus10Bang);
