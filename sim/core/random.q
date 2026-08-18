@@ -14,5 +14,5 @@
 / random symbol vector
 / --------------------------------------------------
 .sim.rand.symbols:{[countVal]
-  (`alpha`beta`gamma`delta`omega`theta`kappa`lambda) countVal?`alpha`beta`gamma`delta`omega`theta`kappa`lambda
+  countVal?`alpha`beta`gamma`delta`omega`theta`kappa`lambda
  };

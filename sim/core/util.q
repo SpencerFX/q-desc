@@ -99,12 +99,12 @@
     typeCode=-6; first countVal?1000i;
     typeCode=-5; first countVal?100h;
     typeCode=-4; first 0x010203040506;
-    typeCode=-2; .Q.n;
+    typeCode=-2; first 1?0Ng;
     typeCode=-1; first 01b;
 
     typeCode=0; (first countVal?100i;first .sim.exec.randSyms 1;first "abc";first countVal?100f);
     typeCode=1; countVal?01b;
-    typeCode=2; countVal#.Q.n;
+    typeCode=2; countVal?0Ng;
     typeCode=4; countVal#0x2a;
     typeCode=5; countVal?100h;
     typeCode=6; countVal?1000i;
@@ -173,7 +173,6 @@
 / --------------------------------------------------
 .sim.exec.callBySig:{[sigTbl;fnSym;countVal]
   sigRow:.sim.exec.sigRow[sigTbl;fnSym];
-  .sp.sigRow:sigRow;
   if[0=count sigRow;
     :`functionName`ok`argCodes`args`result`error!(
       fnSym;
@@ -185,10 +184,7 @@
   ];
 
   argCodes:.sim.exec.argCodesFromRow sigRow;
-  .sp.argCodes:argCodes;
-  / Below creates the data from the arg codes
   argList:.sim.exec.argsFromSigRow[sigRow;countVal];
-  .sp.argList:argList;
   fnVal:value fnSym;
 
   okFlag:1b;
@@ -220,12 +216,12 @@
   idxVal:0;
   while[idxVal<runCount;
     callDict:.sim.exec.callBySig[sigTbl;fnSym;countVal];
-    outTbl,:enlist ([] functionName:enlist callDict`functionName;
-                       ok:enlist callDict`ok;
-                       argCodes:enlist callDict`argCodes;
-                       args:enlist callDict`args;
-                       result:enlist callDict`result;
-                       error:enlist callDict`error);
+    outTbl,:([] functionName:enlist callDict`functionName;
+                ok:enlist callDict`ok;
+                argCodes:enlist callDict`argCodes;
+                args:enlist callDict`args;
+                result:enlist callDict`result;
+                error:enlist callDict`error);
     idxVal+:1
   ];
 

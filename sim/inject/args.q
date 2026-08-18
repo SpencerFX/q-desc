@@ -14,7 +14,7 @@
 / --------------------------------------------------
 .sim.inject.args.pairs:{[registryTbl]
   names:registryTbl`name;
-  vals:registryTbl`objVal;
+  vals:registryTbl`val;
   n:count vals;
   i:0;
 
