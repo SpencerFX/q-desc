@@ -46,8 +46,8 @@
  show `foo?`a`b`c`b`a`b`c`c`c`c`c`c`;
  };
 
-// .kdb.exp.overloads.vectorCondtional[]
-.kdb.exp.overloads.vectorCondtional:{
+// .kdb.exp.overloads.vectorConditional[]
+.kdb.exp.overloads.vectorConditional:{
  show"Example: Overloads - ? - Vector Coonditional";
  show .kdb.desc.overloads.vectorConditional;
  show"?[11001b;1 2 3 4 5;10 20 30 40 50]";

@@ -27,8 +27,8 @@
   ch:"";
 
   while[count rem;
-    ch:1#rem;
-    if[ch~"/" or ch~"\\";
+    ch:first rem;
+    if[(ch~"/") or (ch~"\\");
       out:1 _ rem
     ];
     rem:1 _ rem
@@ -50,13 +50,12 @@
 / --------------------------------------------------
 .analyze.categorize.functionNameFromLine:{[line]
   lineStr:.analyze.discover.toLineString line;
-  .sp.lineStr:lineStr;
   rem:lineStr;
   name:"";
   ch:"";
 
   while[count rem;
-    ch:1#rem;
+    ch:first rem;
     if[ch~":";
       :name
     ];
@@ -204,6 +203,11 @@
 / --------------------------------------------------
 / parse comment metadata from file path
 / --------------------------------------------------
+/ reads //@func and //@param annotation comments (see
+/ analyze/testFiles/testFile.q for the expected format) and returns
+/ a list of per-function dicts: functionName plus up to 8 param type
+/ codes (q allows at most 8 parameters per function), null-padded
+/ --------------------------------------------------
 .analyze.sig.fromFile:{[filePath]
   lineVals:.analyze.load.text filePath;
   funcLines:first each {ss[x;"//@func"]}each lineVals;
@@ -212,8 +216,7 @@
   paramLines:first each {ss[x;"//@param"]}each lineVals;
   params:where not null paramLines;
   currentP:"J"$trim each raze each -1_''2_''("|" vs '' (lineVals [last each groupFuncParams[funcLines;params]]));
-  missingParams:(8-count each "J"$trim each raze each -1_''2_''("|" vs '' (lineVals [last each groupFuncParams[funcLines;params]])))#\:0Nj;
-  fullParams:(currentP,'missingParams);
+  missingParams:(8-count each currentP)#\:0Nj;
   list: funcs,'(currentP,'missingParams);
   argTab: (`functionName`arg1`arg2`arg3`arg4`arg5`arg6`arg7`arg8)!/:(list);
   argTab

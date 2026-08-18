@@ -9,13 +9,13 @@
 //@func  | .user.iter.sumOver 
 //@param | x | 6 | int list
 .user.iter.sumOver:{[x]
-  +/ x
+  (+/)x
  };
 
 //@func  | .user.iter.sumScan 
 //@param | x | 6 | int list
 .user.iter.sumScan:{[x]
-  +\ x
+ (+\)x
  };
 
 //@func  | .user.iter.addEach
@@ -35,8 +35,8 @@
 / join examples
 / --------------------------------------------------
 //@func  | .user.join.leftJoinBasic
-//@param | leftTbl | 98 | keyedTable
-//@param | rightTbl | 99 | table
+//@param | leftTbl | 99 | table
+//@param | rightTbl | 98| keyedTable
 .user.join.leftJoinBasic:{[leftTbl;rightTbl]
   lj[leftTbl;rightTbl]
  };
@@ -49,14 +49,14 @@
  };
 
 //@func  | .user.join.plusJoinBasic
-//@param | leftTbl | 98 | keyedTable
-//@param | rightTbl | 99 | table
+//@param | leftTbl | 99 | table
+//@param | rightTbl | 98 | keyedTable
 .user.join.plusJoinBasic:{[leftTbl;rightTbl]
   pj[leftTbl;rightTbl]
  };
 
 //@func  | .user.join.unionJoinBasic
-//@param | leftTbl | 98 | keyedTable
+//@param | leftTbl | 99 | table
 //@param | rightTbl | 99 | table
 .user.join.unionJoinBasic:{[leftTbl;rightTbl]
   uj[leftTbl;rightTbl]
@@ -83,17 +83,10 @@
   0N ? til x
  };
 
-//@func  | .user.iter.diffPrior
+//@func  | .user.over.vectorConditionalBasic
 //@param | [] | 0 | none
 .user.over.vectorConditionalBasic:{[]
   ?[11001b;1 2 3 4 5;10 20 30 40 50]
- };
-
-//@func  | .user.iter.diffPrior
-//@param | d | 99 | data
-//@param | i | -6 | index
-.user.over.indexAtBasic:{[d;i]
-  d @/ i
  };
 
 //@func  | .user.over.trapAtBasic

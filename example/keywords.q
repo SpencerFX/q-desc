@@ -1580,3 +1580,189 @@ til
  show "xrank 30 10 20";
  show xrank 30 10 20;
  };
+
+.kdb.exp.keywords.and:{
+ show "example: and - restriction of min to booleans";
+ show .kdb.desc.keywords.and;
+ show "1b and 0b";
+ show 1b and 0b;
+ };
+
+.kdb.exp.keywords.divide:{
+ show "example: divide - % - dyadic division";
+ show .kdb.desc.keywords.divide;
+ show "10 % 2";
+ show 10 % 2;
+ };
+
+.kdb.exp.keywords.do:{
+ show "example: do - run an expression n times";
+ show .kdb.desc.keywords.do;
+ show "do[3;show \"looping\"]";
+ do[3;show "looping"];
+ };
+
+.kdb.exp.keywords.eachboth:{
+ show "example: eachboth - ' - apply item-wise between two lists";
+ show .kdb.desc.keywords.eachboth;
+ show "1 2 3 +' 10 20 30";
+ show 1 2 3 +' 10 20 30;
+ };
+
+.kdb.exp.keywords.equal:{
+ show "example: equal - = - dyadic relational equality";
+ show .kdb.desc.keywords.equal;
+ show "1 2 3 = 1 5 3";
+ show 1 2 3 = 1 5 3;
+ };
+
+.kdb.exp.keywords.exit:{
+ show "example: exit - terminates the process with a given exit code";
+ show .kdb.desc.keywords.exit;
+ show "exit 0    / not executed here - it would terminate this q session";
+ };
+
+.kdb.exp.keywords.if:{
+ show "example: if - conditional execution";
+ show .kdb.desc.keywords.if;
+ show "if[1=1;show \"condition was true\"]";
+ if[1=1;show "condition was true"];
+ };
+
+.kdb.exp.keywords.last:{
+ show "example: last - last element of a list";
+ show .kdb.desc.keywords.last;
+ show "last 1 2 3";
+ show last 1 2 3;
+ };
+
+.kdb.exp.keywords.ltime:{
+ show "example: ltime - convert timestamp to local time";
+ show .kdb.desc.keywords.ltime;
+ show "ltime .z.p";
+ show ltime .z.p;
+ };
+
+.kdb.exp.keywords.match:{
+ show "example: match - ~ - test exact equality";
+ show .kdb.desc.keywords.match;
+ show "(1 2 3)~(1 2 3)";
+ show (1 2 3)~(1 2 3);
+ };
+
+.kdb.exp.keywords.mavg:{
+ show "example: mavg - n-item moving average";
+ show .kdb.desc.keywords.mavg;
+ show "3 mavg 1 2 3 4 5";
+ show 3 mavg 1 2 3 4 5;
+ };
+
+.kdb.exp.keywords.mcount:{
+ show "example: mcount - n-item moving count of non-nulls";
+ show .kdb.desc.keywords.mcount;
+ show "3 mcount 1 0N 3 0N 5";
+ show 3 mcount 1 0N 3 0N 5;
+ };
+
+.kdb.exp.keywords.minus:{
+ show "example: minus - - - dyadic subtraction";
+ show .kdb.desc.keywords.minus;
+ show "10 - 3";
+ show 10 - 3;
+ };
+
+.kdb.exp.keywords.multiplication:{
+ show "example: multiplication - * - dyadic multiplication";
+ show .kdb.desc.keywords.multiplication;
+ show "4 * 5";
+ show 4 * 5;
+ };
+
+.kdb.exp.keywords.peach:{
+ show "example: peach - parallel each";
+ show .kdb.desc.keywords.peach;
+ show "{x*2} peach 1 2 3";
+ show {x*2} peach 1 2 3;
+ };
+
+.kdb.exp.keywords.plus:{
+ show "example: plus - + - dyadic addition";
+ show .kdb.desc.keywords.plus;
+ show "2 + 3";
+ show 2 + 3;
+ };
+
+.kdb.exp.keywords.reval:{
+ show "example: reval - restricted eval, used to sandbox client-submitted code";
+ show .kdb.desc.keywords.reval;
+ show "reval[parse \"2+2\";enableBits]    / not executed here - typically wired into .z.pg on a server";
+ };
+
+.kdb.exp.keywords.save:{
+ show "example: save - persist a global table to disk";
+ show .kdb.desc.keywords.save;
+ tExampleSave::([]a:1 2 3;b:10 20 30);
+ show "save `:tExampleSave.csv";
+ save `:tExampleSave.csv;
+ show "cleaning up the file this example just wrote";
+ hdel `:tExampleSave.csv;
+ };
+
+.kdb.exp.keywords.scov:{
+ show "example: scov - statistical covariance";
+ show .kdb.desc.keywords.scov;
+ show "scov[1 2 3;4 5 7]";
+ show scov[1 2 3;4 5 7];
+ };
+
+.kdb.exp.keywords.set:{
+ show "example: set - assign a value to a variable (or save it to disk)";
+ show .kdb.desc.keywords.set;
+ show "`myVar set 42";
+ `myVar set 42;
+ show myVar;
+ show "`:file.csv set t    / disk form - not executed here, see the save example";
+ };
+
+.kdb.exp.keywords.sevenv:{
+ show "example: sevenv - setenv - set an OS environment variable";
+ show .kdb.desc.keywords.sevenv;
+ show "`MY_EXAMPLE_VAR setenv \"hello\"";
+ `MY_EXAMPLE_VAR setenv "hello";
+ show "getenv `MY_EXAMPLE_VAR";
+ show getenv `MY_EXAMPLE_VAR;
+ };
+
+.kdb.exp.keywords.upper:{
+ show "example: upper - convert to uppercase";
+ show .kdb.desc.keywords.upper;
+ show "upper \"abc\"";
+ show upper "abc";
+ };
+
+.kdb.exp.keywords.wavg:{
+ show "example: wavg - weighted average";
+ show .kdb.desc.keywords.wavg;
+ show "wavg[1 2 3;10 20 30]";
+ show wavg[1 2 3;10 20 30];
+ };
+
+.kdb.exp.keywords.ww:{
+ show "example: ww - internal implementation of wj/wj1";
+ show .kdb.desc.keywords.ww;
+ show "ww is not intended to be called directly - see the wj and wj1 examples instead";
+ };
+
+.kdb.exp.keywords.xcol:{
+ show "example: xcol - rename the first n columns of a table";
+ show .kdb.desc.keywords.xcol;
+ show "xcol[`newA`newB;([]a:1 2 3;b:4 5 6)]";
+ show xcol[`newA`newB;([]a:1 2 3;b:4 5 6)];
+ };
+
+.kdb.exp.keywords.xcols:{
+ show "example: xcols - reorder the columns of a table";
+ show .kdb.desc.keywords.xcols;
+ show "xcols[`b`a;([]a:1 2 3;b:4 5 6)]";
+ show xcols[`b`a;([]a:1 2 3;b:4 5 6)];
+ };

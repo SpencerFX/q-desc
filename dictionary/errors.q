@@ -19,6 +19,7 @@
         (`cores; .kdb.desc.errors.cores);
         (`cpu; .kdb.desc.errors.cpu);
         (`domain; .kdb.desc.errors.domain);
+        (`elim; .kdb.desc.errors.elim);
         (`exp; .kdb.desc.errors.exp);
         (`from; .kdb.desc.errors.from);
         (`glim; .kdb.desc.errors.glim);

@@ -80,7 +80,7 @@
         (`.Q.s1; .kdb.desc.func.Q.s1);
         (`.Q.sbt; .kdb.desc.func.Q.sbt);
         (`.Q.sha1; .kdb.desc.func.Q.sha1);
-        (`.Q.t; .kdb.desc.func.Q.t);
+        (`.Q.qt; .kdb.desc.func.Q.qt);
         (`.Q.trp; .kdb.desc.func.Q.trp);
         (`.Q.trpd; .kdb.desc.func.Q.trpd);
         (`.Q.ts; .kdb.desc.func.Q.ts);
