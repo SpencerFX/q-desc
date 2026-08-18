@@ -26,9 +26,30 @@ A q/kdb+ reference library for descriptions, categories, and runnable examples o
 
 ---
 
+## Looking things up
+
+`description/`, `dictionary/`, and `example/` each use their own internal layout, and it differs by topic (`.kdb.exp.j.*` has no "func" segment where `.kdb.exp.func.Q.*` and `.kdb.exp.func.z.*` do, for historical reasons). `scripts/help.q` adds a single lookup on top of all of it:
+
+```q
+\l scripts/help.q
+.kdb.help`avg
+```
+
+This searches every topic for `avg`, and — since the name is unambiguous — prints its description, its `.kdb.dict.category` grouping (keywords only), and runs its example. A dotted real name like `` `$".Q.qt" `` also works, resolving through its last name segment.
+
+Some names exist in more than one topic (`` `b `` is both the `-b` command-line flag and `.z.b`). For an ambiguous name, `.kdb.help` lists every topic it was found in without running any examples, and tells you how to pick one:
+
+```q
+.kdb.help(`namespaceZ;`b)
+```
+
+`.kdb.help` always returns a table (one row per topic match, zero rows if nothing matched) alongside the console output, so it's usable programmatically as well as interactively.
+
+---
+
 ## Running the tests
 
-Every topic has its own runner under `tests/` (`runKeywords.q`, `runJoins.q`, `runIterators.q`, `runOverloads.q`, `runDataTypes.q`, `runTables.q`, `runArgs.q`, `runNamespaceJ.q`, `runNamespaceQ.q`, `runNamespaceZ.q`, `runInternals.q`). Each one loads the relevant `description/`, `dictionary/`, `data/`, and `example/` content, executes every example function for that topic, and prints a pass/fail summary. Run any one directly, from the repo root:
+Every topic has its own runner under `tests/` (`runKeywords.q`, `runJoins.q`, `runIterators.q`, `runOverloads.q`, `runDataTypes.q`, `runTables.q`, `runArgs.q`, `runNamespaceJ.q`, `runNamespaceQ.q`, `runNamespaceZ.q`, `runInternals.q`, `runAnalyze.q`, `runSim.q`, `runHelp.q`). Each one loads what it needs from `description/`, `dictionary/`, `data/`, and `example/` (or, for `analyze/`, `sim/`, and `scripts/help.q`, exercises those directly), and prints a pass/fail summary. Run any one directly, from the repo root:
 
 ```q
 q tests/runKeywords.q -q
