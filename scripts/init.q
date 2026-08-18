@@ -16,6 +16,7 @@ init:{
     .kdb.init["./dictionary/"];
     .kdb.init["./data/"];
     .kdb.init["./example/"];
+    system"l ./scripts/help.q";
  };
 
 init[];
