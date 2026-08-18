@@ -9,5 +9,6 @@
     (
         (`flatfile; .kdb.desc.tables.flatFile);
         (`splayed; .kdb.desc.tables.splayedTables);
-        (`partition; .kdb.desc.tables.partitions)
+        (`partition; .kdb.desc.tables.partitions);
+        (`sym; .kdb.desc.tables.sym)
     );

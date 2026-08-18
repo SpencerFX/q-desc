@@ -15,5 +15,7 @@
         (`peach; .kdb.desc.iterators.peach);
         (`eachPrior; .kdb.desc.iterators.eachPrior);
         (`case; .kdb.desc.iterators.case);
-        (`cross; .kdb.desc.iterators.cross)
+        (`cross; .kdb.desc.iterators.cross);
+        (`over; .kdb.desc.iterators.over);
+        (`scan; .kdb.desc.iterators.scan)
     );
