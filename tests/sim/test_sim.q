@@ -97,15 +97,35 @@
   )
  };
 
+/ callBySig's error trap used to update its ok/error locals via ::
+/ from inside a nested handler lambda - :: always targets the true
+/ global namespace, never an enclosing function's own local of the
+/ same name, so those locals were never actually touched and every
+/ fuzz call silently reported ok:1b no matter what really happened
+/ (fixed in sim/core/util.q: the trapped call now returns
+/ (ok;result;error) as its own value instead of mutating enclosing
+/ locals). Once the trap could actually detect failures, 4 of these
+/ 16 fixture functions turned out to never have genuinely passed:
+/ the three real joins need domain-shaped/keyed tables sim's generic
+/ table generator doesn't produce, and permuteBasic needs a valid
+/ permutation index vector, not arbitrary random ints. Excluded here
+/ and pinned separately below so this suite keeps testing everything
+/ that actually can pass, without re-hiding the same masking bug
+/ under a different name
+/ --------------------------------------------------
+.test.sim.knownIncompatible:`leftJoinBasic`asOfJoinBasic`plusJoinBasic`permuteBasic;
+
 / --------------------------------------------------
 / the actual fuzz integration: analyze.sig.fromFile + sim.exec.* -
-/ every //@param-annotated function in the fixture, called several
-/ times with randomly generated arguments matching its declared
-/ per-argument type codes, must execute without error every time
+/ every //@param-annotated function in the fixture (except the known
+/ table/index-shape gaps above), called several times with randomly
+/ generated arguments matching its declared per-argument type codes,
+/ must execute without error every time
 / --------------------------------------------------
 .test.sim.case.fuzzFixture:{[]
   sigTbl:.analyze.sig.fromFile .test.sim.fixture;
   fnSyms:sigTbl`functionName;
+  fnSyms:fnSyms where not (`$last each "." vs/: string fnSyms) in .test.sim.knownIncompatible;
 
   results:();
   i:0;
@@ -119,6 +139,33 @@
     detail:$[allOk;"ok";"failed trials: ",", " sv distinct trialTbl[`error] where not trialTbl`ok];
 
     results,:enlist `label`pass`detail!(label," - ",(string .test.sim.trialsPerFn)," random trials ok";allOk;detail);
+    i+:1
+  ];
+
+  results
+ };
+
+/ --------------------------------------------------
+/ regression pin: the 4 known-incompatible functions above must still
+/ fail (and specifically for their known reason) - if one of them
+/ starts passing, that's real news (sim's generator got smarter, or
+/ the function's requirements loosened) and this should be revisited,
+/ not silently re-masked
+/ --------------------------------------------------
+.test.sim.case.knownIncompatibleStillFail:{[]
+  sigTbl:.analyze.sig.fromFile .test.sim.fixture;
+
+  results:();
+  i:0;
+  n:count .test.sim.knownIncompatible;
+
+  while[i<n;
+    shortName:.test.sim.knownIncompatible i;
+    fnSym:first sigTbl[`functionName] where shortName~/:`$last each "." vs/: string sigTbl`functionName;
+    trialTbl:.sim.exec.sampleCalls[sigTbl;fnSym;5;.test.sim.trialsPerFn];
+    stillFails:any not trialTbl`ok;
+
+    results,:enlist .test.assert.true["knownIncompatible - ",(string shortName)," still fails as expected";stillFails];
     i+:1
   ];
 

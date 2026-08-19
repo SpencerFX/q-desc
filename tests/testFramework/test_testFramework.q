@@ -114,18 +114,39 @@
 / generate.q - every testable function in the annotated fixture
 / fuzz-executes without error
 / --------------------------------------------------
-.test.tf.case.generateFixtureAllPass:{[]
+/ regression: callBySig's trap used to update okFlag/errTxt via ::
+/ from inside a nested handler lambda - :: always targets the true
+/ global namespace, never an enclosing function's own local variable
+/ of the same name, so callBySig's local okFlag/errTxt were never
+/ actually touched and every fuzz call silently reported ok:1b no
+/ matter what happened inside it (fixed in sim/core/util.q by having
+/ the trapped call return (ok;result;error) as its own value instead
+/ of mutating enclosing locals). Once the trap could actually detect
+/ failures, 4 of the 16 fixture functions turned out to never have
+/ genuinely passed: the three real joins (leftJoinBasic, asOfJoinBasic,
+/ plusJoinBasic) need domain-shaped/keyed tables sim's generic table
+/ generator doesn't produce, and permuteBasic needs a valid
+/ permutation index vector, not arbitrary random ints
+.test.tf.case.generateFixtureKnownResults:{[]
   out:.testFramework.generate.casesForFile .test.tf.annotatedFixture;
+  cases:out`cases;
+  expectedFailing:`$("leftJoinBasic";"asOfJoinBasic";"plusJoinBasic";"permuteBasic");
+  failingLabels:cases[`label] where not cases`pass;
+  failingFns:{[lbl] last "." vs first " " vs lbl} each failingLabels;
 
   (
-    .test.assert.equal["generate fixture - case count";count out`cases;16];
-    .test.assert.true["generate fixture - all pass";all out[`cases]`pass]
+    .test.assert.equal["generate fixture - case count";count cases;16];
+    .test.assert.equal["generate fixture - known-failing count";count failingLabels;4];
+    .test.assert.true["generate fixture - failures are exactly the known table/index-shape gaps";
+      (asc expectedFailing)~asc `$failingFns]
   )
  };
 
 / --------------------------------------------------
 / run.q - end-to-end summary for the annotated fixture: everything
-/ resolvable, everything passes, nothing skipped
+/ resolves and gets attempted; 12/16 genuinely pass (see
+/ generateFixtureKnownResults above for the 4 known trap-fix-revealed
+/ gaps), and nothing needs annotation
 / --------------------------------------------------
 .test.tf.case.runForFileFixtureSummary:{[]
   resultDict:.testFramework.run.forFile .test.tf.annotatedFixture;
@@ -133,7 +154,7 @@
 
   (
     .test.assert.equal["run fixture - total";count cases;16];
-    .test.assert.true["run fixture - all passed";all cases`pass];
+    .test.assert.equal["run fixture - passed";count cases where cases`pass;12];
     .test.assert.equal["run fixture - skipped";count resultDict`skipped;0]
   )
  };

@@ -31,7 +31,7 @@ allResults:raze (
   .test.tf.case.signatureNiladicRealFile[];
   .test.tf.case.signatureNeedsAnnotationRealFile[];
   .test.tf.case.fromFileEmptyTableRegression[];
-  .test.tf.case.generateFixtureAllPass[];
+  .test.tf.case.generateFixtureKnownResults[];
   .test.tf.case.runForFileFixtureSummary[];
   .test.tf.case.runForFileParametrizedSkips[]
  );

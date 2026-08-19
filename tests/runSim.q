@@ -35,7 +35,8 @@ allResults:raze (
   .test.sim.case.guidRegression[];
   .test.sim.case.injectPairsRegression[];
   .test.sim.case.registryBuild[];
-  .test.sim.case.fuzzFixture[]
+  .test.sim.case.fuzzFixture[];
+  .test.sim.case.knownIncompatibleStillFail[]
  );
 
 / --------------------------------------------------

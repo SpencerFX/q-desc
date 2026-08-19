@@ -93,8 +93,8 @@
     typeCode=-12; countVal?2024.01.01D09:30:00.000000000 2024.01.02D09:30:00.000000000 2024.01.03D09:30:00.000000000;
     typeCode=-11; first .sim.exec.randSyms 1;
     typeCode=-10; first "abcdefghijklmnopqrstuvwxyz";
-    typeCode=-9; first 100f?countVal;
-    typeCode=-8; first 100e?countVal;
+    typeCode=-9; first countVal?100f;
+    typeCode=-8; first countVal?100e;
     typeCode=-7; first countVal?1000j;
     typeCode=-6; first countVal?1000i;
     typeCode=-5; first countVal?100h;
@@ -154,7 +154,7 @@
 / --------------------------------------------------
 .sim.exec.argsFromSigRow:{[sigRow;countVal]
   codeVals:.sim.exec.argCodesFromRow sigRow;
-  .sim.exec.randArg'[codeVals;count codeVals#countVal]
+  .sim.exec.randArg'[codeVals;(count codeVals)#countVal]
  };
 
 / --------------------------------------------------
@@ -187,25 +187,27 @@
   argList:.sim.exec.argsFromSigRow[sigRow;countVal];
   fnVal:value fnSym;
 
-  okFlag:1b;
-  errTxt:"";
-  resultVal:.[
-    fnVal;
-    argList;
-    {
-      okFlag::0b;
-      errTxt::string x;
-      ::
-    }
+  / outcome carries (ok;result;error) entirely through its return
+  / value rather than via a nested handler mutating this function's
+  / own locals through :: - a lambda's :: always targets the true
+  / global namespace, never an enclosing function's local variable of
+  / the same name, so the old handler's okFlag::0b/errTxt::string x
+  / silently created stray globals and never touched callBySig's own
+  / okFlag/errTxt: every call was reported ok:1b regardless of
+  / whether it actually errored
+  outcome:.[
+    {(1b;x[0] . x[1];"")};
+    enlist (fnVal;argList);
+    {(0b;(::);x)}
   ];
 
   `functionName`ok`argCodes`args`result`error!(
     fnSym;
-    okFlag;
+    outcome 0;
     argCodes;
     argList;
-    string resultVal;
-    errTxt)
+    string outcome 1;
+    outcome 2)
  };
 / --------------------------------------------------
 / preview multiple runs for a function
