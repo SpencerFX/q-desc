@@ -66,15 +66,24 @@
  };
 
 / --------------------------------------------------
-/ discover.iterators / joins / overloads against testFile.q
+/ discover.all's iterator/join/overload categories against testFile.q
+/ - these three used to have their own iteratorsEvidence/iterators
+/ etc. accessor functions, kept "for backward compatibility" after
+/ discover.all superseded them; removed once nothing but this test
+/ still called them (see analyze/discover.q's git history), since a
+/ second implementation of the same three categories is exactly the
+/ kind of thing that quietly drifts out of sync with the catalog-
+/ driven one - the same risk that motivated unifying categorize.q's
+/ catalog with discover.q's a few rounds back
 / --------------------------------------------------
 .test.an.case.discoverFound:{[]
   lines:.analyze.load.text .test.an.testFile;
+  discoverDict:.analyze.discover.all lines;
 
   (
-    .test.assert.equal["discover.iterators";.analyze.discover.iterators lines;`each`over`scan`prior];
-    .test.assert.equal["discover.joins";.analyze.discover.joins lines;`aj`lj`uj`pj];
-    .test.assert.equal["discover.overloads";.analyze.discover.overloads lines;`vectorConditional`findOrRollOrPermute`amendOrTrap`dotApplyOrTrap]
+    .test.assert.equal["discover.all - iterator";discoverDict`iterator;`each`over`scan`prior];
+    .test.assert.equal["discover.all - join";discoverDict`join;`aj`lj`uj`pj];
+    .test.assert.equal["discover.all - overload";discoverDict`overload;`vectorConditional`findOrRollOrPermute`amendOrTrap`dotApplyOrTrap]
   )
  };
 
