@@ -3,24 +3,29 @@
 / ==================================================
 
 / --------------------------------------------------
+/ category -> the test suite that actually exercises it, matching
+/ tests/run<Topic>.q one-for-one
+/ --------------------------------------------------
+.analyze.classify.testSuiteFor:(!) . flip raze 2 cut
+  (
+    (`keyword;    `runKeywords);
+    (`iterator;   `runIterators);
+    (`join;       `runJoins);
+    (`overload;   `runOverloads);
+    (`namespaceJ; `runNamespaceJ);
+    (`namespaceQ; `runNamespaceQ);
+    (`namespaceZ; `runNamespaceZ);
+    (`internals;  `runInternals)
+  );
+
+/ --------------------------------------------------
 / classify discovered test suite names
 / --------------------------------------------------
 .analyze.classify.testSuites:{[discoverDict]
-  suites:`symbol$();
+  categoriesHit:(key discoverDict) where (0<count each value discoverDict);
+  knownCategories:categoriesHit where (categoriesHit in key .analyze.classify.testSuiteFor);
 
-  if[0<count discoverDict`iterators;
-    suites:suites,enlist `runIterators
-  ];
-
-  if[0<count discoverDict`joins;
-    suites:suites,enlist `runJoins
-  ];
-
-  if[0<count discoverDict`overloads;
-    suites:suites,enlist `runOverloads
-  ];
-
-  distinct suites
+  distinct .analyze.classify.testSuiteFor knownCategories
  };
 
 / --------------------------------------------------
@@ -38,12 +43,22 @@
  };
 
 / --------------------------------------------------
-/ classify discovered use cases into table
+/ classify discovered use cases into table, covering every category
+/ discover.all can report, not just iterator/join/overload
 / --------------------------------------------------
 .analyze.classify.useCases:{[discoverDict]
-  iterRows:.analyze.classify.categoryRows[`iterator;discoverDict`iterators;`runIterators];
-  joinRows:.analyze.classify.categoryRows[`join;discoverDict`joins;`runJoins];
-  overRows:.analyze.classify.categoryRows[`overload;discoverDict`overloads;`runOverloads];
+  categories:key discoverDict;
+  knownCategories:categories where (categories in key .analyze.classify.testSuiteFor);
 
-  raze (iterRows;joinRows;overRows)
+  rows:([] category:`symbol$();useCase:`symbol$();testSuite:`symbol$());
+  i:0;
+  n:count knownCategories;
+
+  while[i<n;
+    cat:knownCategories i;
+    rows:raze (rows;.analyze.classify.categoryRows[cat;discoverDict cat;.analyze.classify.testSuiteFor cat]);
+    i+:1
+  ];
+
+  rows
  };

@@ -29,7 +29,12 @@ allResults:raze (
   .test.an.case.loadText[];
   .test.an.case.lineHasPattern[];
   .test.an.case.discoverFound[];
+  .test.an.case.discoverAllTopics[];
   .test.an.case.discoverEmpty[];
+  .test.an.case.wordBoundaryMatching[];
+  .test.an.case.commentLinesSkipped[];
+  .test.an.case.namespaceAndInternalsDiscovery[];
+  .test.an.case.internalsExcludesLegacyAlias[];
   .test.an.case.classifyFound[];
   .test.an.case.classifyEmpty[];
   .test.an.case.runScript[];
@@ -37,8 +42,17 @@ allResults:raze (
   .test.an.case.categorizeFunctionName[];
   .test.an.case.categorizeFound[];
   .test.an.case.categorizeEmpty[];
+  .test.an.case.categorizeCatalogCoverage[];
+  .test.an.case.categorizeNamespaceCoverage[];
+  .test.an.case.categorizeSkipsCommentLines[];
+  .test.an.case.categorizeRealFile[];
   .test.an.case.sigFound[];
-  .test.an.case.sigEmpty[]
+  .test.an.case.sigEmpty[];
+  .test.an.case.paramNamesFromLine[];
+  .test.an.case.suggestAgainstFixture[];
+  .test.an.case.suggestAgainstRealFile[];
+  .test.an.case.suggestEmpty[];
+  .test.an.case.suggestRoundTrip[]
  );
 
 / --------------------------------------------------

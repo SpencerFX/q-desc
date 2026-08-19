@@ -17,6 +17,7 @@ init:{
     .kdb.init["./data/"];
     .kdb.init["./example/"];
     system"l ./scripts/help.q";
+    system"l analyze/init.q"
  };
 
 init[];
