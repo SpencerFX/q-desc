@@ -10,3 +10,14 @@
     listOfFiles: directory,/:string listOfFiles;
     {system"l ",x} each listOfFiles
  };
+
+init:{
+    .kdb.init["./description/"];
+    .kdb.init["./dictionary/"];
+    .kdb.init["./data/"];
+    .kdb.init["./example/"];
+    system"l ./scripts/help.q";
+    system"l analyze/init.q"
+ };
+
+init[];

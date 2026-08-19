@@ -17,19 +17,7 @@
 / ensure analyze modules are loaded
 / --------------------------------------------------
 .analyze.run.ensureLoaded:{[]
-  if[not `load in key `.analyze;
-    system "l analyze/load.q"
-  ];
-
-  if[not `discover in key `.analyze;
-    system "l analyze/discover.q"
-  ];
-
-  if[not `classify in key `.analyze;
-    system "l analyze/classify.q"
-  ];
-
-  `ok
+  .analyze.ensureLoaded `discover`classify
  };
 
 / --------------------------------------------------

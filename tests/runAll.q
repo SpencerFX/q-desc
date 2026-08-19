@@ -31,8 +31,8 @@
 / topic -> runner script path
 / --------------------------------------------------
 .testAll.runners:([]
-  topic: `keywords`joins`iterators`overloads`dataTypes`tables`args`namespaceJ`namespaceQ`namespaceZ`internals`analyze`consistency;
-  script:("tests/runKeywords.q";"tests/runJoins.q";"tests/runIterators.q";"tests/runOverloads.q";"tests/runDataTypes.q";"tests/runTables.q";"tests/runArgs.q";"tests/runNamespaceJ.q";"tests/runNamespaceQ.q";"tests/runNamespaceZ.q";"tests/runInternals.q";"tests/runAnalyze.q";"tests/runConsistency.q")
+  topic: `keywords`joins`iterators`overloads`dataTypes`tables`args`namespaceJ`namespaceQ`namespaceZ`internals`analyze`sim`testFramework`help`consistency;
+  script:("tests/runKeywords.q";"tests/runJoins.q";"tests/runIterators.q";"tests/runOverloads.q";"tests/runDataTypes.q";"tests/runTables.q";"tests/runArgs.q";"tests/runNamespaceJ.q";"tests/runNamespaceQ.q";"tests/runNamespaceZ.q";"tests/runInternals.q";"tests/runAnalyze.q";"tests/runSim.q";"tests/runTestFramework.q";"tests/runHelp.q";"tests/runConsistency.q")
  );
 
 / --------------------------------------------------

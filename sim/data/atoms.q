@@ -9,7 +9,7 @@
   rows:.sim.registry.empty[];
 
   rows:.sim.registry.append[rows;.sim.util.row[`boolAtom;`atom;`boolean;1b]];
-  rows:.sim.registry.append[rows;.sim.util.row[`guidAtom;`atom;`guid;.Q.n]];
+  rows:.sim.registry.append[rows;.sim.util.row[`guidAtom;`atom;`guid;first 1?0Ng]];
   rows:.sim.registry.append[rows;.sim.util.row[`byteAtom;`atom;`byte;0x2a]];
   rows:.sim.registry.append[rows;.sim.util.row[`shortAtom;`atom;`short;42h]];
   rows:.sim.registry.append[rows;.sim.util.row[`intAtom;`atom;`int;42i]];

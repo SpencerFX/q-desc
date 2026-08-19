@@ -406,7 +406,7 @@ system"c 350 550";
     show ".Q.qt";
     show .kdb.desc.func.Q.qt;
     show ".Q.qt trade";
-    show .Q.qt trade'
+    show .Q.qt trade
  };
 
 // .kdb.exp.func.Q.res[]
