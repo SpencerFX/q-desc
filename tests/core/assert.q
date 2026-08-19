@@ -7,7 +7,7 @@
 / --------------------------------------------------
 .test.assert.equal:{[label;actualVal;expectedVal]
   pass:actualVal~expectedVal;
-  detail:$[pass;"ok";"actual=", .Q.s1 actualVal, " expected=", .Q.s1 expectedVal];
+  detail:$[pass;"ok";"actual=",(.Q.s1 actualVal)," expected=",(.Q.s1 expectedVal)];
   `label`pass`detail!(label;pass;detail)
  };
 

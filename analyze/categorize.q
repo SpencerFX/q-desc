@@ -232,6 +232,13 @@
   lineVals:.analyze.load.text filePath;
   funcLines:first each {ss[x;"//@func"]}each lineVals;
   funcLines:where not null funcLines;
+
+  if[0=count funcLines;
+    :([] functionName:`symbol$();
+        arg1:`long$(); arg2:`long$(); arg3:`long$(); arg4:`long$();
+        arg5:`long$(); arg6:`long$(); arg7:`long$(); arg8:`long$())
+  ];
+
   funcs:`$trim last each ("|" vs'(lineVals funcLines));
   paramLines:first each {ss[x;"//@param"]}each lineVals;
   params:where not null paramLines;
@@ -264,19 +271,24 @@
   n:count lines;
   i:0;
 
-  funcNames:();
-  paramLists:();
+  funcStartLines:();
   lineNumbers:`long$();
 
   while[i<n;
     lineVal:lines i;
     if[.analyze.categorize.isFunctionStart lineVal;
-      funcNames,:enlist .analyze.categorize.functionNameFromLine lineVal;
-      paramLists,:enlist .analyze.categorize.paramNamesFromLine lineVal;
+      funcStartLines,:enlist lineVal;
       lineNumbers,:enlist 1+i
     ];
     i+:1
   ];
+
+  / built via vectorized each (not incremental ,:enlist accumulation) -
+  / accumulating paramNamesFromLine's results one at a time let a later
+  / niladic ()-result get coerced into a wrapped ,() once the growing
+  / list's type had already been narrowed by an earlier non-empty result
+  funcNames:.analyze.categorize.functionNameFromLine each funcStartLines;
+  paramLists:.analyze.categorize.paramNamesFromLine each funcStartLines;
 
   suggestedText:{[fn;params]
     funcLine:enlist "//@func  | ",fn;

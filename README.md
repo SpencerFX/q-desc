@@ -11,6 +11,8 @@ A q/kdb+ reference library for descriptions, categories, and runnable examples o
 - `scripts/` — initialization and helper scripts  
 - `tests/` — structured test framework for validating q behavior  
 - `analyze/` — utilities for analyzing q scripts and mapping operations  
+- `sim/` — signature-driven fuzzer that fabricates arguments and executes functions  
+- `testFramework/` — turns any `.q` file into automated test cases, built on `analyze/` + `sim/`  
 
 ---
 
@@ -47,9 +49,31 @@ Some names exist in more than one topic (`` `b `` is both the `-b` command-line 
 
 ---
 
+## Automated test-case generation
+
+`testFramework/` takes any `.q` file and generates test cases for it, using `analyze/`'s function discovery and `sim/`'s signature-driven fuzzer:
+
+```q
+\l scripts/init.q
+.kdb.init["description/"]; .kdb.init["dictionary/"]; .kdb.init["data/"]; .kdb.init["example/"]
+\l testFramework/init.q
+
+.testFramework.run.show["path/to/file.q"]
+```
+
+For each function it finds in the file, it decides whether it's safe to call automatically:
+
+- **niladic** functions (no parameters, whether declared `{[]...}` or bare `{...}`) are called directly
+- functions with a real `//@func`/`//@param` type-code annotation (see `analyze/testFiles/testFile.q` for the format) are called with randomly generated arguments matching those types
+- everything else — a parametrized function with no annotation — is **skipped**, not guessed at, and reported back with `analyze/`'s own suggested annotation text so a human can fill in the real types
+
+`.testFramework.run.forFile["path/to/file.q"]` returns a dict with `cases` (label/pass/detail rows, same shape every other suite in this repo uses), `skipped` (the functions that need annotation), and `summary` (pass/fail counts); `.testFramework.run.show` additionally prints all of it.
+
+---
+
 ## Running the tests
 
-Every topic has its own runner under `tests/` (`runKeywords.q`, `runJoins.q`, `runIterators.q`, `runOverloads.q`, `runDataTypes.q`, `runTables.q`, `runArgs.q`, `runNamespaceJ.q`, `runNamespaceQ.q`, `runNamespaceZ.q`, `runInternals.q`, `runAnalyze.q`, `runSim.q`, `runHelp.q`). Each one loads what it needs from `description/`, `dictionary/`, `data/`, and `example/` (or, for `analyze/`, `sim/`, and `scripts/help.q`, exercises those directly), and prints a pass/fail summary. Run any one directly, from the repo root:
+Every topic has its own runner under `tests/` (`runKeywords.q`, `runJoins.q`, `runIterators.q`, `runOverloads.q`, `runDataTypes.q`, `runTables.q`, `runArgs.q`, `runNamespaceJ.q`, `runNamespaceQ.q`, `runNamespaceZ.q`, `runInternals.q`, `runAnalyze.q`, `runSim.q`, `runTestFramework.q`, `runHelp.q`). Each one loads what it needs from `description/`, `dictionary/`, `data/`, and `example/` (or, for `analyze/`, `sim/`, `testFramework/`, and `scripts/help.q`, exercises those directly), and prints a pass/fail summary. Run any one directly, from the repo root:
 
 ```q
 q tests/runKeywords.q -q
