@@ -411,6 +411,32 @@
  };
 
 / --------------------------------------------------
+/ sig.printSuggestions - it exists to print the suggested annotation
+/ blocks to console (each row's suggestedText via -1), which isn't
+/ safely testable here: this q build can't revert a stdout redirect
+/ once made (confirmed while building tests/runAll.q's log
+/ redirection), so capturing its console output within this shared
+/ test process would permanently silence every show/-1 call for the
+/ rest of the run, including this suite's own final results table.
+/ What's verified instead is what's safe and still meaningful: it
+/ returns the exact same table suggestForFile does (i.e. it's a true
+/ passthrough-plus-print, not a divergent implementation), and it
+/ completes without error against both a real annotated file and an
+/ empty one
+/ --------------------------------------------------
+.test.an.case.printSuggestionsDelegates:{[]
+  suggestTbl:.analyze.sig.suggestForFile .test.an.testFile;
+  printedTbl:.analyze.sig.printSuggestions .test.an.testFile;
+  emptyPrinted:.analyze.sig.printSuggestions .test.an.emptyFile;
+
+  (
+    .test.assert.equal["printSuggestions - returns same table as suggestForFile";printedTbl;suggestTbl];
+    .test.assert.true["printSuggestions - non-empty for annotated fixture";0<count printedTbl];
+    .test.assert.equal["printSuggestions - empty file gives zero rows";count emptyPrinted;0]
+  )
+ };
+
+/ --------------------------------------------------
 / sig.suggestForFile against a real, unannotated file - this is the
 / actual gap being closed: sig.fromFile could previously only ever
 / be pointed at analyze/testFiles/testFile.q, the one file in the

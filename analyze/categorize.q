@@ -235,7 +235,7 @@
   funcs:`$trim last each ("|" vs'(lineVals funcLines));
   paramLines:first each {ss[x;"//@param"]}each lineVals;
   params:where not null paramLines;
-  currentP:"J"$trim each raze each -1_''2_''("|" vs '' (lineVals [last each groupFuncParams[funcLines;params]]));
+  currentP:"J"$trim each raze each -1_''2_''("|" vs '' (lineVals [last each .analyze.sig.groupFuncParams[funcLines;params]]));
   missingParams:(8-count each currentP)#\:0Nj;
   list: funcs,'(currentP,'missingParams);
   argTab: (`functionName`arg1`arg2`arg3`arg4`arg5`arg6`arg7`arg8)!/:(list);
@@ -310,9 +310,12 @@
  };
 
 / --------------------------------------------------
-/ pair param notes with function details
+/ pair param notes with function details - used only by sig.fromFile,
+/ hence the .analyze.sig.* prefix rather than .analyze.categorize.*
+/ (this used to be a bare global, the one function in the module not
+/ namespaced under .analyze.* at all)
 / --------------------------------------------------
-groupFuncParams:{[funcIdxs;paramIdxs]
+.analyze.sig.groupFuncParams:{[funcIdxs;paramIdxs]
   n:count funcIdxs;
   i:0;
   out:();

@@ -50,6 +50,7 @@ allResults:raze (
   .test.an.case.sigEmpty[];
   .test.an.case.paramNamesFromLine[];
   .test.an.case.suggestAgainstFixture[];
+  .test.an.case.printSuggestionsDelegates[];
   .test.an.case.suggestAgainstRealFile[];
   .test.an.case.suggestEmpty[];
   .test.an.case.suggestRoundTrip[]
